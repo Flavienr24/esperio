@@ -1,0 +1,14 @@
+.landing-header-lewagon {
+  justify-content: space-between;
+  background: $background-nav;
+  height: 89px;
+  color: white;
+}
+
+.landing-header-lewagon .landing-header-collapse {
+  flex-grow: 0;
+}
+
+.landing-header-lewagon .landing-header-brand img {
+  width: 40px;
+}
