@@ -12,6 +12,8 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  # A tester une fois les modules requis en front seront existant
+
   def create
     @project = Project.new(project_params)
     @project.status = 'In Progress'

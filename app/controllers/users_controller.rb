@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_users, only: %i[show edit]
+  before_action :set_user, only: %i[show edit]
 
   def index
     @users = User.all
@@ -8,26 +8,28 @@ class UsersController < ApplicationController
   def show
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_path(@user)
-    else
-      render 'new'
-    end
-  end
-
-  # def edit
+  # def new
+  #   @user = User.new
   # end
 
-  # def update
-  #   @project.update(project_params)
-  #   redirect_to dashboard_path
+  # A tester une fois les modules requis en front seront existant
+
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     redirect_to user_path(@user)
+  #   else
+  #     render 'new'
+  #   end
   # end
+
+  def edit
+  end
+
+  def update
+    @project.update(users_params)
+    redirect_to dashboard_path
+  end
 
   private
 
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def project_params
+  def users_params
     params.require(:users).permit(:first_name, :last_name, :phone, :country, :city, :function, :school)
   end
 end
