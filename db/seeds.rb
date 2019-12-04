@@ -11,29 +11,29 @@ require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
-name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
-url = "https://www.researchgate.net/profile/#{name}"
-# url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
+# name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
+# url = "https://www.researchgate.net/profile/#{name}"
+# # url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
-html_file = open(url).read
-html_doc = Nokogiri::HTML(url)
+# html_file = open(url).read
+# html_doc = Nokogiri::HTML(url)
 
-skills = []
+# skills = []
 
-html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
-  element.search('a:nth-child(1)').each do |elem|
-    unless elem.text.include?("Show more")
-      skill = elem.text.strip
-      # puts elem.text.strip
-    skills << skill
-  end
-end
+# html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
+#   element.search('a:nth-child(1)').each do |elem|
+#     unless elem.text.include?("Show more")
+#       skill = elem.text.strip
+#       # puts elem.text.strip
+#     skills << skill
+#   end
+# end
 
-#scrapping avatar
-html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
-  avatar = element.values.first
-  # puts avatar
-  end
+# #scrapping avatar
+# html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
+#   avatar = element.values.first
+#   # puts avatar
+#   end
 
 # scrapping name
 # html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
@@ -83,8 +83,7 @@ puts 'Creating 10 fake user...'
 
 10.times do
   user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
@@ -96,8 +95,8 @@ puts 'Creating 10 fake user...'
     company: feelows
   )
   user.save!
-end
-  
+
+
   2.times do
     project = Project.new(
     name: Faker::Restaurant.name,
@@ -109,7 +108,8 @@ end
     )
     project.save!
   end
- 
+end
+
 
 puts 'Finished!'
 

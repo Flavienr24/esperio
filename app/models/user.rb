@@ -8,8 +8,7 @@ class User < ApplicationRecord
   has_many :projects
   belongs_to :company
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :fullname, presence: true
   validates :phone, presence: true
   validates :country, presence: true
   validates :city, presence: true
