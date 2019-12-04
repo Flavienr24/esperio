@@ -1,32 +1,21 @@
 // Bootstrap btn are defined in config/_bootstrap.scss
 
-.add-button {
+.btn-rounded {
   width: 128px;
   height: 32px;
-  background: #219FAD;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
   border-radius: 25px;
   font-size: 14px;
   font-weight: bold;
   line-height: 21px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.1px;
-  color: #FFFFFF;
+  color: white;
 }
 
-.button-rounded {
+
+.btn-circle {
   width: 40px;
   height: 40px;
-  background: #219FAD;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
   color: #FFFFFF;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.1px;
   font-size: 24px;
   line-height: 21px;
   border-radius: 25px
