@@ -46,6 +46,6 @@ class CollaborationsController < ApplicationController
   end
 
   def collaboration_params
-    params.require(:collaborations).permit(:name)
+    params.require(:collaborations).permit(:project_id, :user, :joined)
   end
 end
