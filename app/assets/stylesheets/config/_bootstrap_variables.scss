@@ -27,7 +27,6 @@ $border-radius-sm: 2px;
   width: 128px;
   height: 32px;
   border-radius: 8px;
-  font-weight: bold;
   font-size: 14px;
   line-height: 21px;
   display: flex;
@@ -39,10 +38,12 @@ $border-radius-sm: 2px;
 .btn-primary {
   background-color: $green-blue;
   color: white;
+  font-weight: bold;
 }
 
 .btn-secondary {
   background-color: white;
   color: $green-blue;
+  font-weight: bold;
 }
 
