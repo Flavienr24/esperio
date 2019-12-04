@@ -1,0 +1,35 @@
+
+// SEARCH BAR
+
+
+.text-center {
+    position: relative;
+}
+
+.search-form-control {
+position: absolute;
+width: 167px;
+height: 32px;
+left: 269px;
+top: 31px;
+
+box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+  // dropdown filtres
+
+ .search-form-control .btn-medium {
+position: absolute;
+left: 231.74%;
+right: -222.16%;
+top: 0%;
+bottom: -25%;
+
+background: #FFFFFF;
+border: 1px solid #E8ECED;
+box-sizing: border-box;
+box-shadow: -1px 0px 1px rgba(0, 0, 0, 0.19);
+border-radius: 25px;
+}
+
+  // Search icons
