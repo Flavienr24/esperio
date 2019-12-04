@@ -1,8 +1,8 @@
 class CompaniesController < ApplicationController
-  before_action :set_companies, only: %i[show edit]
+  before_action :set_company, only: %i[show edit]
 
   def index
-    @companies = User.all
+    @companies = Company.all
   end
 
   def show
@@ -17,7 +17,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to company_path(@company)
+      redirect_to companies_path
     else
       render 'new'
     end
@@ -27,17 +27,17 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @project.update(project_params)
-    redirect_to dashboard_path
+    @company.update(company_params)
+    redirect_to company_path(@company)
   end
 
   private
 
-  def set_companies
+  def set_company
     @company = Company.find(params[:id])
   end
 
-  def project_params
+  def company_params
     params.require(:companies).permit(:name)
   end
 end

@@ -41,7 +41,8 @@ feelows = Company.new(name: 'foo bar')
 
 puts Company.count
 
-puts 'Creating 10 fake...'
+puts 'Creating 10 fake user...'
+
 10.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -50,31 +51,21 @@ puts 'Creating 10 fake...'
   )
   user.save!
 
-  3.times do
-    seedpackage = Seedpackage.new(
+  2.times do
+    project = Project.new(
     name:    Faker::Food.vegetables,
     description: Faker::Lorem.sentence,
     location: Faker::Address.full_address,
-    package_price: Faker::Number.between(from: 1, to: 10),
     user: user,
     status: 'Disponible'
     )
-    seedpackage.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
-    seedpackage.save!
+    project.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
+    project.save!
   end
 
 end
 
-10.times do
-  user = User.new(
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: 'password',
-  )
-  user.save!
-end
-
 puts 'Finished!'
 
+puts "company created : #{Company.count} "
 puts "user created : #{User.count} "
-puts "seedpackage created : #{Seedpackage.count} "

@@ -18,9 +18,9 @@ class CollaborationsController < ApplicationController
     @project = Project.find(params[:project_id])
     @collaboration = Collaboration.new(collaboration_params)
     @collaboration.project = @project
-    @collaboration.joined = false
+    @collaboration.joined = 'Pending'
     if @collaboration.save
-      redirect_to collaboration_path(@collaboration)
+      redirect_to collaborations_path(@collaboration)
     else
       render 'new'
     end

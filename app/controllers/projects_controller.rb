@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_projects, only: %i[show edit destroy]
+  before_action :set_project, only: %i[show edit destroy]
 
   def index
     @projects = Project.all
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.status = 'In Progress'
     @project.user = current_user
-    @project.visibility = false
+    @project.visibility = true
     @project.open_to_apply = false
     if @project.save
       redirect_to project_path(@project)
@@ -42,11 +42,11 @@ class ProjectsController < ApplicationController
 
   private
 
-  def set_projects
+  def set_project
     @projects = Project.find(params[:id])
   end
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, :status, :visibility, :open_to_apply)
   end
 end
