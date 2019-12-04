@@ -10,8 +10,14 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/landing-header' %>
+    <%  if content_for?(:navbar)%>
+    <%= yield(:navbar) %>
+    <% else %>
+    <%= render 'shared/search_bar'%>
+    <% end %>
+
     <%= render 'shared/flashes' %>
+
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
