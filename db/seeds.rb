@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#scrapping
+scrapping
 require 'open-uri'
 require 'nokogiri'
 
@@ -44,66 +44,74 @@ end
 
 
 
-puts 'Destroy Database...'
-
-Company.destroy_all
-User.destroy_all
-Project.destroy_all
-Collaboration.destroy_all
-
-puts 'Creating Database...'
-
-company_test = Company.create(name:"The big company")
-
-user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
-
-project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
-
-collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
-
-puts Company.count
-puts User.count
-puts Project.count
-puts Collaboration.count
-
-# require 'faker'
-
-# puts 'Clean database...'
+# puts 'Destroy Database...'
 
 # Company.destroy_all
 # User.destroy_all
 # Project.destroy_all
 # Collaboration.destroy_all
 
-# feelows = Company.new(name: 'foo bar')
+# puts 'Creating Database...'
+
+# company_test = Company.create(name:"The big company")
+
+# user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
+
+# project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
+
+# collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
 
 # puts Company.count
+# puts User.count
+# puts Project.count
+# puts Collaboration.count
 
-# puts 'Creating 10 fake user...'
+require 'faker'
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.email,
-#     password: 'password',
-#     username: Faker::Internet.username,
-#   )
-#   user.save!
+puts 'Clean database...'
 
-#   2.times do
-#     project = Project.new(
-#     name:    Faker::Food.vegetables,
-#     description: Faker::Lorem.sentence,
-#     location: Faker::Address.full_address,
-#     user: user,
-#     status: 'Disponible'
-#     )
-#     project.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
-#     project.save!
-#   end
+Company.destroy_all
+User.destroy_all
+Project.destroy_all
+Collaboration.destroy_all
 
-# end
+feelows = Company.create(name: 'foo bar')
 
-# puts 'Finished!'
 
-# puts "company created : #{Company.count} "
-# puts "user created : #{User.count} "
+puts Company.count
+
+puts 'Creating 10 fake user...'
+
+10.times do
+  user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+    phone: Faker::PhoneNumber.phone_number_with_country_code,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    function: Faker::Job.title,
+    school: Faker::University.name,
+    company: feelows
+  )
+  user.save!
+
+  2.times do
+    project = Project.new(
+    name: Faker::Restaurant.name,
+    description: Faker::Lorem.sentence,
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: user
+    )
+    project.save!
+  end
+ end
+
+puts 'Finished!'
+
+ puts "company created : #{Company.count} "
+ puts "user created : #{User.count} "
