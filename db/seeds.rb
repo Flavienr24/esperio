@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 #scrapping
 require 'open-uri'
 require 'nokogiri'
@@ -36,4 +37,69 @@ end
 #       puts = elem.text.strip
 #       puts = elem.attribute('src').value
 #     end
+
+
+puts 'Destroy Database...'
+
+Company.destroy_all
+User.destroy_all
+Project.destroy_all
+Collaboration.destroy_all
+
+puts 'Creating Database...'
+
+company_test = Company.create(name:"The big company")
+
+user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
+
+project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
+
+collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
+
+puts Company.count
+puts User.count
+puts Project.count
+puts Collaboration.count
+
+# require 'faker'
+
+# puts 'Clean database...'
+
+# Company.destroy_all
+# User.destroy_all
+# Project.destroy_all
+# Collaboration.destroy_all
+
+# feelows = Company.new(name: 'foo bar')
+
+# puts Company.count
+
+# puts 'Creating 10 fake user...'
+
+# 10.times do
+#   user = User.new(
+#     email: Faker::Internet.email,
+#     password: 'password',
+#     username: Faker::Internet.username,
+#   )
+#   user.save!
+
+#   2.times do
+#     project = Project.new(
+#     name:    Faker::Food.vegetables,
+#     description: Faker::Lorem.sentence,
+#     location: Faker::Address.full_address,
+#     user: user,
+#     status: 'Disponible'
+#     )
+#     project.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
+#     project.save!
+#   end
+
+# end
+
+# puts 'Finished!'
+
+# puts "company created : #{Company.count} "
+# puts "user created : #{User.count} "
 

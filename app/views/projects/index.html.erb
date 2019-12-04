@@ -1,0 +1,7 @@
+<h1> Reussi</h1>
+
+<%= link_to 'Create Project', new_project_path(@project), class: 'btn btn-primary'%>
+
+<% @projects.each do |project| %>
+  <%= link_to project.name, project_path(project), class: 'btn btn-primary' %>
+<% end %>
