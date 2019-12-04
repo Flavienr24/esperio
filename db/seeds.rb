@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-scrapping
 require 'open-uri'
 require 'nokogiri'
+require 'faker'
 
 name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
 url = "https://www.researchgate.net/profile/#{name}"
@@ -40,7 +40,7 @@ html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
 #   name = element.text.strip
 #   puts name
 #   end
-end
+
 
 
 
@@ -66,7 +66,6 @@ end
 # puts Project.count
 # puts Collaboration.count
 
-require 'faker'
 
 puts 'Clean database...'
 
@@ -97,7 +96,8 @@ puts 'Creating 10 fake user...'
     company: feelows
   )
   user.save!
-
+end
+  
   2.times do
     project = Project.new(
     name: Faker::Restaurant.name,
@@ -109,7 +109,7 @@ puts 'Creating 10 fake user...'
     )
     project.save!
   end
- end
+ 
 
 puts 'Finished!'
 
