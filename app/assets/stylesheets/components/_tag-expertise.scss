@@ -1,0 +1,61 @@
+
+// à finaliser: l'icône, l'espacement depuis le bord droit...
+.tag-expertise {
+  width: 240px;
+  height: 32px;
+  background: #F7F7F7;
+  border: 1px solid #525252;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.tag-expertise-text{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+}
+
+// à compléter les valeurs
+.tag-expertise-icon{
+  position: relative;
+  left: 5.42%;
+  right: 84.58%;
+  top: 17.5%;
+  bottom: 22.5%;
+
+}
+
+// à finaliser: l'icône, l'espacement depuis le bord droit...
+.tag-expertise:hover {
+  width: 240px;
+  height: 32px;
+  background: rgba(33, 159, 173, 0.1);
+  border: 1px solid #219FAD;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.tag-expertise-text:hover{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+}
+
+// à compléter les valeurs
+.tag-expertise-icon:hover{
+  position: relative;
+  left: 5.42%;
+  right: 84.58%;
+  top: 17.5%;
+  bottom: 22.5%;
+
+}
+
