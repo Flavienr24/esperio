@@ -10,10 +10,4 @@ Rails.application.routes.draw do
   resources :projects, except: :destroy do
     resources :collaborations
   end
-
-
-  # get 'dashboard', to: 'companies#dashboard'
-
-  # delete '/seedpackages/:id', to: 'seedpackages#destroy', as: :seedpackages_delete
-
 end

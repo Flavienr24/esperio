@@ -1,2 +1,12 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%= link_to 'List of all Users', users_path([@company, @users]), class: 'btn btn-primary'%>
+
+<%= link_to 'List of all Projects', projects_path, class: 'btn btn-primary'%>
+
+<%= link_to 'Company Dashboard', company_path([@user, @company]), class: 'btn btn-primary'%>
+
+
+

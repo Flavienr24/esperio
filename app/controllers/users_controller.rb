@@ -27,13 +27,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @project.update(users_params)
+    @user.update(users_params)
     redirect_to dashboard_path
   end
 
   private
 
   def set_user
+    # @company = Company.find(params[:company_id])
     @user = User.find(params[:id])
   end
 

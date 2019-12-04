@@ -27,3 +27,54 @@
 # puts User.count
 # puts Project.count
 # puts Collaboration.count
+
+require 'faker'
+
+puts 'Clean database...'
+
+Company.destroy_all
+User.destroy_all
+Project.destroy_all
+Collaboration.destroy_all
+
+feelows = Company.new(name: 'foo bar')
+
+puts Company.count
+
+puts 'Creating 10 fake...'
+10.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: 'password',
+    username: Faker::Internet.username,
+  )
+  user.save!
+
+  3.times do
+    seedpackage = Seedpackage.new(
+    name:    Faker::Food.vegetables,
+    description: Faker::Lorem.sentence,
+    location: Faker::Address.full_address,
+    package_price: Faker::Number.between(from: 1, to: 10),
+    user: user,
+    status: 'Disponible'
+    )
+    seedpackage.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
+    seedpackage.save!
+  end
+
+end
+
+10.times do
+  user = User.new(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: 'password',
+  )
+  user.save!
+end
+
+puts 'Finished!'
+
+puts "user created : #{User.count} "
+puts "seedpackage created : #{Seedpackage.count} "
