@@ -11,11 +11,11 @@
 require 'open-uri'
 require 'nokogiri'
 
-name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up
-#url = "https://www.researchgate.net/profile/#{name}
-url = File.read("/home/deguil/Bureau/toto.html")
+name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
+url = "https://www.researchgate.net/profile/#{name}"
+# url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
-# html_file = open(url).read
+html_file = open(url).read
 html_doc = Nokogiri::HTML(url)
 
 skills = []
@@ -24,26 +24,22 @@ html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
   element.search('a:nth-child(1)').each do |elem|
     unless elem.text.include?("Show more")
       skill = elem.text.strip
-      #puts elem.attribute('href').value
-      puts elem.text.strip
+      # puts elem.text.strip
     skills << skill
   end
 end
 
-puts "---------------------------------------------------------------------------"
 #scrapping avatar
 html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
   avatar = element.values.first
-   puts avatar
+  # puts avatar
   end
-
-puts "---------------------------------------------------------------------------"
 
 # scrapping name
-html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
-  name = element.text.strip
-  puts name
-  end
+# html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
+#   name = element.text.strip
+#   puts name
+#   end
 end
 
 
