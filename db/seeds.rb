@@ -12,13 +12,13 @@ require 'open-uri'
 require 'nokogiri'
 
 name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up
-url = "https://www.researchgate.net/profile/#{name}"
+#url = "https://www.researchgate.net/profile/#{name}
+url = File.read("/home/deguil/Bureau/toto.html")
 
-html_file = open(url).read
-html_doc = Nokogiri::HTML(html_file)
+# html_file = open(url).read
+html_doc = Nokogiri::HTML(url)
 
 skills = []
-skill = 0
 
 html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
   element.search('a:nth-child(1)').each do |elem|
@@ -26,17 +26,26 @@ html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
       skill = elem.text.strip
       #puts elem.attribute('href').value
       puts elem.text.strip
-    end
-  skills << skill
+    skills << skill
+  end
 end
+
+puts "---------------------------------------------------------------------------"
+#scrapping avatar
+html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
+  avatar = element.values.first
+   puts avatar
+  end
+
+puts "---------------------------------------------------------------------------"
+
+# scrapping name
+html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
+  name = element.text.strip
+  puts name
+  end
 end
 
-
-
-# html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
-#       puts = elem.text.strip
-#       puts = elem.attribute('src').value
-#     end
 
 
 puts 'Destroy Database...'
@@ -102,4 +111,3 @@ puts Collaboration.count
 
 # puts "company created : #{Company.count} "
 # puts "user created : #{User.count} "
-
