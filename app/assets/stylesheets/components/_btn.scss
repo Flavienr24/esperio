@@ -1,28 +1,73 @@
-// Bootstrap btn are defined in config/_bootstrap.scss
 
 .btn-rounded {
+  margin: 10px;
   width: 128px;
   height: 32px;
   border-radius: 25px;
   font-size: 14px;
   font-weight: bold;
-  line-height: 21px;
   color: white;
+  background: $green-blue;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  &:hover {
+    background: $dark-blue;
+  }
 }
 
 .btn-circle {
+  margin: 10px;
   width: 40px;
   height: 40px;
   color: #FFFFFF;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
   font-size: 24px;
-  line-height: 21px;
-  border-radius: 25px
+  line-height: 25px;
+  border-radius: 25px;
+  background: $green-blue;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  &:hover {
+    background: $dark-blue;
+    color: white;
+  }
 }
 
+
+
 .link-label {
+  margin: 10px;
   text-transform: uppercase;
   color: $green-blue;
   font-size: 12px;
   font-weight: bold;
+  &:hover {
+    color: $dark-blue;
+  }
+}
+
+.btn-primary {
+  margin: 10px;
+  width: 128px;
+  height: 32px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 14px;
+  background: $green-blue;
+  border: 0px;
+  &:hover {
+    background: $dark-blue;
+    color: white;
+  }
+}
+
+.btn-secondary {
+  margin: 10px;
+  width: 128px;
+  height: 32px;
+  background-color: white;
+  border: 1px solid $green-blue;
+  color: $green-blue;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 14px;
 }
