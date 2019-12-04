@@ -1,16 +1,18 @@
 
 
-.h1 {
+h1 {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 2em;
   line-height: 21px;
   letter-spacing: 0.1px;
 }
 
-.h2{
+h2{
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -19,8 +21,9 @@
 }
 
 // Rubrique
-.h3{
+h3{
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -29,8 +32,9 @@
 }
 
 // Label
-.h4 {
+h4 {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -40,8 +44,9 @@
 
 
 // content
-.p {
+p {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -53,6 +58,7 @@
 // bold content
 .bold-p {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -63,6 +69,7 @@
 // light content
 .light-p {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
@@ -73,6 +80,7 @@
 // description
 .description {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -83,6 +91,7 @@
 // light description
 .light-description {
   font-family: Roboto;
+  color: $dark-grey;
   font-style: normal;
   font-weight: 300;
   font-size: 12px;

@@ -1,13 +1,15 @@
 
 // à finaliser: l'icône, l'espacement depuis le bord droit...
-.tag {
+.tag-expertise {
+  width: 240px;
+  height: 32px;
   background: #F7F7F7;
   border: 1px solid #525252;
   box-sizing: border-box;
   border-radius: 25px;
 }
 
-.tag-text{
+.tag-expertise-text{
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -19,7 +21,7 @@
 }
 
 // à compléter les valeurs
-.tag-icon{
+.tag-expertise-icon{
   position: relative;
   left: 5.42%;
   right: 84.58%;
@@ -29,7 +31,16 @@
 }
 
 // à finaliser: l'icône, l'espacement depuis le bord droit...
-.tag:hover {
+.tag-expertise:hover {
+  width: 240px;
+  height: 32px;
+  background: rgba(33, 159, 173, 0.1);
+  border: 1px solid #219FAD;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.tag-expertise-text:hover{
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -38,12 +49,8 @@
   letter-spacing: 0.1px;
 }
 
-.tag-text:hover{
-
-}
-
 // à compléter les valeurs
-.tag-icon:hover{
+.tag-expertise-icon:hover{
   position: relative;
   left: 5.42%;
   right: 84.58%;
