@@ -1,9 +1,46 @@
 <h2>Sign up</h2>
 
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
+  <p>Do you have a ResearchGate account ?</p>
+
+  <p>Complete your profile</p>
+
   <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first_name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
+    <%= f.input :country, as: :string,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "country" }%>
+    <%= f.input :city,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "city" }%>
+    <%= f.input :function,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "function" }%>
+    <%= f.input :school,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "school" }%>
+    <%= f.input :phone,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "phone" }%>
+    <%= f.association :company, as: :select %>
+
+   <p>Your email and password</p>
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -22,4 +59,7 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+<%# render "devise/shared/links" %>
+
+<%= link_to "Back", new_session_path(resource_name) %><br />
