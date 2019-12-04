@@ -10,7 +10,6 @@
   color: white;
 }
 
-
 .btn-circle {
   width: 40px;
   height: 40px;
@@ -21,3 +20,9 @@
   border-radius: 25px
 }
 
+.link-label {
+  text-transform: uppercase;
+  color: $green-blue;
+  font-size: 12px;
+  font-weight: bold;
+}
