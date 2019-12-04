@@ -6,66 +6,112 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Destroy Database...'
 
-Company.destroy_all
-User.destroy_all
-Project.destroy_all
-Collaboration.destroy_all
+require 'open-uri'
+require 'nokogiri'
+require 'faker'
 
-puts 'Creating Database...'
+name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
+url = "https://www.researchgate.net/profile/#{name}"
+# url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
-company_test = Company.create(name:"The big company")
+html_file = open(url).read
+html_doc = Nokogiri::HTML(url)
 
-user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvard University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
+skills = []
 
-project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
+html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
+  element.search('a:nth-child(1)').each do |elem|
+    unless elem.text.include?("Show more")
+      skill = elem.text.strip
+      # puts elem.text.strip
+    skills << skill
+  end
+end
 
-collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
+#scrapping avatar
+html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
+  avatar = element.values.first
+  # puts avatar
+  end
 
-puts Company.count
-puts User.count
-puts Project.count
-puts Collaboration.count
+# scrapping name
+# html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
+#   name = element.text.strip
+#   puts name
+#   end
 
-# require 'faker'
 
-# puts 'Clean database...'
+
+
+# puts 'Destroy Database...'
 
 # Company.destroy_all
 # User.destroy_all
 # Project.destroy_all
 # Collaboration.destroy_all
 
-# feelows = Company.new(name: 'foo bar')
+# puts 'Creating Database...'
+
+# company_test = Company.create(name:"The big company")
+
+# user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
+
+# project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
+
+# collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
 
 # puts Company.count
+# puts User.count
+# puts Project.count
+# puts Collaboration.count
 
-# puts 'Creating 10 fake user...'
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.email,
-#     password: 'password',
-#     username: Faker::Internet.username,
-#   )
-#   user.save!
+puts 'Clean database...'
 
-#   2.times do
-#     project = Project.new(
-#     name:    Faker::Food.vegetables,
-#     description: Faker::Lorem.sentence,
-#     location: Faker::Address.full_address,
-#     user: user,
-#     status: 'Disponible'
-#     )
-#     project.remote_photo_url = "http://res.cloudinary.com/dgpkng6h9/image/upload/v1574951261/courge.jpg"
-#     project.save!
-#   end
+Company.destroy_all
+User.destroy_all
+Project.destroy_all
+Collaboration.destroy_all
 
-# end
+feelows = Company.create(name: 'foo bar')
 
-# puts 'Finished!'
 
-# puts "company created : #{Company.count} "
-# puts "user created : #{User.count} "
+puts Company.count
+
+puts 'Creating 10 fake user...'
+
+10.times do
+  user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+    phone: Faker::PhoneNumber.phone_number_with_country_code,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    function: Faker::Job.title,
+    school: Faker::University.name,
+    company: feelows
+  )
+  user.save!
+end
+  
+  2.times do
+    project = Project.new(
+    name: Faker::Restaurant.name,
+    description: Faker::Lorem.sentence,
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: user
+    )
+    project.save!
+  end
+ 
+
+puts 'Finished!'
+
+ puts "company created : #{Company.count} "
+ puts "user created : #{User.count} "
