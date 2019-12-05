@@ -1,0 +1,51 @@
+
+// SEARCH BAR
+.searchContainer {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .searchContainer {
+  width: 650px;
+}
+}
+@media (max-width: 700px) {
+  .searchContainer{
+  width: 400px;
+}
+}
+
+@media (max-width: 450px) {
+  .searchContainer{
+  width: 300px;
+}
+}
+
+.searchIcon {
+  flex: 0;
+  padding: 0.5rem;
+  margin-top: 7px;
+  margin-left: 2px;
+  color: #9E9E9E;
+}
+
+.searchBox {
+  border: 0;
+  // padding: 0.5rem 0.5rem 0.5rem 0;
+  flex: 1;
+}
+
+.btn {
+  border: 0;
+  color: white;
+  padding: 0.5rem 4rem;
+  border-radius: 25px;
+  flex: 0;
+}

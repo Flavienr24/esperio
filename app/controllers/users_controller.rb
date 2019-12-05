@@ -6,6 +6,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @myprojects = @user.projects
+    @myexpertises = @user.expertises
+    @mycollaboration = @user.collaborations
+
   end
 
   # def new
