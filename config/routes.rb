@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     resources :users, except: :destroy
+
+  post "user/get_researchgate_info", to: "registrations#get_user_information"
   end
+
 
   resources :projects, except: :destroy do
     resources :collaborations

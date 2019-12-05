@@ -1,0 +1,67 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <p>Do you have a ResearchGate account ?</p>
+
+  <p>Complete your profile</p>
+
+  <div class="form-inputs">
+    <%= f.text_field :fullname,
+                required: true,
+                autofocus: true,
+                placeholder: "Laurent Deguil",
+                value: session[:last_name],
+                input_html: { autocomplete: "fullname" }%>
+    <%= f.input :country, as: :string,
+                required: true,
+                autofocus: true,
+                placeholder: "France",
+                input_html: { autocomplete: "country" }%>
+    <%= f.input :city,
+                required: true,
+                autofocus: true,
+                placeholder: "Marseille",
+                input_html: { autocomplete: "city" }%>
+    <%= f.input :function,
+                required: true,
+                autofocus: true,
+                placeholder: "Testeur",
+                input_html: { autocomplete: "function" }%>
+    <%= f.input :school,
+                required: true,
+                autofocus: true,
+                placeholder: "Le Roy Merlin",
+                input_html: { autocomplete: "school" }%>
+    <%= f.input :phone,
+                required: true,
+                autofocus: true,
+                placeholder: "+33 7 43 56 55 77",
+                input_html: { autocomplete: "phone" }%>
+
+   <p>Your email and password</p>
+
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                placeholder: "email@gmail.com",
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                placeholder: "6 characters minimum",
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                placeholder: "6 characters minimum",
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up"%>
+  </div>
+<% end %>
+
+
+<%# render "devise/shared/links" %>
+
+<%= link_to "Back", new_session_path(resource_name) %><br />

@@ -10,36 +10,40 @@
 require 'open-uri'
 require 'nokogiri'
 require 'faker'
+require 'pry-byebug'
 
-# name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
-# url = "https://www.researchgate.net/profile/#{name}"
-# # url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
-# html_file = open(url).read
-# html_doc = Nokogiri::HTML(url)
+name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
+url = "https://www.researchgate.net/profile/#{name}"
+# url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
-# skills = []
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+skills = []
 
-# html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
-#   element.search('a:nth-child(1)').each do |elem|
-#     unless elem.text.include?("Show more")
-#       skill = elem.text.strip
-#       # puts elem.text.strip
-#     skills << skill
-#   end
-# end
+html_doc.search('div.nova-l-flex:nth-child(2)').each do |element|
+  puts "salut"
+  element.search('a:nth-child(1)').each do |elem|
+    unless elem.text.include?("Show more")
+      skill = elem.text.strip
+     puts elem.text.strip
+    skills << skill
+    end
+  end
+end
 
-# #scrapping avatar
-# html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
-#   avatar = element.values.first
-#   # puts avatar
-#   end
+#scrapping avatar
+html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
+
+  avatar = element.values.first
+  puts avatar
+  end
 
 # scrapping name
-# html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
-#   name = element.text.strip
-#   puts name
-#   end
+html_doc.search('div.nova-e-text--spacing-xxs').each do |element|
+  name = element.text.strip
+  puts name
+  end
 
 
 
@@ -67,51 +71,51 @@ require 'faker'
 # puts Collaboration.count
 
 
-puts 'Clean database...'
+# puts 'Clean database...'
 
-Company.destroy_all
-User.destroy_all
-Project.destroy_all
-Collaboration.destroy_all
+# Company.destroy_all
+# User.destroy_all
+# Project.destroy_all
+# Collaboration.destroy_all
 
-feelows = Company.create(name: 'foo bar')
-
-
-puts Company.count
-
-puts 'Creating 10 fake user...'
-
-10.times do
-  user = User.new(
-    fullname: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password,
-    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
-    phone: Faker::PhoneNumber.phone_number_with_country_code,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    function: Faker::Job.title,
-    school: Faker::University.name,
-    company: feelows
-  )
-  user.save!
+# feelows = Company.create(name: 'foo bar')
 
 
-  2.times do
-    project = Project.new(
-    name: Faker::Restaurant.name,
-    description: Faker::Lorem.sentence,
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: user
-    )
-    project.save!
-  end
-end
+# puts Company.count
+
+# puts 'Creating 10 fake user...'
+
+# 10.times do
+#   user = User.new(
+#     fullname: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: Faker::Internet.password,
+#     avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+#     phone: Faker::PhoneNumber.phone_number_with_country_code,
+#     country: Faker::Address.country,
+#     city: Faker::Address.city,
+#     function: Faker::Job.title,
+#     school: Faker::University.name,
+#     company: feelows
+#   )
+#   user.save!
 
 
-puts 'Finished!'
+#   2.times do
+#     project = Project.new(
+#     name: Faker::Restaurant.name,
+#     description: Faker::Lorem.sentence,
+#     status: 'In Progress',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: user
+#     )
+#     project.save!
+#   end
+# end
 
- puts "company created : #{Company.count} "
- puts "user created : #{User.count} "
+
+# puts 'Finished!'
+
+#  puts "company created : #{Company.count} "
+#  puts "user created : #{User.count} "
