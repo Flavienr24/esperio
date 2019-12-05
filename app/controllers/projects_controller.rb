@@ -5,7 +5,11 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+
   def show
+    @user = current_user
+    @projects_I_lead = @user.projects
+
   end
 
   def new

@@ -3,9 +3,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = current_user
+    @collaborations = @user.collaborations
   end
 
   def show
+    @user = current_user
+    @projects_I_lead = @user.projects
+    @collaborations = @user.collaborations
+    # @myexpertises = @user.expertises
   end
 
   # def new
@@ -17,7 +23,7 @@ class UsersController < ApplicationController
   # def create
   #   @user = User.new(user_params)
   #   if @user.save
-  #     redirect_to user_path(@user)
+  #     redirect_to user_path(@user) notice: "Profile was successfully created"
   #   else
   #     render 'new'
   #   end
@@ -28,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(users_params)
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: "Profile was successfully updated"
   end
 
   private
