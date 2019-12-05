@@ -1,10 +1,9 @@
 require 'open-uri'
 require 'nokogiri'
 class RegistrationsController < Devise::RegistrationsController
+
   def get_user_information
-     # programmer la recuperation de la saisie sur le sign up en JS
     url = "https://www.researchgate.net/profile/#{params[:username]}"
-     # url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
 
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
@@ -15,7 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
       element.search('a:nth-child(1)').each do |elem|
         unless elem.text.include?("Show more")
           skill = elem.text.strip
-          # puts elem.text.strip
           session[:skills] << skill
         end
       end
