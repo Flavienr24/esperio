@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :companies
 
   devise_scope :user do
-    resources :users, except: :destroy
+    resources :users, except: [:edit, :update, :destroy]
   end
 
   resources :projects, except: :destroy do

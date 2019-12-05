@@ -1,44 +1,28 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit]
+  before_action :set_user, only: %i[show]
 
   def index
-    @users = User.all
+    if params[:query].present?
+      @users = User.global_search(params[:query])
+    else
+      @users = User.all
+    end
+
+    # if params[:query].present?
+    #     @filter = params[:query]["skills"].reject(&:blank?)
+    #     puts @filter
+    #     @users = User.all.global_search("#{@filter}").tagged_with(@filter)
+    #   else
+    #     @users = User.all
+    # end
   end
 
   def show
   end
 
-  # def new
-  #   @user = User.new
-  # end
-
-  # A tester une fois les modules requis en front seront existant
-
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     redirect_to user_path(@user)
-  #   else
-  #     render 'new'
-  #   end
-  # end
-
-  def edit
-  end
-
-  def update
-    @user.update(users_params)
-    redirect_to user_path(@user)
-  end
-
   private
 
   def set_user
-    # @company = Company.find(params[:company_id])
-    @user = current_user
-  end
-
-  def users_params
-    params.require(:users).permit(:fullname, :phone, :country, :city, :function, :school)
+    @user = User.find(current_user.id)
   end
 end

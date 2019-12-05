@@ -4,9 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   has_many :projects
   belongs_to :company
+
+  # acts_as_taggable_on :tags
+  acts_as_taggable_on :skills
+
+  $list_of_tags = ['medecin', 'doctor', 'biologist', 'scientist', 'junior', 'test', 'les tags cest cool', 'cette gem est superbe!', 'travail!']
+
+  include PgSearch::Model
+
+  pg_search_scope :global_search,
+  against: [:fullname],
+  using: {
+    tsearch: {any_word: true}
+  }
 
   validates :fullname, presence: true
   validates :phone, presence: true
