@@ -2,21 +2,20 @@
 
 
 <!-- Description User -->
-<%= @user.avatar %>
+<img src="${@user.avatar" alt="avatar">
 <h2><%= @user.fullname %> </h2>
 <p><%= @user.function %></p>
 <p><%= @user.city %></p>
 <p><%= @user.country %></p>
 <p><%= @user.school %></p>
-<p><%= link_to 'email', user_path([@company, @user])%></p>
+<p><%= link_to @user.email, user_path([@company, @user])%></p>
 
-    <%#= link_to user.email, user_path([@company, @user]), class: 'btn btn-primary' %>
     <%#= link_to user.phone, user_path([@company, @user]), class: 'btn btn-primary' %>
 
   <%= link_to 'Edit Profil', edit_user_path(@user), class: 'btn btn-primary'%>
 
 <!-- Numbers of relations -->
-  <%#= @myprojects.count%>
+  <%= @myprojects.count%>
   <%#= @mycollaborations.count%>
   <%#= @mynetworks.count%>
 

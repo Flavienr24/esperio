@@ -1,8 +1,20 @@
-<h1> Reussi</h1>
+<h1> Search Collaborators</h1>
 
-<% @users.each do |user| %>
-  <%= link_to user.email, user_path([@company, @user]), class: 'btn btn-primary' %>
-<% end %>
-
-
-      <%= link_to 'Profile', user_path(@users) %>
+<div>
+   <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 col-md-6 d-flex">
+        <img src="${user.avatar" alt="avatar">
+        <h2><%= user.fullname %> </h2>
+        <p><%= user.function %></p>
+        <p>Collaborations: </p>
+        <p> Responses: </p>
+        <p> Projects: <%= user.projects.count%></p>
+        <p> Projects lead : </p>
+        <p>Last Connection:   </p>
+        <%= link_to user.email, user_path([@company, @user])%>
+        <%= link_to 'Profile', user_path(@users), class: 'btn btn-primary' %>
+      </div>
+  <% end %>
+  </div>
+</div>
