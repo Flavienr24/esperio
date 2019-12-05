@@ -1,4 +1,22 @@
-<h1> Reussi</h1>
+<h1> Search Collaborators</h1>
+
+<div>
+   <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 col-md-6 d-flex">
+        <img src="${user.avatar}" alt="avatar">
+        <h2><%= user.fullname %> </h2>
+        <p><%= user.function %></p>
+        <p>Collaborations: <%= @user.collaborations.count%></p>
+        <p> Responses: </p>
+        <p> Projects lead: <%= user.projects.count%></p>
+        <p>Last Connection:   </p>
+        <%= link_to user.email, user_path([@company, @user])%>
+        <%= link_to 'Profile', user_path(@users), class: 'btn btn-primary' %>
+      </div>
+  <% end %>
+  </div>
+</div>
 
 <%= simple_form_for users_path, method: :get do %>
         <%= text_field_tag :query,
