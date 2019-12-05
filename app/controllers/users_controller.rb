@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @myprojects = @user.projects
+    @projects_I_lead = @user.projects
+    # @projects_I_attend = @user.collaborations
+
     # @myexpertises = @user.expertises
   end
 

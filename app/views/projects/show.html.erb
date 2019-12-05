@@ -16,12 +16,8 @@
 <!--Contributions -->
 
 <!-- Collaborators -->
-<%= @project_users.each do |user|  %>
-<%= user.name %>
-<% end %>
-<!-- <h2>Collaborators</h2>
-<%#= link_to ' Add Collaborators', project_collaborations_path(@project)%>
- -->
+
+<%= link_to ' Add Collaborators', project_collaborations_path(@project)%>
 <!-- Project Activities -->
    <p> Projects lead : </p>
       <p>Last activities:   </p>

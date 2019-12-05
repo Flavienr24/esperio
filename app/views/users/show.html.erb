@@ -14,9 +14,11 @@
 
   <%= link_to 'Edit Profil', edit_user_path(@user), class: 'btn btn-primary'%>
 
-<!-- Numbers of relations -->
-  <%= @myprojects.count%>
+<!-- Numbers of projects -->
+  <%= @projects_I_lead.count%>
+
   <%#= @mycollaborations.count%>
+
   <%#= @mynetworks.count%>
 
 <!-- Expertises -->
@@ -25,7 +27,7 @@
 
 <!-- Projets -->
 <h2>Projects</h2>
-<% @myprojects.each do |project|%>
+<% @projects_I_lead.each do |project|%>
 <h3><%= project.name %></h3>
 <p><%= project.description %></p>
 <p><%= project.status %></p>

@@ -5,8 +5,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+
   def show
-    @project_users = @collaboration.users
+    @user = current_user
   end
 
   def new
