@@ -4,8 +4,32 @@
   width: 82%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 92px;
   background: white;
   box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.08);
-  padding-right: 30px;
+  padding: 3px 3%;
+}
+
+.header-menu {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.avatar-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fa-caret-down {
+  color: $dark-blue;
+  margin-left: 12px
+}
+
+.fa-bell {
+  color: $dark-blue;
+  margin-left: 12px
 }
