@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project_users = @collaboration.users
   end
 
   def new

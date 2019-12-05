@@ -29,9 +29,9 @@
 <h3><%= project.name %></h3>
 <p><%= project.description %></p>
 <p><%= project.status %></p>
-<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
+<%= link_to ' More', projects_path(@project), class: 'btn btn-primary'%>
 <% end %>
-
+<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 <!-- Collaboration -->
 <h2>Collaboration</h2>
 <%#= @mycollaborations.each do |collaboration|%>
