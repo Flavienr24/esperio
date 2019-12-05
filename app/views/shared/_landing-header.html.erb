@@ -1,45 +1,22 @@
 <div class="d-flex landing-header-lewagon landing-header-expand-sm landing-header-light landing-header-lewagon">
-<!--   <%= link_to "#", class: "landing-header-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %> -->
 
-<!--   <button class="landing-header-toggler" type="button" data-toggle="collapse" data-target="#landing-headerSupportedContent" aria-controls="landing-headerSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="landing-header-toggler-icon"></span>
-  </button> -->
   <div class="logo-placer d-flex h-100 align-items-center mx-4">
     LOGO
   </div>
-  <div class="header-menu d-flex justify-content-end h-100 align-items-center bold-content">
+  <div class="landing-header-menu d-flex justify-content-end h-100 align-items-center bold-content">
     <div class="contact-link mx-4">
       feellows website
     </div>
     <div class="website-link mx-5">
       Contact-us
     </div>
-  </div>
 
-  <div class="collapse landing-header-collapse" id="landing-headerSupportedContent">
-    <ul class="landing-header-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "landing-headerDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="landing-headerDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+    <% if current_user != nil %>
+       <%= link_to user_path(current_user) do %>
+    <div>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-s" %>
+    </div>
+    <% end %>
+     <% end %>
   </div>
 </div>
