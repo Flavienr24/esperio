@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @myprojects = @user.projects
-    @myexpertises = @user.expertises
-    @mycollaboration = @user.collaborations
+    # @myexpertises = @user.expertises
 
   end
 

@@ -3,3 +3,6 @@
 <% @users.each do |user| %>
   <%= link_to user.email, user_path([@company, @user]), class: 'btn btn-primary' %>
 <% end %>
+
+
+      <%= link_to 'Profile', user_path(@users) %>

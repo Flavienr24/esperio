@@ -3,13 +3,14 @@
 
 <!-- Description User -->
 <%= @user.avatar %>
-<h2><%=  @user.first_name @user.last_name %> </h2>
-<%= @user.function %>
-<%= @user.city %>
-<%= @user.country %>
-<%= @user.school %>
+<h2><%= @user.fullname %> </h2>
+<p><%= @user.function %></p>
+<p><%= @user.city %></p>
+<p><%= @user.country %></p>
+<p><%= @user.school %></p>
+<p><%= link_to 'email', user_path([@company, @user])%></p>
 
-  <%= link_to user.email, user_path([@company, @user]), class: 'btn btn-primary' %>
+    <%#= link_to user.email, user_path([@company, @user]), class: 'btn btn-primary' %>
     <%#= link_to user.phone, user_path([@company, @user]), class: 'btn btn-primary' %>
 
   <%= link_to 'Edit Profil', edit_user_path(@user), class: 'btn btn-primary'%>
@@ -25,18 +26,19 @@
 
 <!-- Projets -->
 <h2>Projects</h2>
-<%= @myprojects.each do |project|%>
-<%= project.name %>
-<%= project.description %>
-<%= project.status %>
-<%= link_to 'Add project', edit_project_path(@project), class: 'btn btn-primary'%>
+<% @myprojects.each do |project|%>
+<h3><%= project.name %></h3>
+<p><%= project.description %></p>
+<p><%= project.status %></p>
+<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 <% end %>
 
 <!-- Collaboration -->
 <h2>Collaboration</h2>
-<%= @mycollaborations.each do |collaboration|%>
-<% end %>
+<%#= @mycollaborations.each do |collaboration|%>
+<%# end %>
 
 <!-- Network -->
+<h2>Network</h2>
 <!-- <h2>Network</h2> -->
 
