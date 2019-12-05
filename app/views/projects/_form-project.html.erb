@@ -1,0 +1,71 @@
+
+<div class="container">
+  <!--<div class="form"> -->
+    <!-- <div class="row justify-content-center"> -->
+      <!-- <div class="col-md-8"> à voir si c'est ça-->
+        <!-- <h1 id="title_project"> Give a title to your project</h1> -->
+       <!--  <div class="form"> -->
+  <div class="form-project-positions"></div>
+    <div class="A4">
+      <div class="flat-card">
+        <!-- faire une div et dessus faire le margin -->
+
+  <div class="h3-positions">
+        <h3>New Project</h3>
+  </div>
+
+      <%= simple_form_for @project do |f| %>
+      <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :name,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "Give a title to your project",
+                      input_html: { autocomplete: "Name" }%>
+          <%= f.input :description, as: :text,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "Description of your project",
+                      input_html: { autocomplete: "description" }%>
+          <%= f.input :status,
+                      autofocus: true,
+                      placeholder: "In Progress",
+                      input_html: { autocomplete: "in progress" }%>
+          <%= f.input :visibility,
+                      autofocus: true,
+                      label: "Public",
+                      input_html: { autocomplete: "true" }%>
+          <%= f.input :open_to_apply,
+                      autofocus: true,
+                      placeholder: "Yes",
+                      input_html: { autocomplete: "true" }%>
+        </div>
+      </div>
+
+      <div class="skills-positions"></div>
+        <div class="flat-card">
+          <div class="skills">
+            <h3>Skills & Expertises</h3>
+            <div class="light-description">Choose expertises needed for project</div>
+          </div>
+        </div>
+              <!-- il faut une barre de recherche? -->
+      <div class="contributions-positions"></div>
+        <div class="flat-card">
+          <div class="contributions">
+            <h3>Contributions</h3>
+          </div>
+        </div>
+          <!-- il faut une barre de recherche -->
+
+      <div class="end-form">
+        <div class="btn-primary">
+        <%= f.button :submit, "Create Project"%>
+        <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+
+

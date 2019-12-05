@@ -1,0 +1,43 @@
+.flex{
+  display:flex;
+  justify-content: space-between;
+}
+
+.informations{
+  width:20%;
+}
+
+.description-form{
+  width: 70%;
+}
+
+.A4{
+  position: absolute;
+  width: 655px;
+  height: 1089px;
+  left: 392px;
+  top: 148px;
+}
+
+.h3-positions{
+  margin-top: 40px;
+  align-items: center;
+}
+
+.form-project-positions{
+  margin: 40px;
+}
+
+.skills-positions{
+  margin: 35px;
+}
+
+.contributions-positions{
+  margin: 19px;
+}
+
+.end-form {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+}
