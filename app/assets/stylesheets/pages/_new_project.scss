@@ -1,39 +1,38 @@
-.flex{
-  display:flex;
-  justify-content: space-between;
-}
+// .flex{
+//   display:flex;
+//   justify-content: space-between;
+// }
 
-.informations{
-  width:20%;
-}
+// .informations{
+//   width:20%;
+// }
 
-.description-form{
-  width: 70%;
-}
+// .description-form{
+//   width: 70%;
+// }
 
-.A4{
-  position: absolute;
-  width: 655px;
-  height: 1089px;
-  left: 392px;
-  top: 148px;
+.margin-form {
+  width: 60%;
+  margin-top:50px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:80px;
 }
+// h3{ à centrer
+// justify: center;
+// }
 
-.h3-positions{
-  margin-top: 40px;
-  align-items: center;
-}
 
-.form-project-positions{
-  margin: 40px;
-}
+// .form-project-positions{
+//   margin: 40px;
+// }
 
 .skills-positions{
-  margin: 35px;
+  margin-top: 20px;
 }
 
 .contributions-positions{
-  margin: 19px;
+  margin-top: 20px;
 }
 
 .end-form {
