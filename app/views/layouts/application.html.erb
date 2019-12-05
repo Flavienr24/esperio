@@ -10,9 +10,24 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <% if current_page?(root_path) %>
     <%= render 'shared/landing-header' %>
+    <% else %>
+    <%= render 'shared/side-bare' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
+
+    <% if current_page?(root_path) %>
     <%= yield %>
+    <% else %>
+    <div id="main-wrapper">
+      <%= render 'shared/header' %>
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.content {
+  margin-top: 100px;
+  display:flex;
+  flex-flow: row wrap;
+}
