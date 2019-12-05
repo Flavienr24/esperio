@@ -14,11 +14,11 @@ class User < ApplicationRecord
 
   include PgSearch::Model
 
-  pg_search_scope :global_search,
-  against: [:fullname],
-  using: {
-    tsearch: {any_word: true}
-  }
+  pg_search_scope :global_search_by_fullname_and_skills,
+    against: [:fullname, :skill_list],
+    using: {
+      tsearch: { any_word: true }
+    }
 
   validates :fullname, presence: true
   validates :phone, presence: true
