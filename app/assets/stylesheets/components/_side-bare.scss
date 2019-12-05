@@ -1,8 +1,12 @@
-.side-bar {
+#side-bar {
   position: fixed;
-  width: 237px;
   height: 100%;
+  width: 18%;
+  min-width: 130px;
+  flex-grow: 0;
   background: $background-nav;
+  box-shadow: 8px 0px 14px rgba(0, 0, 0, 0.3);
+  margin: 0px;
 }
 
 .side-bar-container {
@@ -10,7 +14,7 @@
   left: 0px;
   top: 113px;
   width: 100%;
-  height: 60%;
+  height: 80%;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,10 +32,9 @@
 
 .item-menu {
   height: 72px;
-  margin: 5px 0px;
   display: flex;
   align-items: center;
-  flex-direction: row;
+  padding-right: 90px;
   color: white;
   padding-left: 0px;
   padding-bottom: 0px;
@@ -43,6 +46,19 @@
 }
 
 .fas {
-  margin: 0px 30px;
-  font-size: 25px;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.menu-title {
+  font-weight: normal;
+  font-size: 0.8em;
 }
