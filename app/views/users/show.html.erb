@@ -15,9 +15,10 @@
   <%= link_to 'Edit Profil', edit_user_path(@user), class: 'btn btn-primary'%>
 
 <!-- Numbers of projects -->
-  <%= @projects_I_lead.count%>
+  Projects: <%= @projects_I_lead.count%>
 
   <%#= @mycollaborations.count%>
+  Collaborations: <%= @user.collaborations.count%>
 
   <%#= @mynetworks.count%>
 
@@ -36,8 +37,10 @@
 <%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 <!-- Collaboration -->
 <h2>Collaboration</h2>
-<%#= @mycollaborations.each do |collaboration|%>
-<%# end %>
+<%  @user.collaborations.each do |collaboration| %>
+<%= collaboration.project.user.fullname %>
+<img src="${@collaboration.project.user.avatar" alt="avatar">
+<%end %>
 
 <!-- Network -->
 <h2>Network</h2>

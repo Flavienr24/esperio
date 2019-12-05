@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 
   def show
     @user = current_user
+    @projects_I_lead = @user.projects
+
   end
 
   def new
