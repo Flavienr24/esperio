@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :projects, except: :destroy do
     resources :collaborations
+    resources :posts, except: [:edit, :update]
   end
 end
