@@ -1,7 +1,7 @@
 <div id="side-bar">
   <div class="side-bar-container">
     <div class="menu-top">
-      <%= link_to company_path(Company.last) do %>
+      <%= link_to company_path(current_user.company) do %>
       <div class="item-menu">
         <i class="menu-icon fas fa-atom"></i>
         <div class="menu-title">Dashboard</div>
