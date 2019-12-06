@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    raise
     @user = User.new(user_params)
+    @user.skill_list =
     if @user.save
       redirect_to user_path(@user)
     else

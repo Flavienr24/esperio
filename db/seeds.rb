@@ -48,27 +48,27 @@ require 'faker'
 
 
 
-puts 'Destroy Database...'
+# puts 'Destroy Database...'
 
-Company.destroy_all
-User.destroy_all
-Project.destroy_all
-Collaboration.destroy_all
+# Company.destroy_all
+# User.destroy_all
+# Project.destroy_all
+# Collaboration.destroy_all
 
-puts 'Creating Database...'
+# puts 'Creating Database...'
 
-company_test = Company.create(name:"The big company")
+# company_test = Company.create(name:"The big company")
 
-user_test = User.create(fullname:"John_lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
+# user_test = User.create(fullname:"John_lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
 
-project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
+# project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
 
-collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
+# collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
 
-puts Company.count
-puts User.count
-puts Project.count
-puts Collaboration.count
+# puts Company.count
+# puts User.count
+# puts Project.count
+# puts Collaboration.count
 
 
 puts 'Clean database...'

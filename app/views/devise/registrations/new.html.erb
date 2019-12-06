@@ -30,11 +30,18 @@
 
         <h4 class="mt-4 mb-4">Complete your profile</h4>
       <div class="form-inputs">
-        <%= f.input :fullname,
+        <%= f.text_field :fullname,
         required: true,
         autofocus: true,
+        value: session[:last_name]&.concat(" " + session[:first_name]),
         placeholder: "John Lascience",
         input_html: { autocomplete: "fullname" } %>
+        <%= f.text_field :skill_list,
+        required: true,
+        autofocus: true,
+        value: session[:skills],
+        placeholder: "Skills",
+        input_html: { autocomplete: "skills"} %>
         <%= f.input :country, as: :string,
         required: true,
         autofocus: true,

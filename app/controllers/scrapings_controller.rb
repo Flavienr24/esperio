@@ -2,6 +2,11 @@ class ScrapingsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:get_user_information]
 
   def get_user_information
+    session.delete(:skills)
+    session.delete(:avatar)
+    session.delete(:first_name)
+    session.delete(:last_name)
+
     url = "https://www.researchgate.net/profile/#{params[:username]}"
 
     html_file = open(url).read
@@ -16,6 +21,7 @@ class ScrapingsController < ApplicationController
           session[:skills] << skill
         end
       end
+      session[:skills].to_s.split
     end
 
     #scrapping avatar
