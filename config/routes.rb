@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
+  get '/projects/:id', to: 'project#my_project', as: :my_project
 
   resources :projects, except: :destroy do
     resources :collaborations
