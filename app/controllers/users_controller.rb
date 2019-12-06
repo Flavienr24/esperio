@@ -1,54 +1,22 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
-
   def index
-
-    if params[:query].present?
-      @users = User.global_search_by_fullname_and_skills(params[:query])
-    else
-      @users = User.all
-    end
-
-    # if params[:query]
-    #   @filter = params[:query]["skill_list"]
-    #   puts @filter
-    #   @users = User.all.global_search_by_fullname_and_skills("#{@filter}").tagged_with(@filter)
-    # else
-    #   @users = User.all
-    # end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    raise
-    @user = User.new(user_params)
-    @user.skill_list =
-    if @user.save
-      redirect_to user_path(@user)
-    else
-      render 'new'
-    end
-  end
-
-    @user = User.find(current_user.id)
-    @collaborations = @user.collaborations
+     @users = User.all
+     @users = @users.fullname_search(params[:query]) if params[:query].present?
+     @users = User.all.tagged_with(params[:query]) if @users.empty?
+     @user = User.find(current_user.id)
   end
 
   def show
+    @user = User.find(params[:id])
     @projects_I_lead = @user.projects
     @collaborations = @user.collaborations
-    @myexpertises = @user.skill_list.each do |skill|
-                        skill
-                      end
+    @myexpertises = @user.skill_list
   end
 
-  private
-
-  def set_user
-    @user = User.find(current_user.id)
-
-    # @user = User.find(current_user.id)
+  def my_profile
+    @user = current_user
+    @projects_I_lead = @user.projects
+    @collaborations = @user.collaborations
+    @myexpertises = @user.skill_list
   end
 end

@@ -15,12 +15,12 @@
         <img src="${user.avatar}" alt="avatar">
         <h2><%= user.fullname %> </h2>
         <p><%= user.function %></p>
-        <p>Collaborations: <%= @user.collaborations.count%></p>
+        <!-- <p>Collaborations: <%# @user.collaborations.count%></p> -->
         <p> Responses: </p>
         <p> Projects lead: <%= user.projects.count%></p>
         <p>Last Connection:   </p>
-        <%= link_to user.email, user_path([@company, @user])%>
-        <%= link_to 'Profile', user_path(@users), class: 'btn btn-primary' %>
+        <%= user.email %>
+        <%= link_to 'Profile', user_profile_path(user), class: 'btn btn-primary' %>
       </div>
   <% end %>
   </div>
