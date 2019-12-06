@@ -8,9 +8,9 @@
         <h2><%= user.fullname %> </h2>
         <p><%= user.function %></p>
         <p>Collaborations: <%= @user.collaborations.count%></p>
-        <p> Responses: </p>
+        <p> Responses: TBD </p>
         <p> Projects lead: <%= user.projects.count%></p>
-        <p>Last Connection:   </p>
+        <p>Last Connection: TBD  </p>
         <%= link_to user.email, user_path([@company, @user])%>
         <%= link_to 'Profile', user_path(@users), class: 'btn btn-primary' %>
       </div>
