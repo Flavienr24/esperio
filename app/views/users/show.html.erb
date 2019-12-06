@@ -1,6 +1,3 @@
-<h1> Reussi</h1>
-
-
 <!-- Description User -->
 <img src="${@user.avatar" alt="avatar">
 <h2><%= @user.fullname %> </h2>
@@ -12,7 +9,7 @@
 
     <%#= link_to user.phone, user_path([@company, @user]), class: 'btn btn-primary' %>
 
-  <%= link_to 'Edit Profil', edit_user_path(@user), class: 'btn btn-primary'%>
+  <%= link_to 'Edit Profil', edit_user_registration_path(@user), class: 'btn btn-primary'%>
 
 <!-- Numbers of projects -->
   Projects: <%= @projects_I_lead.count%>
@@ -45,4 +42,3 @@
 <!-- Network -->
 <h2>Network</h2>
 <!-- <h2>Network</h2> -->
-
