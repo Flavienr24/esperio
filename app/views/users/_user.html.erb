@@ -1,5 +1,5 @@
 <% users.each do |user| %>
-  <h3><%= link_to user.fullname, user_path([@company, @user]), class: 'btn btn-primary' %></h3>
+  <h3><%= link_to user.fullname, user_path(user), class: 'btn btn-primary' %></h3>
 
   <% user.skills.each do |skill| %>
       <%= skill %>

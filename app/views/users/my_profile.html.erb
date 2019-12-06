@@ -7,6 +7,19 @@
 <p><%= @user.school %></p>
 <p><%= @user.email %></p>
 
+
+
+
+ <!-- ICCIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
+  <%= link_to 'Edit Profil', edit_user_registration_path(@user), class: 'btn btn-primary'%>
+
+
+
+
+
+
+
+
 <!-- Numbers of projects -->
   Projects: <%= @projects_I_lead.count%>
 
@@ -27,6 +40,7 @@
 <p><%= project.status %></p>
 <%= link_to ' More', projects_path(@project), class: 'btn btn-primary'%>
 <% end %>
+<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 <!-- Collaboration -->
 <h2>Collaboration</h2>
 <%  @user.collaborations.each do |collaboration| %>
