@@ -7,6 +7,19 @@
 <p><%= @user.school %></p>
 <p><%= @user.email %></p>
 
+
+
+
+ <!-- ICCIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
+  <%= link_to 'Edit Profil', edit_user_registration_path(@user), class: 'btn btn-primary'%>
+
+
+
+
+
+
+
+
 <!-- Numbers of projects -->
   Projects: <%= @projects_I_lead.count%>
 
@@ -23,15 +36,11 @@
 <h2>Projects</h2>
 <% @projects_I_lead.each do |project|%>
 <h3><%= project.name %></h3>
-<p> starting date: <%= project.created_at%> </p>
-<p> statute: <%= project.status %> </p>
 <p><%= project.description %></p>
 <p><%= project.status %></p>
-<img src="${@Project.user.avatar" alt="avatar">
-<img src="${@project.collaboration.user.avatar" alt="avatar">
 <%= link_to ' More', projects_path(@project), class: 'btn btn-primary'%>
 <% end %>
-
+<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 <!-- Collaboration -->
 <h2>Collaboration</h2>
 <%  @user.collaborations.each do |collaboration| %>
@@ -42,4 +51,3 @@
 <!-- Network -->
 <h2>Network</h2>
 <!-- <h2>Network</h2> -->
-
