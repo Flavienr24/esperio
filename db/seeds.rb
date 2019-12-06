@@ -74,7 +74,7 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
-feelows = Company.create(name: 'foo bar')
+feelows = Company.create(name: 'Feellows')
 
 
 puts Company.count
