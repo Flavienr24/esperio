@@ -10,3 +10,47 @@
   flex-flow: row wrap;
   padding: 48px 38px;
 }
+
+.wrapper-profile {
+  display: flex;
+  width: 100%
+}
+
+.id-user {
+  border-right: 1px solid $light-grey;
+  width: 40%;
+}
+
+.user-info {
+  margin: 1%;
+  width: auto;
+}
+
+.stat-label {
+  border-right: 1px solid $light-grey;
+  min-width: 170px;
+    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-number {
+  color: $dark-blue;
+  font-size: 40px;
+}
+
+.stat-label p {
+  font-weight: bold;
+  display: flex;
+}
+
+.contact-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.contact-cta i {
+  color: $dark-blue;
+}

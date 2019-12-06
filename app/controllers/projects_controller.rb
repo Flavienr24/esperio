@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
 
   def show
     @user = current_user
-    @projects_I_lead = @user.projects
+    @projects_I_lead = Project.where(user_id: @user.id)
+    # @user.projects
 
   end
 
