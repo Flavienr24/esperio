@@ -14,15 +14,7 @@
 <!-- Time line  -->
 
 <!--Contributions -->
-<div class="form">
-  <h3>Your contribution </h3>
-<%= simple_form_for @user do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :name%>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
-</div>
+
 <!-- Collaborators -->
 
 <%= link_to ' Add Collaborators', project_collaborations_path(@project)%>
