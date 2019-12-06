@@ -21,7 +21,7 @@
 <%= simple_form_for users_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          placeholder: "Find a Alt!"
+          placeholder: "Research a user"
         %>
 
         <%= submit_tag "Search", class: "btn btn-primary" %>

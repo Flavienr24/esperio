@@ -3,35 +3,43 @@ class UsersController < ApplicationController
 
   def index
 
-    # if params[:query].present?
-    #   @users = User.global_search_by_fullname_and_skills(params[:query])
-    # else
-    #   @users = User.all
-    # end
-
-    if params[:query]
-      @filter = params[:query]["skill_list"]
-      puts @filter
-      @users = User.all.global_search_by_fullname_and_skills("#{@filter}").tagged_with(@filter)
+    if params[:query].present?
+      @users = User.global_search_by_fullname_and_skills(params[:query])
     else
       @users = User.all
     end
 
-    @users = User.all
-    @user = current_user
-    @collaborations = @user.collaborations
+    # if params[:query]
+    #   @filter = params[:query]["skill_list"]
+    #   puts @filter
+    #   @users = User.all.global_search_by_fullname_and_skills("#{@filter}").tagged_with(@filter)
+    # else
+    #   @users = User.all
+    # end
+
+    # @users = User.all
+
+
+
+
+    # @user = User.find(params[:id])
+    # @collaborations = @user.collaborations
   end
 
   def show
-    @user = current_user
     @projects_I_lead = @user.projects
     @collaborations = @user.collaborations
-    # @myexpertises = @user.expertises
+    @myexpertises = @user.skill_list.each do |skill|
+                        skill
+                      end
+
   end
 
   private
 
   def set_user
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+
+    # @user = User.find(current_user.id)
   end
 end

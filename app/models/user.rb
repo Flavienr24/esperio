@@ -16,7 +16,7 @@ class User < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :global_search_by_fullname_and_skills,
-    against: [:fullname, :skill_list],
+    against: [:fullname],
     using: {
       tsearch: { any_word: true }
     }
