@@ -7,9 +7,13 @@ class ProjectsController < ApplicationController
 
 
   def show
-    @user = current_user
-    @projects_I_lead = @user.projects
+    @user = User.find(params[:id])
+  end
 
+  def my_project
+    @user = current_user
+    @project = Project.find(params[:id])
+    @project.user = current_user
   end
 
   def new
