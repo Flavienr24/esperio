@@ -27,7 +27,7 @@
     <p>Network</p>
   </div>
   <div class="contact-cta">
-    <%#= link_to user.phone, user_path([@company, @user]), class: 'btn btn-primary' %>
+    <!-- Mettre condition pour afficher le EDIT profile si current_user = params:id -->
     <%= link_to edit_user_registration_path(@user) do %>
     <i class="fas fa-user-edit"></i>
     <% end %>
