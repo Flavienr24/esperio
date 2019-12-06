@@ -1,5 +1,23 @@
-<h1> Reussi</h1>
-
+<!-- description projet -->
+<h2> <%= @project.name %></h2>
+<p>  starting date: <%= @project.created_at%> </p>
+<p> statute: <%= @project.status %> </p>
+<p><%= @project.description %> </p>
+<!-- <p> <%= @project.open_to_apply %></p>
+<p> <%= @project.visibility %></p> -->
 <%= link_to 'Edit Project', edit_project_path(@project), class: 'btn btn-primary'%>
+<%= link_to 'Add project', new_project_path(@project), class: 'btn btn-primary'%>
 
-<%= link_to 'List of Collaborators', project_collaborations_path(@project), class: 'btn btn-primary'%>
+<!-- Project expertises -->
+
+
+<!-- Time line  -->
+
+<!--Contributions -->
+
+<!-- Collaborators -->
+
+<%= link_to ' Add Collaborators', project_collaborations_path(@project)%>
+<!-- Project Activities -->
+   <p> Projects lead : </p>
+      <p>Last activities:   </p>

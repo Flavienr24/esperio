@@ -1,7 +1,8 @@
-<h2>Sign up</h2>
+<div class="signup-wrapper container">
+  <div class="flat-card">
+    <div class="px-5 mt-5">
 
-
-
+<!-- Scrapping RS form -->
 
   <p>Do you have a ResearchGate account ?</p>
 
@@ -15,11 +16,75 @@
 <%= simple_form_for(resource, as: resource_name, url: user_registration_path, method: :post) do |f| %>
 <%= f.error_notification %>
 
-
-<%= render "shared/form_user", user: @user%>
 <% end %>
+
+<!-- Scrapping RS form -->
+  <div class="d-flex justify-content-center pt-4 mb-2"><h3>New user profile</h3></div>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <h4 class="mt-4 mb-4">Do you have a ResearchGate account ?</h4>
+
 
 
 <%# render "devise/shared/links" %>
 
-<%= link_to "Back", new_session_path(resource_name) %><br />
+        <h4 class="mt-4 mb-4">Complete your profile</h4>
+      <div class="form-inputs">
+        <%= f.input :fullname,
+        required: true,
+        autofocus: true,
+        placeholder: "John Lascience",
+        input_html: { autocomplete: "fullname" } %>
+        <%= f.input :country, as: :string,
+        required: true,
+        autofocus: true,
+        placeholder: "France",
+        input_html: { autocomplete: "country" }%>
+        <%= f.input :city,
+        required: true,
+        autofocus: true,
+        placeholder: "Paris",
+        input_html: { autocomplete: "city" }%>
+        <%= f.input :function,
+        required: true,
+        autofocus: true,
+        placeholder: "Fellow Researcher",
+        input_html: { autocomplete: "function" }%>
+        <%= f.input :school,
+        required: true,
+        autofocus: true,
+        placeholder: "Ecoles des Ponts, Paristech",
+        input_html: { autocomplete: "school" }%>
+        <%= f.input :phone,
+        required: true,
+        autofocus: true,
+        placeholder: "+33 7 43 56 55 77",
+        input_html: { autocomplete: "phone" }%>
+        <%= f.association :company, as: :select,
+        placeholder: "Feellows" %>
+        <h4 class="mt-4 mb-4">Your email and password</h4>
+        <%= f.input :email,
+        required: true,
+        autofocus: true,
+        placeholder: "john.lascience@feellows.com",
+        input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+        required: true,
+        placeholder: "•••••••••••",
+        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+        input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+        required: true,
+        placeholder: "•••••••••••",
+        input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="d-flex pb-3 form-actions align-items-center justify-content-between">
+        <%= link_to "Back", new_session_path(resource_name), class:"btn btn-secondary" %>
+        <%= f.button :submit, "Sign up", class:"btn btn-primary"%>
+      </div>
+      <% end %>
+      <%# render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

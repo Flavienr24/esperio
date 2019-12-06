@@ -1,28 +1,39 @@
-<div class="side-bar">
+<div id="side-bar">
   <div class="side-bar-container">
     <div class="menu-top">
+      <%= link_to company_path(current_user.company) do %>
       <div class="item-menu">
-        <i class="fas fa-atom"></i>
-        Dashboard
+        <i class="menu-icon fas fa-atom"></i>
+        <div class="menu-title">Dashboard</div>
       </div>
+      <% end %>
+      <%= link_to user_path(current_user) do %>
       <div class="item-menu">
-        <i class="fas fa-id-card-alt"></i>
-        Profile
+        <i class="menu-icon fas fa-id-card-alt"></i>
+        <div class="menu-title">Profile</div>
       </div>
+      <% end %>
+      <%= link_to projects_path do %>
       <div class="item-menu">
-        <i class="fas fa-project-diagram"></i>
-        Projects
+        <i class="menu-icon fas fa-project-diagram"></i>
+        <div class="menu-title">Projects</div>
       </div>
+      <% end %>
+      <%= link_to '#' do %>
       <div class="item-menu">
-        <i class="fas fa-dna"></i>
-        Expertises
+        <i class="menu-icon fas fa-dna"></i>
+        <div class="menu-title">Expertises</div>
       </div>
+      <% end %>
     </div>
     <div class="menu-down">
+      <%= link_to '#' do %>
       <div class="item-menu">
-        <i class="fas fa-sliders-h"></i>
-        Settings
+        <i class="menu-icon fas fa-sliders-h"></i>
+        <div class="menu-title">Settings</div>
       </div>
+      <% end %>
     </div>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"fixed-bottom"%>
   </div>
 </div>
