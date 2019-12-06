@@ -1,0 +1,4 @@
+function replaceSkills (innerHTML) {
+  const skills = document.getElementById('skills');
+  skills.innerHTML = innerHTML;
+}replaceSkills("<%= j render 'user', users: @users %>");

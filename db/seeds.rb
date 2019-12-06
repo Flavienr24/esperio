@@ -74,26 +74,32 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
-feelows = Company.create(name: 'foo bar')
+feelows = Company.create(name: 'Feellows')
 
 
 puts Company.count
 
 puts 'Creating 10 fake user...'
 
+
+
+
+
 10.times do
   user = User.new(
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: "password",
     avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
     function: Faker::Job.title,
     school: Faker::University.name,
-    company: feelows
+    company: feelows,
+    skill_list: $list_of_tags.sample
   )
+
   user.save!
 
 
@@ -110,6 +116,7 @@ puts 'Creating 10 fake user...'
   end
 end
 
+# user.skill = list_of_tags
 
 puts 'Finished!'
 

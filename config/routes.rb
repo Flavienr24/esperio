@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  authenticated :user do
+    root 'users#show', as: :authenticated_root
+  end
 
   resources :companies
 
   devise_scope :user do
-    resources :users, except: :destroy
+    resources :users, except: [:edit, :update, :destroy]
+    root to: "devise/sessions#new"
   end
+
 
   resources :projects, except: :destroy do
     resources :collaborations

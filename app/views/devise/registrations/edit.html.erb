@@ -4,7 +4,41 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :fullname,
+                required: true,
+                autofocus: true,
+                placeholder: "Laurent Deguil",
+                input_html: { autocomplete: "fullname" }%>
+    <%= f.input :country, as: :string,
+                required: true,
+                autofocus: true,
+                placeholder: "France",
+                input_html: { autocomplete: "country" }%>
+    <%= f.input :city,
+                required: true,
+                autofocus: true,
+                placeholder: "Marseille",
+                input_html: { autocomplete: "city" }%>
+    <%= f.input :function,
+                required: true,
+                autofocus: true,
+                placeholder: "Testeur",
+                input_html: { autocomplete: "function" }%>
+    <%= f.input :school,
+                required: true,
+                autofocus: true,
+                placeholder: "Le Roy Merlin",
+                input_html: { autocomplete: "school" }%>
+    <%= f.input :phone,
+                required: true,
+                autofocus: true,
+                placeholder: "+33 7 43 56 55 77",
+                input_html: { autocomplete: "phone" }%>
+    <%= f.association :company, as: :select,
+                      placeholder: "Feelows" %>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :skill_list, label: "Skills",
+                collection: $list_of_tags, as: :check_boxes %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
