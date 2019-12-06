@@ -22,8 +22,8 @@ class UsersController < ApplicationController
 
 
 
-    # @user = User.find(params[:id])
-    # @collaborations = @user.collaborations
+    @user = User.find(current_user.id)
+    @collaborations = @user.collaborations
   end
 
   def show
@@ -32,13 +32,12 @@ class UsersController < ApplicationController
     @myexpertises = @user.skill_list.each do |skill|
                         skill
                       end
-
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
 
     # @user = User.find(current_user.id)
   end
