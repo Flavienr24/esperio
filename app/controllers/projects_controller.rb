@@ -5,12 +5,14 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-
   def show
     @user = current_user
     @projects_I_lead = Project.where(user_id: @user.id)
     # @user.projects
-
+    @post = Post.new
+    @posts = @project.posts. select do |post|
+    post.persisted?
+    end
   end
 
   def new
