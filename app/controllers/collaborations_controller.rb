@@ -12,8 +12,6 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.new
   end
 
-  # A tester une fois les modules requis en front seront existant
-
   def create
     @project = Project.find(params[:project_id])
     @collaboration = Collaboration.new(collaboration_params)
