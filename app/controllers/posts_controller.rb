@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
     @project = Project.find(params[:project_id])
+    @post = Post.new(post_params)
     @post.project = @project
     if @post.save
       redirect_to project_path(@project)
@@ -23,6 +23,12 @@ class PostsController < ApplicationController
       # end
     end
   end
+
+    def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+      redirect_to project_path(@dose.project)
+    end
 
   private
 

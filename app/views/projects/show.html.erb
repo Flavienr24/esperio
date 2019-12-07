@@ -14,12 +14,13 @@
 <!-- Time line  -->
 
 <!--Contributions -->
+<%= render 'new/form', post: @post %>
 <h2><%#= pluralize @project.posts.size, 'post' %></h2>
  <%# if @posts.blank?%>
 Be the first to add a contribution for <%= @project.name %>
 <%# else %>
 <%# @project.posts.each do |post| %>
-  <%= render 'shared/form', post: @post%>
+  <%#= render 'shared/form', post: @post%>
   <%# end %>
   <%#end %>
 
