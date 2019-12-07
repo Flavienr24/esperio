@@ -97,7 +97,7 @@ puts 'Creating 10 fake user...'
     function: Faker::Job.title,
     school: Faker::University.name,
     company: feelows,
-    skill_list: $list_of_tags.sample
+    skill_list: $list_of_tags.sample(3)
   )
 
   user.save!
