@@ -1424,8 +1424,8 @@ skill_json = [
   }
 ]
 
-skill_json.each do |skill|
-  list_of_tags << skill[:skills]
+skill_json.each do |element|
+  list_of_tags << element[:skills]
 end
 
 puts 'Creating 10 fake user...'
@@ -1442,7 +1442,7 @@ puts 'Creating 10 fake user...'
     function: Faker::Job.title,
     school: Faker::University.name,
     company: feelows,
-    skill_list: list_of_tags.sample(3)
+    skill_list: list_of_tags.sample(rand(5..10))
   )
 
   user.save!
