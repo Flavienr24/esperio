@@ -1,28 +1,27 @@
-<style>
-.navbar-lewagon {
-justify-content: space-between;
-background: white;
-}
-.navbar-lewagon .navbar-collapse {
-flex-grow: 0;
-}
-.navbar-lewagon .navbar-brand img {
-width: 40px;
-}
-.avatar {
-  width: 40px;
-  border-radius: 50%;
-}
-.collapse {
-    display: block !important;
-}
+<div class="header-container navbar-expand-sm navbar-light navbar-lewagon space-between">
 
-</style>
+  <div class="searchContainer">
+    <i class="fa fa-search searchIcon"></i>
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon space-between">
-<div class="search">
-  <!-- remettre la search bar -->
-</div>
+    <%= simple_form_for users_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          placeholder: "Research a user",
+          class: 'searchBox'
+        %>
+        <% end %>
+    <!-- <div>
+      <a class="btn btn-filter dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filtres
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div> -->
+  </div>
+
   <div class="row mr-3">
   <div class="header-menu">
     <div class="notification">
