@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :projects, except: :destroy do
     resources :collaborations
-    resources :posts, only: [:new, :create]
+    resources :posts, except: [:update, :destroy]
   end
 end

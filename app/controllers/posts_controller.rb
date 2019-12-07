@@ -9,6 +9,9 @@ class PostsController < ApplicationController
     @project = Project.find(params[:project_id])
     @post = Post.new(post_params)
     @post.project = @project
+    @posts = @project.posts. select do |post|
+    post.persisted?
+    end
     if @post.save
       redirect_to project_path(@project)
       # respond_to do |format|
@@ -24,11 +27,11 @@ class PostsController < ApplicationController
     end
   end
 
-    def destroy
-      @post = Post.find(params[:id])
-      @post.destroy
-      redirect_to project_path(@dose.project)
-    end
+    # def destroy
+    #   @post = Post.find(params[:id])
+    #   @post.destroy
+    #   redirect_to project_path(@dose.project)
+    # end
 
   private
 

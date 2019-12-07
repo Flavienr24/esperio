@@ -1,7 +1,9 @@
-<%#= simple_form_for([ @project, @post ]) do |form| %>
-  <%#= form.input :content, as: :text %>
-  <%#= form.submit "Add a contribution", class:"btn btn-primary"%>
-<%# end %>
 
-<!--
-remote true -->
+<!--  Simple form page projet -->
+<%= simple_form_for([ @project, @post ]) do |form| %>
+  <%= form.input :content, as: :text %>
+  <%= form.submit "Add a contribution", class:"btn btn-primary"%>
+<% end %>
+
+<!-- TEA ajouter si Ajxa -->
+<!-- ,remote: true -->
