@@ -1,6 +1,5 @@
 <!-- Première partie de l'écran -->
 <!-- Description User -->
-<<<<<<< HEAD
 <div class="w-100 px-4 py-2 flat-card d-flex">
   <div class="id-user d-flex">
     <div class="avatar-l mr-3">
@@ -28,10 +27,6 @@
     <p>Network</p>
   </div>
   <div class="contact-cta">
-    <!-- Mettre condition pour afficher le EDIT profile si current_user = params:id -->
-    <%= link_to edit_user_registration_path(@user) do %>
-    <i class="fas fa-user-edit"></i>
-    <% end %>
     <i class="fas fa-envelope"></i>
   </div>
 </div>
@@ -57,7 +52,7 @@
 
       <div class="m-3">
         <% @projects_I_lead.each do |project|%>
-        <div class="flat-card">
+        <div class="floating-card">
           <h4><%= project.name %></h4>
           <p><%= project.description %></p>
           <p><%= project.status %></p>
