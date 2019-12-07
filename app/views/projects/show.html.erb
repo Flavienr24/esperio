@@ -14,18 +14,17 @@
 <!-- Time line  -->
 
 <!--Contributions -->
-<h2>
-<%= pluralize @project.posts.size, 'post' %>
-</h2>
-<div>
-  <%#= if @project.posts.blank? %>
-  Please add your contributions to <%= @project.name %>
-  <%#= else %>
-  <%#= @project.posts.each do |post| %>
-  <%= render 'posts/form', project: @project, post: @post%>
-  <%#= end %>
-  </div>
+<h2><%#= pluralize @project.posts.size, 'post' %></h2>
+ <%# if @posts.blank?%>
+Be the first to add a contribution for <%= @project.name %>
+<%# else %>
+<%# @project.posts.each do |post| %>
+  <%= render 'shared/form', post: @post%>
+  <%# end %>
+  <%#end %>
 
+
+<%#= render 'shared/form', project: @project, post: @post%>
 <!-- Collaborators -->
 <%= link_to ' Add Collaborators', project_collaborations_path(@project)%>
 

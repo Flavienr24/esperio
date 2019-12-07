@@ -9,6 +9,9 @@ class ProjectsController < ApplicationController
     @user = current_user
     @projects_I_lead = @user.projects
     @post = Post.new
+    # @posts = @project.posts. select do |post|
+    # post.persisted?
+    # end
   end
 
   def new
