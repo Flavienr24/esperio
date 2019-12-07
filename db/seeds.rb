@@ -6,21 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'json'
 require 'open-uri'
 require 'nokogiri'
 require 'faker'
-
-# list_of_tags = []
-
-# filepath = './db/migrate/skills.json'
-
-# hash_of_skills = File.read(filepath)
-
-# skills_parse = JSON.parse(hash_of_skills)
-
-# list_of_tags = skills_parse[:skills]
-
 
 puts 'Clean database...'
 
@@ -29,7 +17,1416 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
+list_of_tags = []
+
 feelows = Company.create(name: 'Feellows')
+
+skill_json = [
+  {
+    "web-scraper-order": "1575731012-101",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "School"
+  },
+  {
+    "web-scraper-order": "1575731012-182",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Bioinformatics and Computational Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-139",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Models"
+  },
+  {
+    "web-scraper-order": "1575731012-111",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Finite Element Method"
+  },
+  {
+    "web-scraper-order": "1575731012-102",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "ANOVA"
+  },
+  {
+    "web-scraper-order": "1575731012-30",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Western Blot"
+  },
+  {
+    "web-scraper-order": "1575731012-168",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cell Culture"
+  },
+  {
+    "web-scraper-order": "1575731012-297",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Food"
+  },
+  {
+    "web-scraper-order": "1575731012-55",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Conferences"
+  },
+  {
+    "web-scraper-order": "1575731012-250",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Chemical Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-45",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Thin Films"
+  },
+  {
+    "web-scraper-order": "1575731012-196",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "RNA"
+  },
+  {
+    "web-scraper-order": "1575731012-243",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Computational Fluid Dynamics"
+  },
+  {
+    "web-scraper-order": "1575731012-66",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "pH"
+  },
+  {
+    "web-scraper-order": "1575731012-195",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cell Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-31",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nanoparticles"
+  },
+  {
+    "web-scraper-order": "1575731012-218",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Flow Cytometry"
+  },
+  {
+    "web-scraper-order": "1575731012-125",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Polymer Chemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-42",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Correction"
+  },
+  {
+    "web-scraper-order": "1575731012-275",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Mind"
+  },
+  {
+    "web-scraper-order": "1575731012-224",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Methodology"
+  },
+  {
+    "web-scraper-order": "1575731012-191",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Statistical Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-201",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Mice"
+  },
+  {
+    "web-scraper-order": "1575731012-293",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Diabetes"
+  },
+  {
+    "web-scraper-order": "1575731012-301",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Rats"
+  },
+  {
+    "web-scraper-order": "1575731012-148",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Immunohistochemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-193",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Journal Impact Factor"
+  },
+  {
+    "web-scraper-order": "1575731012-282",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Time"
+  },
+  {
+    "web-scraper-order": "1575731012-74",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Philosophy"
+  },
+  {
+    "web-scraper-order": "1575731012-149",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Atoms"
+  },
+  {
+    "web-scraper-order": "1575731012-107",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Reliability"
+  },
+  {
+    "web-scraper-order": "1575731012-144",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Solar"
+  },
+  {
+    "web-scraper-order": "1575731012-264",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Industry"
+  },
+  {
+    "web-scraper-order": "1575731012-227",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Column"
+  },
+  {
+    "web-scraper-order": "1575731012-128",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Acids"
+  },
+  {
+    "web-scraper-order": "1575731012-216",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Survey"
+  },
+  {
+    "web-scraper-order": "1575731012-103",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Innovation"
+  },
+  {
+    "web-scraper-order": "1575731012-138",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Simulink"
+  },
+  {
+    "web-scraper-order": "1575731012-69",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Electrical Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-70",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Real-Time PCR"
+  },
+  {
+    "web-scraper-order": "1575731012-242",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Ethics"
+  },
+  {
+    "web-scraper-order": "1575731012-256",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Higher Education"
+  },
+  {
+    "web-scraper-order": "1575731012-289",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Molecular Dynamics"
+  },
+  {
+    "web-scraper-order": "1575731012-267",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Social Science"
+  },
+  {
+    "web-scraper-order": "1575731012-186",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "India"
+  },
+  {
+    "web-scraper-order": "1575731012-169",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "ANSYS"
+  },
+  {
+    "web-scraper-order": "1575731012-225",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Gromacs"
+  },
+  {
+    "web-scraper-order": "1575731012-258",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Oil"
+  },
+  {
+    "web-scraper-order": "1575731012-154",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "XRD Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-141",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Next Generation Sequencing"
+  },
+  {
+    "web-scraper-order": "1575731012-174",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Teaching"
+  },
+  {
+    "web-scraper-order": "1575731012-22",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "MATLAB"
+  },
+  {
+    "web-scraper-order": "1575731012-286",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Deep Learning"
+  },
+  {
+    "web-scraper-order": "1575731012-210",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Drugs"
+  },
+  {
+    "web-scraper-order": "1575731012-77",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Publishing"
+  },
+  {
+    "web-scraper-order": "1575731012-226",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Computer Science"
+  },
+  {
+    "web-scraper-order": "1575731012-285",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Soil Science"
+  },
+  {
+    "web-scraper-order": "1575731012-253",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Manuscripts"
+  },
+  {
+    "web-scraper-order": "1575731012-161",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cancer Research"
+  },
+  {
+    "web-scraper-order": "1575731012-59",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Attitude"
+  },
+  {
+    "web-scraper-order": "1575731012-180",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Articles"
+  },
+  {
+    "web-scraper-order": "1575731012-277",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Heat Transfer"
+  },
+  {
+    "web-scraper-order": "1575731012-43",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Materials Science"
+  },
+  {
+    "web-scraper-order": "1575731012-162",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Journalism"
+  },
+  {
+    "web-scraper-order": "1575731012-177",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cell Line"
+  },
+  {
+    "web-scraper-order": "1575731012-271",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Big Data"
+  },
+  {
+    "web-scraper-order": "1575731012-119",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Program"
+  },
+  {
+    "web-scraper-order": "1575731012-219",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Stress"
+  },
+  {
+    "web-scraper-order": "1575731012-104",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Classification"
+  },
+  {
+    "web-scraper-order": "1575731012-56",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Concrete"
+  },
+  {
+    "web-scraper-order": "1575731012-262",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Polymerase Chain Reaction"
+  },
+  {
+    "web-scraper-order": "1575731012-50",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Bioinformatics"
+  },
+  {
+    "web-scraper-order": "1575731012-44",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Publications"
+  },
+  {
+    "web-scraper-order": "1575731012-99",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "R"
+  },
+  {
+    "web-scraper-order": "1575731012-79",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Immunology"
+  },
+  {
+    "web-scraper-order": "1575731012-179",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Biotechnology"
+  },
+  {
+    "web-scraper-order": "1575731012-291",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Scanning Electron Microscopy"
+  },
+  {
+    "web-scraper-order": "1575731012-239",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Carbon"
+  },
+  {
+    "web-scraper-order": "1575731012-47",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Staining"
+  },
+  {
+    "web-scraper-order": "1575731012-41",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Academic Journals"
+  },
+  {
+    "web-scraper-order": "1575731012-135",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nanoparticle Research"
+  },
+  {
+    "web-scraper-order": "1575731012-190",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Collaboration"
+  },
+  {
+    "web-scraper-order": "1575731012-109",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cancer Cell Line"
+  },
+  {
+    "web-scraper-order": "1575731012-39",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Antibodies"
+  },
+  {
+    "web-scraper-order": "1575731012-208",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Gene Expression"
+  },
+  {
+    "web-scraper-order": "1575731012-261",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Synthesis"
+  },
+  {
+    "web-scraper-order": "1575731012-237",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Material Characterization"
+  },
+  {
+    "web-scraper-order": "1575731012-34",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Publication"
+  },
+  {
+    "web-scraper-order": "1575731012-122",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Instruments"
+  },
+  {
+    "web-scraper-order": "1575731012-287",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "UV-Visible Spectroscopy"
+  },
+  {
+    "web-scraper-order": "1575731012-231",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Training"
+  },
+  {
+    "web-scraper-order": "1575731012-46",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Mechanical Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-80",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Gels"
+  },
+  {
+    "web-scraper-order": "1575731012-90",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Materials Chemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-164",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Papers"
+  },
+  {
+    "web-scraper-order": "1575731012-276",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Solubility"
+  },
+  {
+    "web-scraper-order": "1575731012-214",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Plants"
+  },
+  {
+    "web-scraper-order": "1575731012-146",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Polymers"
+  },
+  {
+    "web-scraper-order": "1575731012-235",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Electrochemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-240",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "SDS-PAGE"
+  },
+  {
+    "web-scraper-order": "1575731012-228",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Powders"
+  },
+  {
+    "web-scraper-order": "1575731012-137",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Academic Writing"
+  },
+  {
+    "web-scraper-order": "1575731012-194",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Data Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-245",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Protein Purification"
+  },
+  {
+    "web-scraper-order": "1575731012-278",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Peptides"
+  },
+  {
+    "web-scraper-order": "1575731012-121",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Heat"
+  },
+  {
+    "web-scraper-order": "1575731012-151",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Resistance"
+  },
+  {
+    "web-scraper-order": "1575731012-147",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "DMSO"
+  },
+  {
+    "web-scraper-order": "1575731012-140",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Time Series"
+  },
+  {
+    "web-scraper-order": "1575731012-126",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Dissertations"
+  },
+  {
+    "web-scraper-order": "1575731012-173",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Machine Learning"
+  },
+  {
+    "web-scraper-order": "1575731012-118",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cancer Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-115",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Civil Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-83",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Advanced Statistical Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-170",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "SPSS"
+  },
+  {
+    "web-scraper-order": "1575731012-88",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nano"
+  },
+  {
+    "web-scraper-order": "1575731012-272",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Microsoft Office Excel"
+  },
+  {
+    "web-scraper-order": "1575731012-181",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Filing"
+  },
+  {
+    "web-scraper-order": "1575731012-92",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Neural Networks"
+  },
+  {
+    "web-scraper-order": "1575731012-58",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "FLUENT"
+  },
+  {
+    "web-scraper-order": "1575731012-36",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Solvents"
+  },
+  {
+    "web-scraper-order": "1575731012-132",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nanomaterials"
+  },
+  {
+    "web-scraper-order": "1575731012-48",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Calculations"
+  },
+  {
+    "web-scraper-order": "1575731012-183",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Buffer"
+  },
+  {
+    "web-scraper-order": "1575731012-62",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Analytical Chemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-35",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Research Papers"
+  },
+  {
+    "web-scraper-order": "1575731012-221",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Extraction"
+  },
+  {
+    "web-scraper-order": "1575731012-220",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Materials"
+  },
+  {
+    "web-scraper-order": "1575731012-60",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Bacteria"
+  },
+  {
+    "web-scraper-order": "1575731012-97",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Light"
+  },
+  {
+    "web-scraper-order": "1575731012-284",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Glass"
+  },
+  {
+    "web-scraper-order": "1575731012-178",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cell Culture Techniques"
+  },
+  {
+    "web-scraper-order": "1575731012-38",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Extracts"
+  },
+  {
+    "web-scraper-order": "1575731012-205",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Modeling"
+  },
+  {
+    "web-scraper-order": "1575731012-78",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Connectivity"
+  },
+  {
+    "web-scraper-order": "1575731012-222",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nanotechnology"
+  },
+  {
+    "web-scraper-order": "1575731012-159",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "PEAKS"
+  },
+  {
+    "web-scraper-order": "1575731012-81",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-280",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Agriculture"
+  },
+  {
+    "web-scraper-order": "1575731012-72",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Citations"
+  },
+  {
+    "web-scraper-order": "1575731012-241",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Gaussian"
+  },
+  {
+    "web-scraper-order": "1575731012-158",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Botany"
+  },
+  {
+    "web-scraper-order": "1575731012-143",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Renewable Energy"
+  },
+  {
+    "web-scraper-order": "1575731012-251",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Measurement"
+  },
+  {
+    "web-scraper-order": "1575731012-254",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Particle"
+  },
+  {
+    "web-scraper-order": "1575731012-124",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Water"
+  },
+  {
+    "web-scraper-order": "1575731012-246",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Protein Expression"
+  },
+  {
+    "web-scraper-order": "1575731012-298",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Emotion"
+  },
+  {
+    "web-scraper-order": "1575731012-152",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Sustainability"
+  },
+  {
+    "web-scraper-order": "1575731012-51",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Websites"
+  },
+  {
+    "web-scraper-order": "1575731012-279",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Ethanol"
+  },
+  {
+    "web-scraper-order": "1575731012-33",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Statistics"
+  },
+  {
+    "web-scraper-order": "1575731012-249",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Informality"
+  },
+  {
+    "web-scraper-order": "1575731012-67",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "ELISA"
+  },
+  {
+    "web-scraper-order": "1575731012-91",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Universities"
+  },
+  {
+    "web-scraper-order": "1575731012-53",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Graphene"
+  },
+  {
+    "web-scraper-order": "1575731012-106",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Bioinformatic Tools"
+  },
+  {
+    "web-scraper-order": "1575731012-105",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "English"
+  },
+  {
+    "web-scraper-order": "1575731012-145",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Organic"
+  },
+  {
+    "web-scraper-order": "1575731012-213",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Matrix"
+  },
+  {
+    "web-scraper-order": "1575731012-202",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "X-ray Diffraction"
+  },
+  {
+    "web-scraper-order": "1575731012-244",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Finite Element Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-54",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Free Will"
+  },
+  {
+    "web-scraper-order": "1575731012-65",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Image Processing"
+  },
+  {
+    "web-scraper-order": "1575731012-142",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Geographic Information System"
+  },
+  {
+    "web-scraper-order": "1575731012-73",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Materials Engineering"
+  },
+  {
+    "web-scraper-order": "1575731012-288",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Energy"
+  },
+  {
+    "web-scraper-order": "1575731012-198",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Physics"
+  },
+  {
+    "web-scraper-order": "1575731012-150",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Membranes"
+  },
+  {
+    "web-scraper-order": "1575731012-165",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Molecular Biological Techniques"
+  },
+  {
+    "web-scraper-order": "1575731012-192",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Biochemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-127",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Dyes"
+  },
+  {
+    "web-scraper-order": "1575731012-184",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Questionnaire"
+  },
+  {
+    "web-scraper-order": "1575731012-112",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Business"
+  },
+  {
+    "web-scraper-order": "1575731012-207",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Scientific Research"
+  },
+  {
+    "web-scraper-order": "1575731012-131",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cloud Computing"
+  },
+  {
+    "web-scraper-order": "1575731012-268",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Semiconductor"
+  },
+  {
+    "web-scraper-order": "1575731012-187",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "DNA"
+  },
+  {
+    "web-scraper-order": "1575731012-273",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Social Media"
+  },
+  {
+    "web-scraper-order": "1575731012-211",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Sample Size"
+  },
+  {
+    "web-scraper-order": "1575731012-82",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Transfection"
+  },
+  {
+    "web-scraper-order": "1575731012-236",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Dataset"
+  },
+  {
+    "web-scraper-order": "1575731012-68",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Assays"
+  },
+  {
+    "web-scraper-order": "1575731012-155",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Sequencing"
+  },
+  {
+    "web-scraper-order": "1575731012-215",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Steel"
+  },
+  {
+    "web-scraper-order": "1575731012-157",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Salts"
+  },
+  {
+    "web-scraper-order": "1575731012-230",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Simulators"
+  },
+  {
+    "web-scraper-order": "1575731012-281",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "DNA Sequencing"
+  },
+  {
+    "web-scraper-order": "1575731012-209",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Plating"
+  },
+  {
+    "web-scraper-order": "1575731012-252",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Fish"
+  },
+  {
+    "web-scraper-order": "1575731012-266",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Plant Biotechnology"
+  },
+  {
+    "web-scraper-order": "1575731012-29",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Methods"
+  },
+  {
+    "web-scraper-order": "1575731012-76",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Interpretation"
+  },
+  {
+    "web-scraper-order": "1575731012-130",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Sensors"
+  },
+  {
+    "web-scraper-order": "1575731012-57",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Chemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-49",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Psychology"
+  },
+  {
+    "web-scraper-order": "1575731012-116",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Fungi"
+  },
+  {
+    "web-scraper-order": "1575731012-172",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Reasoning"
+  },
+  {
+    "web-scraper-order": "1575731012-248",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Children"
+  },
+  {
+    "web-scraper-order": "1575731012-94",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Fluorescence"
+  },
+  {
+    "web-scraper-order": "1575731012-98",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "References"
+  },
+  {
+    "web-scraper-order": "1575731012-23",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Molecular Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-238",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Solar Cells"
+  },
+  {
+    "web-scraper-order": "1575731012-75",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Brain"
+  },
+  {
+    "web-scraper-order": "1575731012-52",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Climate Change"
+  },
+  {
+    "web-scraper-order": "1575731012-108",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Enzymes"
+  },
+  {
+    "web-scraper-order": "1575731012-290",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Gas"
+  },
+  {
+    "web-scraper-order": "1575731012-134",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Programming in MATLAB"
+  },
+  {
+    "web-scraper-order": "1575731012-26",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Publisher"
+  },
+  {
+    "web-scraper-order": "1575731012-223",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Ecology"
+  },
+  {
+    "web-scraper-order": "1575731012-24",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Books"
+  },
+  {
+    "web-scraper-order": "1575731012-87",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Soil"
+  },
+  {
+    "web-scraper-order": "1575731012-265",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Happiness"
+  },
+  {
+    "web-scraper-order": "1575731012-206",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Neuroscience"
+  },
+  {
+    "web-scraper-order": "1575731012-64",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Organic Chemistry"
+  },
+  {
+    "web-scraper-order": "1575731012-89",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Coating"
+  },
+  {
+    "web-scraper-order": "1575731012-296",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Internet of Things"
+  },
+  {
+    "web-scraper-order": "1575731012-153",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Journal Articles"
+  },
+  {
+    "web-scraper-order": "1575731012-212",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Comsol Multiphysics"
+  },
+  {
+    "web-scraper-order": "1575731012-259",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Molecular Cell Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-185",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Microbiology"
+  },
+  {
+    "web-scraper-order": "1575731012-199",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "High-Performance Liquid Chromatography"
+  },
+  {
+    "web-scraper-order": "1575731012-117",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Applied Mathematics"
+  },
+  {
+    "web-scraper-order": "1575731012-156",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "RNA Extraction"
+  },
+  {
+    "web-scraper-order": "1575731012-294",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Antennas"
+  },
+  {
+    "web-scraper-order": "1575731012-295",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Health"
+  },
+  {
+    "web-scraper-order": "1575731012-257",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Medicine"
+  },
+  {
+    "web-scraper-order": "1575731012-247",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Genetics"
+  },
+  {
+    "web-scraper-order": "1575731012-270",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "DNA Extraction"
+  },
+  {
+    "web-scraper-order": "1575731012-260",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Algorithms"
+  },
+  {
+    "web-scraper-order": "1575731012-95",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Structural Equation Modeling"
+  },
+  {
+    "web-scraper-order": "1575731012-100",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Soil Analysis"
+  },
+  {
+    "web-scraper-order": "1575731012-203",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Polymerization"
+  },
+  {
+    "web-scraper-order": "1575731012-113",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Wireless Sensor Network"
+  },
+  {
+    "web-scraper-order": "1575731012-263",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Mouse Models"
+  },
+  {
+    "web-scraper-order": "1575731012-300",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Battery"
+  },
+  {
+    "web-scraper-order": "1575731012-189",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Molecular Dynamics Simulation"
+  },
+  {
+    "web-scraper-order": "1575731012-28",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Running"
+  },
+  {
+    "web-scraper-order": "1575731012-171",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Images"
+  },
+  {
+    "web-scraper-order": "1575731012-85",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Students"
+  },
+  {
+    "web-scraper-order": "1575731012-292",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Computer"
+  },
+  {
+    "web-scraper-order": "1575731012-176",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Mathematics"
+  },
+  {
+    "web-scraper-order": "1575731012-163",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Abaqus"
+  },
+  {
+    "web-scraper-order": "1575731012-200",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Proteins"
+  },
+  {
+    "web-scraper-order": "1575731012-110",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Pressure"
+  },
+  {
+    "web-scraper-order": "1575731012-114",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Environmentalism"
+  },
+  {
+    "web-scraper-order": "1575731012-133",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Vectorization"
+  },
+  {
+    "web-scraper-order": "1575731012-197",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Coding"
+  },
+  {
+    "web-scraper-order": "1575731012-299",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Liquids"
+  },
+  {
+    "web-scraper-order": "1575731012-283",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Qualitative Research"
+  },
+  {
+    "web-scraper-order": "1575731012-37",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Plasmids"
+  },
+  {
+    "web-scraper-order": "1575731012-61",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Data"
+  },
+  {
+    "web-scraper-order": "1575731012-32",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Thinking"
+  },
+  {
+    "web-scraper-order": "1575731012-63",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Graphs"
+  },
+  {
+    "web-scraper-order": "1575731012-96",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Economics"
+  },
+  {
+    "web-scraper-order": "1575731012-120",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Protein Purification Techniques"
+  },
+  {
+    "web-scraper-order": "1575731012-167",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Software"
+  },
+  {
+    "web-scraper-order": "1575731012-255",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Biology"
+  },
+  {
+    "web-scraper-order": "1575731012-123",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Cloning"
+  },
+  {
+    "web-scraper-order": "1575731012-40",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Artificial Intelligence"
+  },
+  {
+    "web-scraper-order": "1575731012-25",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Writing"
+  },
+  {
+    "web-scraper-order": "1575731012-86",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Regression"
+  },
+  {
+    "web-scraper-order": "1575731012-84",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Research Topics"
+  },
+  {
+    "web-scraper-order": "1575731012-229",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Data Mining"
+  },
+  {
+    "web-scraper-order": "1575731012-160",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Nanocomposites"
+  },
+  {
+    "web-scraper-order": "1575731012-274",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "3D"
+  },
+  {
+    "web-scraper-order": "1575731012-269",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Thin Films and Nanotechnology"
+  },
+  {
+    "web-scraper-order": "1575731012-71",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Python"
+  },
+  {
+    "web-scraper-order": "1575731012-27",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Learning"
+  },
+  {
+    "web-scraper-order": "1575731012-204",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Indexes"
+  },
+  {
+    "web-scraper-order": "1575731012-166",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "PCR"
+  },
+  {
+    "web-scraper-order": "1575731012-233",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Remote Sensing"
+  },
+  {
+    "web-scraper-order": "1575731012-188",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Education"
+  },
+  {
+    "web-scraper-order": "1575731012-175",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Primer"
+  },
+  {
+    "web-scraper-order": "1575731012-232",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Color"
+  },
+  {
+    "web-scraper-order": "1575731012-217",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Electrodes"
+  },
+  {
+    "web-scraper-order": "1575731012-129",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Attachment"
+  },
+  {
+    "web-scraper-order": "1575731012-234",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "microRNA"
+  },
+  {
+    "web-scraper-order": "1575731012-136",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Tissue"
+  },
+  {
+    "web-scraper-order": "1575731012-93",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Plant Extracts"
+  }
+]
+
+skill_json.each do |skill|
+  list_of_tags << skill[:skills]
+end
 
 puts 'Creating 10 fake user...'
 
@@ -45,7 +1442,7 @@ puts 'Creating 10 fake user...'
     function: Faker::Job.title,
     school: Faker::University.name,
     company: feelows,
-    skill_list: $list_of_tags.sample(3)
+    skill_list: list_of_tags.sample(3)
   )
 
   user.save!
@@ -123,3 +1520,4 @@ puts 'Finished!'
 # puts User.count
 # puts Project.count
 # puts Collaboration.count
+
