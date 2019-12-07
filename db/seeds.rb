@@ -6,10 +6,68 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+# require 'json'
 require 'open-uri'
 require 'nokogiri'
 require 'faker'
+
+# list_of_tags = []
+
+# filepath = './db/migrate/skills.json'
+
+# hash_of_skills = File.read(filepath)
+
+# skills_parse = JSON.parse(hash_of_skills)
+
+# list_of_tags = skills_parse[:skills]
+
+
+puts 'Clean database...'
+
+Company.destroy_all
+User.destroy_all
+Project.destroy_all
+Collaboration.destroy_all
+
+feelows = Company.create(name: 'Feellows')
+
+puts 'Creating 10 fake user...'
+
+10.times do
+  user = User.new(
+    fullname: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "password",
+    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+    phone: Faker::PhoneNumber.phone_number_with_country_code,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    function: Faker::Job.title,
+    school: Faker::University.name,
+    company: feelows,
+    skill_list: $list_of_tags.sample(3)
+  )
+
+  user.save!
+
+
+  2.times do
+    project = Project.new(
+    name: Faker::Restaurant.name,
+    description: Faker::Lorem.sentence,
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: user
+    )
+    project.save!
+  end
+end
+
+puts 'Finished!'
+
+ puts "company created : #{Company.count} "
+ puts "user created : #{User.count} "
 
 # name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
 # url = "https://www.researchgate.net/profile/#{name}"
@@ -65,60 +123,3 @@ require 'faker'
 # puts User.count
 # puts Project.count
 # puts Collaboration.count
-
-
-puts 'Clean database...'
-
-Company.destroy_all
-User.destroy_all
-Project.destroy_all
-Collaboration.destroy_all
-
-feelows = Company.create(name: 'Feellows')
-
-
-puts Company.count
-
-puts 'Creating 10 fake user...'
-
-
-
-
-
-10.times do
-  user = User.new(
-    fullname: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: "password",
-    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
-    phone: Faker::PhoneNumber.phone_number_with_country_code,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    function: Faker::Job.title,
-    school: Faker::University.name,
-    company: feelows,
-    skill_list: $list_of_tags.sample
-  )
-
-  user.save!
-
-
-  2.times do
-    project = Project.new(
-    name: Faker::Restaurant.name,
-    description: Faker::Lorem.sentence,
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: user
-    )
-    project.save!
-  end
-end
-
-# user.skill = list_of_tags
-
-puts 'Finished!'
-
- puts "company created : #{Company.count} "
- puts "user created : #{User.count} "
