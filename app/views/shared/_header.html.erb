@@ -1,20 +1,58 @@
-<div id="header-container">
-  <div class="search-bar">
-    <!-- place the search here --> search
-  </div>
+<style>
+.navbar-lewagon {
+justify-content: space-between;
+background: white;
+}
+.navbar-lewagon .navbar-collapse {
+flex-grow: 0;
+}
+.navbar-lewagon .navbar-brand img {
+width: 40px;
+}
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+.collapse {
+    display: block !important;
+}
+
+</style>
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon space-between">
+<div class="search">
+  <!-- remettre la search bar -->
+</div>
+  <div class="row mr-3">
   <div class="header-menu">
     <div class="notification">
       <i class="fas fa-bell"></i>
     </div>
-    <div class="avatar-menu">
-      <div class="avatar-s">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-s", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <!-- id: "landing-headerDropdown" A placer après la class -->
-      </div>
-      <div class="avatar-dropdown">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </div>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <div id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
         <i class="fas fa-caret-down"></i>
-      </div>
-    </div>
+        </div>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Log out</a>
+          <a class="dropdown-item" href="#">Profil</a>
+          <a class="dropdown-item" href="#">Settings</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
+</div>
+
+ <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> -->
 

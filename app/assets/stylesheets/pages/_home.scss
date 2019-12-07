@@ -1,7 +1,10 @@
 .bg-img {
   background: linear-gradient(269.84deg, rgba(82, 82, 82, 0.65) 0.11%, rgba(28, 56, 147, 0.37) 96.58%), rgba(196, 196, 196, 0.4) url('https://source.unsplash.com/featured/?science');
-  height: 100vh;
-  background-position: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  background-position: top;
   background-size: cover;
+  padding-bottom: 60px;
 }
 

@@ -7,7 +7,8 @@ class ProjectsController < ApplicationController
 
   def show
     @user = current_user
-    @projects_I_lead = @user.projects
+    @projects_I_lead = Project.where(user_id: @user.id)
+    # @user.projects
     @post = Post.new
     @posts = @project.posts. select do |post|
     post.persisted?
@@ -37,6 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project = Project.find(params[:id])
     @project.update(project_params)
     redirect_to project_path
   end
