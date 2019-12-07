@@ -2,31 +2,32 @@
   <div class="flat-card">
     <div class="px-5 mt-5">
       <div class="d-flex justify-content-center pt-4 mb-2"><h3>New user profile</h3></div>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-      <h4 class="mt-4 mb-4">Do you have a ResearchGate account ?</h4>
 
 <!-- Scrapping RS form -->
-      <div class="form-inputs">
-        <%= f.input :fullname,
-        required: true,
-        autofocus: true,
-        placeholder: "John_Lascience21",
-        input_html: { autocomplete: "fullname" } %>
-        <div class="light-description">eg. https://researchgate.net/profile/<strong>username</strong></div>
-        </div>
-        <div class="d-flex justify-content-end">
-          <%= link_to "Import profile", "#", class:"mr-0 btn btn-secondary" %><br />
-        </div>
+      <h4 class="mt-4 mb-4">Do you have a ResearchGate account ?</h4>
+      <%= form_tag user_get_researchgate_info_path, method: :post do %>
+        <input type="text" name="username" id="username" placeholder:="ResearchGate username account" required>
+        <button name="public"  type="submit" class="btn btn-primary" data-toggle="button">ReseachGate</button>
+      <% end %>
 <!-- Scrapping RS form -->
 
         <h4 class="mt-4 mb-4">Complete your profile</h4>
+         <!-- <#%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> -->
+        <%= simple_form_for @user do |f| %>
+        <%= f.error_notification %>
       <div class="form-inputs">
-        <%= f.input :fullname,
+        <%= f.text_field :fullname,
         required: true,
         autofocus: true,
+        value: session[:first_name]&.concat(" " + session[:last_name]),
         placeholder: "John Lascience",
         input_html: { autocomplete: "fullname" } %>
+        <%= f.text_field :skill_list,
+        required: true,
+        autofocus: true,
+        value: session[:skills],
+        placeholder: "Skills",
+        input_html: { autocomplete: "skills"} %>
         <%= f.input :country, as: :string,
         required: true,
         autofocus: true,
