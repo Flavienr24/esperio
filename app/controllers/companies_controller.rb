@@ -6,11 +6,25 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @expertises_hash = Hash.new
+    @users = User.all
+    @users.each do |user|
+      puts user.fullname
+      user.skills.each do |skill|
+        if @expertises_hash.key?(skill.name)
+          @expertises_hash[skill.name] += 1
+        else
+          @expertises_hash[skill.name] = 1
+        end
+      end
+    end
+   @expertises_hash = @expertises_hash.sort_by { |skill, number| number }.reverse.to_h
   end
 
   def new
     @company = Company.new
   end
+
 
   # A tester une fois les modules requis en front seront existant
 

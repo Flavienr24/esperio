@@ -1,4 +1,7 @@
 <h1> Reussi</h1>
 
+<% @expertises_hash.each do |skill, number| %>
+<p><%= skill %> : <%= number %></p>
+<% end %>
 
 <%= link_to "Company Feellows", users_path, class:"link-label" %>
