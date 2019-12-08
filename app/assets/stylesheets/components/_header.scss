@@ -52,6 +52,16 @@ width: 40px;
     display: block !important;
 }
 
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding: 10px;
+  & a {
+    color: $dark-grey;
+  }
+
+}
 
 // SEARCH BAR
 .searchContainer {
