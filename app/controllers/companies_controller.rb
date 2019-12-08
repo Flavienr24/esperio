@@ -19,6 +19,7 @@ class CompaniesController < ApplicationController
       end
     end
    @expertises_hash = @expertises_hash.sort_by { |skill, number| number }.reverse.to_h
+  gon.expertises_hash = @expertises_hash
   end
 
   def new
