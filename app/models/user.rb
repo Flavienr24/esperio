@@ -16,19 +16,13 @@ class User < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :fullname_search,
-    :against => [:fullname]
-
-  # pg_search_scope :global_search_by_fullname_and_skills,
-  #   against: [:fullname],
-  #   using: {
-  #     tsearch: { any_word: true }
-  #   }
-
-   #  pg_search_scope :global_search_by_fullname_and_skills,
-   #  against: [:fullname],
-   #  :associated_against => {
-   #    :tags => [:name]
-   # }
+    against: [:fullname],
+    associated_against: {
+      projects: [:name]
+    },
+    using: {
+      tsearch: { any_word: true }
+    }
 
   validates :fullname, presence: true
   validates :phone, presence: true
