@@ -1,0 +1,64 @@
+<div class="flat-card">
+<h1>Search Collaborators</h1>
+<div class="tab">
+  <div class="tab-header">
+    tab header
+  </div>
+    <div class="row">
+
+      <% @users.each do |user| %>
+        <div class="tab_row_user d-flex">
+          <div class="btn btn-rounded"></div>
+          <div> avatar</div>
+          <div class="mini-card">
+            <p>name</p>
+            <div class="light-description">description fonction</div>
+          </div>
+          <div class="stat-label">
+          <%#= @mycollaborations.count%>
+            <div class="stat-number"><%= @user.collaborations.count%></div>
+            <p>Collaborations</p>
+          </div>
+          <div class="stat-label">
+          <%#= projects.count%>
+            <div class="stat-number">32</div>
+          </div>
+          <div class="ellipse"></div>
+          <div class="last-connex"> time.sample</div>
+        </div>
+      <% end %>
+    </div>
+    </div>
+</div>
+
+  <div>
+ <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 col-md-6 d-flex">
+        <img src="${user.avatar}" alt="avatar">
+        <h2><%= user.fullname %> </h2>
+        <p><%= user.function %></p>
+        <!-- <p>Collaborations: <%# @user.collaborations.count%></p> -->
+        <p> Responses: </p>
+        <p> Projects lead: <%= user.projects.count%></p>
+        <p>Last Connection:   </p>
+        <%= user.email %>
+        <%= link_to 'Profile', user_profile_path(user), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= simple_form_for users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Research a user"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+  <% end %>
+
+  <div id="skills">
+    <%= render 'user', users: @users %>
+  </div>
+
