@@ -35,13 +35,14 @@
 
 
 .link-label {
-  margin: 10px;
+  padding: 10px;
   text-transform: uppercase;
   color: $green-blue;
   font-size: 12px;
   font-weight: bold;
   &:hover {
     color: $dark-blue;
+    text-decoration: none;
   }
 }
 
