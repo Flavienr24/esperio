@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
     @posts = @project.posts. select do |post|
     post.persisted?
     end
+    @collaborations = @user.collaborations
+     # @myexpertises = @user.skill_list
   end
 
   def new
