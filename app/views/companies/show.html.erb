@@ -1,4 +1,6 @@
 
+
+<%= %>
 <%= link_to "Company Feellows", users_path, class:"link-label" %>
 
 <% @expertises_hash.each do |skill, number| %>
@@ -6,9 +8,9 @@
 <% end %>
 
 <div id="container"></div>
-
+  <%=  @expertises_hash.to_json %>
 <script>
-  alert(gon.expertises_hash)
+  gon.expertises_hash
 document.addEventListener('DOMContentLoaded', function () {
         var myChart = Highcharts.chart('container', {
     chart: {
