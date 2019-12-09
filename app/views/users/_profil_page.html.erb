@@ -100,43 +100,17 @@
     <div class="flat-card my-4 px-4 py-2">
       <%#= @mynetworks.count%>
       <h3>Network</h3>
-      <div class="d-flex justify-content-start align-items-center p-2">
+      <div class="p-2">
+        <% User.order(rand(1..User.count)).first(5).each do |user| %>
         <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
+        <div class="d-flex justify-content-start align-items-center p-2">
+          <div class="avatar-m mr-3"><%= image_tag user.avatar %></div>
+          <div class="">
+            <p><%= user.fullname %></p>
+            <div class="light-description"><%= user.function %></div>
+          </div>
         </div>
-        <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
-        </div>
-        <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
-        </div>
-        <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
-        </div>
-        <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
-        </div>
-        <!-- Profile mini card -->
-        <div class="avatar-m mr-3">user.avatar</div>
-        <div class="">
-          <p>user.name</p>
-          <div class="light-description"> user.function</div>
-        </div>
+        <% end %>
       </div>
       <!-- end -->
       <div class="d-flex justify-content-end ">
