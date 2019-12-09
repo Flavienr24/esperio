@@ -45,10 +45,10 @@
             <%= f.input :project_tags,
                       autofocus: true,
                       placeholder: "Separated tags with commas",
-                      input_html: { autocomplete: "true" }
+                      input_html: { autocomplete: "true", 'data-role':"tagsinput" }
                       %>
-            <div>
-              <% @project.project_tags.each do |tag| %>
+            <div class="d-flex flex-wrap">
+              <% @project.project_tags.join.split(',').each do |tag| %>
                 <div class="tag-expertise">
                   <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
                   <%= tag.upcase %>
