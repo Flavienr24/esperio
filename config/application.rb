@@ -8,8 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Esperio
   class Application < Rails::Application
-  # ligne pour ajaxa form
-   # config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     config.generators do |generate|
           generate.assets false
           generate.helper false

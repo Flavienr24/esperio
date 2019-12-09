@@ -1,32 +1,114 @@
-<h1> Search Collaborators</h1>
+<div id="title-collab">
+<h1>Search-Collaborators</h1>
+</div>
+<table id="collaborators" >
+<thead>
+<tr>
+<th>Bouton</th>
+<th>Name</th>
+<th>Coll</th>
+<th>Responses</th>
+<th>Projects</th>
+<th>Projects Lead</th>
+<th>Last Connection</th>
+</tr>
+</thead>
 
-<div>
-   <div class="row">
-    <% @users.each do |user| %>
-      <div class="col-12 col-md-6 d-flex">
-        <img src="${user.avatar}" alt="avatar">
-        <h2><%= user.fullname %> </h2>
-        <p><%= user.function %></p>
-        <!-- <p>Collaborations: <%# @user.collaborations.count%></p> -->
-        <p> Responses: </p>
-        <p> Projects lead: <%= user.projects.count%></p>
-        <p>Last Connection:   </p>
-        <%= user.email %>
-        <%= link_to 'Profile', user_profile_path(user), class: 'btn btn-primary' %>
+
+<tbody class="table-body">
+  <%@users.each do |user| %>
+    <tr class="collab-line">
+      <td>
+        <!-- bouton add collaborateur au projet -->
+        <div class=" btn btn-rounded-s response">
+        +
+        </div>
+      </td>
+      <td>
+        <!-- avatr et description -->
+      <div class="d-flex align-items response">
+        <div >
+          avatar
+        </div >
+        <div class="collab-card">
+          <p>name</p>
+          <p>description fonction theme spatial</p>
+        </div>
       </div>
-  <% end %>
-  </div>
+      </td>
+      <td>
+        <!-- nb de collaborations -->
+        <div class="d-flex align-items-center justify-content-around response">
+          <div class="stat-number">
+              45
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- percent de respponse -->
+        <div class=" response">
+          Response
+        </div>
+      </td>
+      <td>
+        <!-- nb de follow projects -->
+        <div class="stat-number">
+            40
+        </div>
+      </td>
+      <td>
+        <!-- nb de lead projects -->
+        <div class="stat-number">
+          18
+        </div>
+      </td>
+      <td>
+        <div class="">
+          13h27
+        </div>
+      </td>
+    </tr>
+  <%end%>
+</tbody>
+</table>
 </div>
 
-<%= simple_form_for users_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          placeholder: "Research a user"
-        %>
-
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-
-  <div id="skills">
-    <%= render 'user', users: @users %>
-  </div>
+<!-- <tfoot> -->
+<!--<tr> -->
+<!-- <td colspan="7">
+<div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+</td>
+</tr>
+</tfoot> -->
+<!-- <div class="grid">
+  <div class="header">bouton</div>
+  <div class="header">Name</div>
+  <div class="header">Collaborations</div>
+  <div class="header">Responses</div>
+  <div class="header">Projects</div>
+  <div class="header">Projects Lead</div>
+  <div class="header">Last Connection</div> -->
+  <%# @users.each do |user| %>
+<!--     <div class="item btn btn-rounded-s">
+       +
+    </div>
+    <div class="item">
+       avatar lorem ipsum dolor sit amet
+    </div>
+    <div class="item">
+       <%= @user.collaborations.count%>
+    </div>
+    <div class="item">
+       Response
+    </div>
+    <div class="item">
+      40
+    </div>
+    <div class="item">
+      18
+    </div>
+    <div class="item">
+      13h27
+    </div> -->
+  <%# end %>
+<!-- </div> -->

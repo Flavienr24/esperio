@@ -1,22 +1,22 @@
-// alert('coucou');
 
 // TEST
 // $("#entryform").load(location.href+"#entryform>+*", "");
 
 // CODE RELOAD
-// function refreshForm(innerHTML) {
-//   const newPostForm = document.getElementById('new_post');
-//   newPostForm.innerHTML = innerHTML;
-// }
 
-// function addPost(postHTML) {
-//   const posts = document.getElementById('posts');
-//   posts.insertAdjacentHTML('beforeend', postHTML);
-// }
+function refreshForm(innerHTML) {
+  const newPostForm = document.getElementById('new_post');
+  newPostForm.innerHTML = innerHTML;
+}
 
-// <% if @post.errors.any? %>
-//   refreshForm('<%= j render "posts/form", project: @project, post: @post %>');
-// <% else %>
-//   addPost('<%= j render "posts/show", post: @post %>');
-//   refreshForm('<%= j render "posts/form", project: @project, post: Post.new %>');
-// <% end %>
+function addPost(postHTML) {
+  const posts = document.getElementById('posts');
+  posts.insertAdjacentHTML('afterbegin', postHTML);
+}
+
+<% if @post.errors.any? %>
+  refreshForm('<%= j render "posts/form", project: @project, post: @post %>');
+<% else %>
+  addPost('<%= j render "posts/show", post: @post %>');
+  refreshForm('<%= j render "shared/form", project: @project, post: Post.new %>');
+<% end %>
