@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     post.persisted?
     end
     @collaborations = @user.collaborations
-     # @myexpertises = @user.skill_list
+    @myexpertises = @user.skills
   end
 
   def new

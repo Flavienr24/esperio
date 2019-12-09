@@ -25,12 +25,12 @@
       <div class="p-3">
         <div class="expertises-profile p-3 d-flex">
 <!-- Test affichage expertise -->
-        <%# @myexpertises.each do |expertise| %>
+        <% @myexpertises.each do |expertise| %>
           <div class="tag-expertise">
             <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-            <%#= expertise.upcase %>
+            <%= expertise.upcase %>
           </div>
-        <%# end %>
+        <% end %>
       </div>
               <!--         ACTION : CHANGER LE LIEN  -->
         <%= link_to 'Add Expertise', new_project_path(@project), class: 'btn btn-rounded'%>
