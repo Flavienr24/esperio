@@ -1,7 +1,7 @@
 <h1> Reussi</h1>
 
 <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-  <%= user.fullname %> <%= link_to '+', project_collaborations_path(@project), method: :create, class: 'btn btn-circle' %> <br>
+  <%= user.fullname %> <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, id: 'button_add_collab' ,class: 'btn btn-circle' %> <br>
 <% end %>
 
 <%= link_to 'Back', project_path(@project), class: 'btn btn-rounded'%>

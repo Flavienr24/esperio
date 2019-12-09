@@ -16,7 +16,8 @@ class CollaborationsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @collaboration = Collaboration.new(collaboration_params)
+    user = User.find(params[:user])
+    @collaboration = Collaboration.new(user: user, project: @project)
     @collaboration.joined = 'Pending'
     if @collaboration.save
       redirect_to project_path(@project)
@@ -44,7 +45,7 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.find(params[:id])
   end
 
-  def collaboration_params
-    params.require(:collaborations).permit(:project_id, :user, :joined)
-  end
+  # def collaboration_params
+  #   params.require(:collaborations).permit(:project_id, :user_id)
+  # end
 end
