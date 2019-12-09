@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
     @project.visibility = true
     @project.open_to_apply = false
     @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
+    @tags_array = @project.project_tags.join.split(',')
     if @project.save
       redirect_to project_path(@project)
     else
@@ -43,6 +44,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.project_tags = [params[:project][:project_tags]]
+    @tags_array = @project.project_tags.join.split(',')
     @project.update(project_params)
     redirect_to project_path
   end

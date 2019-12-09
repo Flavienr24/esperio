@@ -23,17 +23,18 @@
     <div class="flat-card my-4 px-4 py-2">
       <h3> Project expertises</h3>
       <div class="p-3">
-        <div class="expertises-profile p-3 d-flex">
+        <div class="expertises-profile">
 <!-- Test affichage expertise -->
-        <% @myexpertises.each do |expertise| %>
-          <div class="tag-expertise">
-            <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-            <%= expertise.upcase %>
-          </div>
-        <% end %>
+
+        <% @project.project_tags.join.split(',').each do |tag| %>
+            <div class="tag-expertise">
+              <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+              <%= tag.upcase %>
+            </div>
+          <% end %>
       </div>
               <!--         ACTION : CHANGER LE LIEN  -->
-        <%= link_to 'Add Expertise', new_project_path(@project), class: 'btn btn-rounded'%>
+        <%= link_to 'Add Expertise', edit_project_path(@project), class: 'btn btn-rounded'%>
       </div>
     </div>
   </div>
@@ -57,7 +58,7 @@
     <div class="flat-card my-4 px-4 py-2">
       <h3>Contributions</h3>
        <div class="d-flex w-50 justify-content-between">
-        <div class="expertises-profile p-3 d-flex">
+        <div class="expertises-profile">
           <%= render 'shared/form', project: @project, post: @post%>
           <h2><%= pluralize @project.posts.size, 'post' %></h2>
         </div>
@@ -108,7 +109,7 @@
      <% @project.posts.reverse_each do |post| %>
      <img src="${@user.avatar}" alt="avatar">
     <div class="flat-card my-4 px-4 py-2">
-        <div class="expertises-profile p-3 d-flex">
+        <div class="expertises-profile">
 
                <%# if @posts.blank?%>
         <!-- Be the first to add a contribution for <%#= @project.name %> -->
