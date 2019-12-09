@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
+  has_many :collaborations, dependent: :destroy
 
 
   # acts_as_taggable_on :project
