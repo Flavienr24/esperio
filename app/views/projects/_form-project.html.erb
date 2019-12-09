@@ -26,10 +26,6 @@
                       autofocus: true,
                       placeholder: "Description of your project",
                       input_html: { autocomplete: "description" }%>
-          <%= f.input :status,
-                      autofocus: true,
-                      placeholder: "In Progress",
-                      input_html: { autocomplete: "in progress" }%>
           <%= f.input :visibility,
                       autofocus: true,
                       label: "Public",
@@ -46,6 +42,22 @@
           <div class="skills">
             <h3>Skills & Expertises</h3>
             <div class="light-description">Choose expertises needed for project</div>
+            <%= f.input :project_tags,
+                      autofocus: true,
+                      placeholder: "Separated tags with commas",
+                      input_html: { autocomplete: "true" }
+                      %>
+            <div>
+              <% @project.project_tags.each do |tag| %>
+                <div class="tag-expertise">
+                  <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+                  <%= tag.upcase %>
+                </div>
+              <% end %>
+            </div>
+        <div>
+
+        </div>
           </div>
         </div>
       </div>
@@ -61,11 +73,7 @@
       <div class="end-form margin-form">
         <div class="btn-primary">
         <%= f.button :submit, "Create Project"%>
-        <% end %>
         </div>
       </div>
-
-
+    <% end %>
 </div>
-
-

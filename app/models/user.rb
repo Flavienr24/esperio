@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # acts_as_taggable_on :tags
   acts_as_taggable_on :skills
 
-  $list_of_tags = ['medecin', 'doctor', 'biologist', 'scientist', 'junior', 'test', 'les tags cest cool', 'cette gem est superbe!', 'travail!']
+  # $list_of_tags = ['medecin', 'doctor', 'biologist', 'scientist', 'junior', 'test', 'les tags cest cool', 'cette gem est superbe!', 'travail!']
 
   include PgSearch::Model
 
