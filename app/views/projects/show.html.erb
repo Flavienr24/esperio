@@ -1,4 +1,3 @@
-<!-- TEST CODE AVEC MISE EN FORME -->
 <!--  Première partie de l'écran -->
 <!-- Colonne gauche -->
 <div class="col-8 px-0">
@@ -12,6 +11,29 @@
     <div class="description mt-3">
       <div class="d-flex flex-wrap"><%= @project.description %></div>
     </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <% if current_user.id == @user.id %>
+      <%= link_to 'Edit project', new_project_path(@project), class: 'btn btn-rounded'%>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Colonne droite -->
+<div class="col-4 px-0 pl-3 ">
+  <!-- Expertise -->
+  <div class="flat-card my-4 px-4 py-2">
+    <h3> Project expertises</h3>
+    <div class="p-3">
+      <div class="expertises-profile">
+        <% @project.project_tags.join.split(',').each do |tag| %>
+        <div class="tag-expertise">
+          <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+          <%= tag.upcase %>
+        </div>
+        <% end %>
+      </div>
+
        <div class="d-flex justify-content-between align-items-center">
         <% if current_user.id == @user.id %>
           <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-rounded'%>
@@ -19,25 +41,8 @@
       </div>
   </div>
 </div>
-<!-- Colonne droite -->
-  <div class="col-4 px-0 pl-3 ">
-    <!-- Expertise -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3> Project expertises</h3>
-      <div class="p-3">
-        <div class="expertises-profile">
-<!-- Test affichage expertise -->
-        <% @project.project_tags.join.split(',').each do |tag| %>
-            <div class="tag-expertise">
-              <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-              <%= tag.upcase %>
-            </div>
-          <% end %>
-      </div>
-
-      <!--         ACTION : CHANGER LE LIEN  -->
-      <%= link_to 'Add Expertise', edit_project_path(@project), class: 'btn btn-rounded'%>
-    </div>
+    <!--         ACTION : CHANGER LE LIEN  -->
+    <%= link_to 'Add Expertise', edit_project_path(@project), class: 'btn btn-rounded'%>
   </div>
 </div>
 <!-- Deuxième partie de l'écran -->
@@ -74,14 +79,13 @@
         </div>
       </div>
     </div>
-      <!-- <h2>Activities</h2> -->
-      <div class="flat-card my-4 px-4 py-2">
-          <h3>Activities</h3>
-          <%= @project.posts.count%> - posts
-         <!--  <p> --><%#= pluralize @project.posts.size, 'post' %><!-- </p> -->
-           created : <%= @datetime - @project.created_at %> days ago
-          <%#= User.all.tagged_with(@project.project_tags, :any => true).count %>
-
+    <!-- <h2>Activities</h2> -->
+    <div class="flat-card my-4 px-4 py-2">
+      <h3>Activities</h3>
+      <%= @project.posts.count%> - posts
+      <!--  <p> --><%#= pluralize @project.posts.size, 'post' %><!-- </p> -->
+      created : <%= @datetime - @project.created_at %> days ago
+      <%#= User.all.tagged_with(@project.project_tags, :any => true).count %>
     </div>
     <!-- Project Activities -->
   </div>
@@ -97,16 +101,16 @@
 
       <div class="expertises-profile p-3 d-flex">
         <div class="d-flex w-50 justify-content-between">
-         <p> <%= @user.fullname %></p>
+          <p> <%= @user.fullname %></p>
           <p><%= @datetime.to_formatted_s(:short) %></p>
-        <% if current_user.id == @user.id %>
-         <div class="user-status">owner</div>
-         <%else %>
+          <% if current_user.id == @user.id %>
+          <div class="user-status">owner</div>
+          <%else %>
           <div class="user-status">research collaborator</div>
-         <% end %>
-         <div>
+          <% end %>
+          <div>
             <p> <%= post.content %></p>
-         </div>
+          </div>
         </div>
 
       </div>
@@ -114,3 +118,7 @@
     <% end %>
   </div>
 </div>
+
+<% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+        <%= user.fullname %> <br>
+        <% end %>
