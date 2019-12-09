@@ -41,33 +41,16 @@
 <body>
 
 
+<h2>Expertises</h2>
+<br>
 
-
-
-
-
-
-<!-- <ul id="myUL">
-  <li><a href="#">Adele</a></li>
-  <li><a href="#">Agnes</a></li>
-
-  <li><a href="#">Billy</a></li>
-  <li><a href="#">Bob</a></li>
-
-  <li><a href="#">Calvin</a></li>
-  <li><a href="#">Christina</a></li>
-  <li><a href="#">Cindy</a></li>
-</ul> -->
+<div class="skill-get">
+</div>
 
 
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<h2>Expertises</h2>
-<br>
-<div class="skill-get">
-HERE
-</div>
 
 <ul id="myUL">
   <% User.skill_counts.each do |skill| %>
@@ -95,27 +78,32 @@ function myFunction() {
         } else {
             li[i].style.display = "none";
         }
-        if (input.value === "") {
-          ul.style.display = "none";
-        } else {
-          ul.style.display = "";
-        }
     }
 }
 
+let listOfTags = [];
+
+
 function getSkill() {
+  list = document.querySelector('#myUL')
+  list.style.visibility = "visible";
   skill = event.path[0].innerText;
   skillList = document.querySelector('.skill-get');
   skillList.insertAdjacentHTML("beforeend", `<li class="tag-expertise">${skill}</li>`);
+  listOfTags.push(skill);
+  console.log(listOfTags)
+  // Les items s'ajoute à l'array. Comment exploiter l'array ?
 
-  list = document.querySelector('#myUL')
   item = list.addEventListener('click', (event) => {
     console.log(event.path[1]);
     element = event.path[1];
     element.style.display = "none";
     input = document.getElementById("myInput");
-    input.value = ""
+    input.value = null
+    input.focus()
+    list.style.visibility = "hidden";
     });
   }
+
 
 </script>
