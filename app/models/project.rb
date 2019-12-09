@@ -2,7 +2,6 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
 
-
   # acts_as_taggable_on :project
   # acts_as_taggable_on :skills
 

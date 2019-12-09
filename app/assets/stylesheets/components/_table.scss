@@ -85,6 +85,20 @@
 
   }
 
+  .collab-line {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 36px;
+      &:hover {
+      background-color: $background;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+
+
 #collaborators .collab-card{
   background: #FFFFFF;
   box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
@@ -92,9 +106,7 @@
   text-align: left;
 }
 
-// .table-body {
-//   // height: 90%;
-// }
+
 
 .btn-rounded-s {
   margin: 10px;
@@ -131,6 +143,7 @@
   background-color: #4CAF50;
   border-radius: 25px;
 }
+
 
 .connex {
   font-size-adjust: 1
