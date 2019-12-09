@@ -11,6 +11,7 @@
     <div class="description mt-3">
       <div class="d-flex flex-wrap"><%= @project.description %></div>
     </div>
+
     <div class="d-flex justify-content-between align-items-center">
       <% if current_user.id == @user.id %>
       <%= link_to 'Edit project', new_project_path(@project), class: 'btn btn-rounded'%>
@@ -32,7 +33,14 @@
         </div>
         <% end %>
       </div>
-    </div>
+
+       <div class="d-flex justify-content-between align-items-center">
+        <% if current_user.id == @user.id %>
+          <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-rounded'%>
+        <% end %>
+      </div>
+  </div>
+</div>
     <!--         ACTION : CHANGER LE LIEN  -->
     <%= link_to 'Add Expertise', edit_project_path(@project), class: 'btn btn-rounded'%>
   </div>
@@ -45,6 +53,7 @@
     <!-- Contributions -->
     <div class="flat-card my-4 px-4 py-2">
       <h3>Contributions</h3>
+
       <div class="d-flex w-50 justify-content-between">
         <div class="expertises-profile p-3 d-flex">
           <%= render 'shared/form', project: @project, post: @post %>
@@ -87,6 +96,7 @@
     <% @project.posts.reverse_each do |post| %>
     <img src="${@user.avatar" alt="avatar">
     <div class="flat-card my-4 px-4 py-2">
+
       <div class="expertises-profile p-3 d-flex">
         <div class="d-flex w-50 justify-content-between">
           <p> <%= @user.fullname %></p>
@@ -100,6 +110,7 @@
             <p> <%= post.content %></p>
           </div>
         </div>
+
       </div>
     </div>
     <% end %>
