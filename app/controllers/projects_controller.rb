@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
     @projects_I_lead = Project.where(user_id: @user.id)
     # @user.projects
     @post = Post.new
-    @posts = @project.posts. select do |post|
-    post.persisted?
-    end
+    # @posts = @project.posts. select do |post|
+    # post.persisted?
+    # end
     @collaborations = @user.collaborations
     @myexpertises = @user.skills
   end

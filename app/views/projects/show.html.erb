@@ -1,123 +1,111 @@
-
-
-                              <!-- TEST CODE AVEC MISE EN FORME -->
-
-            <!--  Première partie de l'écran -->
-
-  <!-- Colonne gauche -->
-  <div class="col-8 px-0">
-     <div class="flat-card my-4 px-4 py-2">
-      <!-- Projets -->
-        <h3> <%= @project.name %></h3>
-          <div class="d-flex w-50 justify-content-between">
-            <div class="light-description"><%= @project.created_at %></div>
-            <div class="project-status"><%= @project.status %></div>
-          </div>
-         <div class="description mt-3"><%= @project.description %></div>
+<!-- TEST CODE AVEC MISE EN FORME -->
+<!--  Première partie de l'écran -->
+<!-- Colonne gauche -->
+<div class="col-8 px-0">
+  <div class="flat-card my-4 px-4 py-2">
+    <!-- Projets -->
+    <h3> <%= @project.name %></h3>
+    <div class="d-flex w-50 justify-content-between">
+      <div class="light-description"><%= @project.created_at.to_formatted_s(:short)  %></div>
+      <div class="project-status"><%= @project.status %></div>
     </div>
-  </div>
-
-<!-- Colonne droite -->
-  <div class="col-4 px-0 pl-3 ">
-    <!-- Expertise -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3> Project expertises</h3>
-      <div class="p-3">
-        <div class="expertises-profile p-3 d-flex">
-<!-- Test affichage expertise -->
-        <% @myexpertises.each do |expertise| %>
-          <div class="tag-expertise">
-            <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-            <%= expertise.upcase %>
-          </div>
+    <div class="description mt-3">
+      <div class="d-flex flex-wrap"><%= @project.description %></div>
+    </div>
+       <div class="d-flex justify-content-between align-items-center">
+        <% if current_user.id == @user.id %>
+          <%= link_to 'Edit project', new_project_path(@project), class: 'btn btn-rounded'%>
         <% end %>
       </div>
-              <!--         ACTION : CHANGER LE LIEN  -->
-        <%= link_to 'Add Expertise', new_project_path(@project), class: 'btn btn-rounded'%>
+  </div>
+</div>
+<!-- Colonne droite -->
+<div class="col-4 px-0 pl-3 ">
+  <!-- Expertise -->
+  <div class="flat-card my-4 px-4 py-2">
+    <h3> Project expertises</h3>
+    <div class="p-3">
+      <div class="expertises-profile p-3 d-flex">
+        <!-- Test affichage expertise -->
+        <%# @project.project_tags.each do |tag| %>
+            <%#= tag %>
+          <%# end %> <!-- <br> -->
+        <div class="tag-expertise">
+          <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+        </div>
       </div>
+      <!--         ACTION : CHANGER LE LIEN  -->
+      <%= link_to 'Add Expertise', new_project_path(@project), class: 'btn btn-rounded'%>
     </div>
   </div>
-
-          <!-- Deuxième partie de l'écran -->
-
-  <div class="w-100 px-4 py-2 flat-card d-flex">
-    <!-- Time line-->
-      <h3>Time line</h3>
-  </div>
-
-
+</div>
+<!-- Deuxième partie de l'écran -->
 <!-- troisième partie de l'écran - contributions + collaborators + projets d'ativités -->
-
 <div class="d-flex wrapper-profile">
-
   <!-- Colonne gauche -->
   <div class="col-8 px-0">
-
     <!-- Contributions -->
     <div class="flat-card my-4 px-4 py-2">
       <h3>Contributions</h3>
-       <div class="d-flex w-50 justify-content-between">
+      <div class="d-flex w-50 justify-content-between">
         <div class="expertises-profile p-3 d-flex">
-          <%= render 'shared/form', project: @project, post: @post%>
-          <h2><%= pluralize @project.posts.size, 'post' %></h2>
+          <%= render 'shared/form', project: @project, post: @post %>
         </div>
       </div>
     </div>
-
   </div>
-
-   <!-- Colonne droite -->
+  <!-- Colonne droite -->
   <div class="col-4 px-0 pl-3 ">
-
     <!-- Collaboration -->
     <div class="flat-card my-4 px-4 py-2">
       <h3>Collaboration</h3>
       <div class="p-3">
-        <%  @user.collaborations.each do |collaboration| %>
+        <%# User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+        <%#= user.fullname %> <!-- <br> -->
+        <%#= user.avatar%>
+        <%# end %>
         <div class="d-flex align-items-center">
-          <%= image_tag collaboration.project.user.avatar, class: "avatar-s" %>
           <div class="">
-          <p><%= collaboration.project.user.fullname %></p>
-          <%= collaboration.project.user.function class: "light-description" %>
           </div>
-          <%= link_to ' Add Collaborators', project_collaborations_path(@project)%>
+          <%= link_to ' Add Collaborators', project_collaborations_path(@project), class: 'btn btn-rounded'%>
         </div>
-        <%end %>
       </div>
     </div>
+      <!-- <h2>Activities</h2> -->
+      <div class="flat-card my-4 px-4 py-2">
+          <h3>Activities</h3>
+          <%= @project.posts.count%> - posts
+         <!--  <p> --><%#= pluralize @project.posts.size, 'post' %><!-- </p> -->
+           created : <%= @datetime - @project.created_at %> days ago
+          <%#= User.all.tagged_with(@project.project_tags, :any => true).count %>
 
+    </div>
     <!-- Project Activities -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3>Project Activities</h3>
-    </div>
-     <div class="p-3">
-  <!--    <p> Projects lead : <img src="${@user.avatar" alt="avatar"> </p>
-      <p>Last activities:   </p> -->
-    </div>
   </div>
 </div>
-
-
-              <!-- quatrième partie de l'écran -->
-
+<!-- quatrième partie de l'écran -->
 <div class="d-flex wrapper-profile">
-
   <!-- Colonne gauche -->
-  <div class="col-8 px-0">
+  <div class="col-8 px-0" id="posts">
     <!-- Contributions -->
-     <% @project.posts.reverse_each do |post| %>
-     <img src="${@user.avatar}" alt="avatar">
+    <% @project.posts.reverse_each do |post| %>
+    <img src="${@user.avatar" alt="avatar">
     <div class="flat-card my-4 px-4 py-2">
-        <div class="expertises-profile p-3 d-flex">
-
-               <%# if @posts.blank?%>
-        <!-- Be the first to add a contribution for <%#= @project.name %> -->
-        <%# else %>
-                <p> <%= post.content %></p>
-            </div>
-          <%# end %>
+      <div class="expertises-profile p-3 d-flex">
+        <div class="d-flex w-50 justify-content-between">
+         <p> <%= @user.fullname %></p>
+          <p><%= @datetime.to_formatted_s(:short) %></p>
+        <% if current_user.id == @user.id %>
+         <div class="user-status">owner</div>
+         <%else %>
+          <div class="user-status">research collaborator</div>
+         <% end %>
+         <div>
+            <p> <%= post.content %></p>
+         </div>
+        </div>
       </div>
-
-        <% end %>
+    </div>
+    <% end %>
   </div>
-  </div>
+</div>
