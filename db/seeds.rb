@@ -1435,7 +1435,7 @@ puts 'Creating 10 fake user...'
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password",
-    avatar: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+    avatar: url="https://source.unsplash.com/featured/?face#{rand(1..100)}",
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,

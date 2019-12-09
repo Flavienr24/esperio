@@ -2,8 +2,12 @@
 <!-- Description User -->
 <div class="w-100 px-4 py-2 flat-card d-flex">
   <div class="id-user d-flex">
-    <div class="avatar-l mr-3">
-      <img src="${@user.avatar" alt="avatar">
+    <div class="mr-3 d-flex justify-content-center align-items-center">
+      <% if current_user.id == @user.id %>
+      <img src="${@user.avatar}" alt="avatar">
+      <% else %>
+      <%= image_tag @user.avatar, class: "avatar-large" %>
+      <% end %>
     </div>
     <div class="user-info">
       <h3 style="color: #1C3893"><%= @user.fullname %> </h3>
@@ -42,7 +46,7 @@
     <!-- Expertises -->
     <div class="flat-card my-4 px-4 py-2">
       <h3>Expertises</h3>
-      <div class="expertises-profile p-3 d-flex">
+      <div class="expertises-profile">
 <!-- Test affichage expertise -->
         <% @myexpertises.each do |expertise| %>
           <div class="tag-expertise">

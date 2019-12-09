@@ -20,4 +20,7 @@ Rails.application.routes.draw do
     resources :collaborations
     resources :posts, except: [:update, :destroy]
   end
+
+  get "test_page", to: "pages#test_page"
+
 end

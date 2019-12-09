@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     @project.visibility = true
     @project.open_to_apply = false
+    @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
     if @project.save
       redirect_to project_path(@project)
     else
@@ -41,6 +42,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @project.project_tags = [params[:project][:project_tags]]
     @project.update(project_params)
     redirect_to project_path
   end
