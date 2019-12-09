@@ -28,7 +28,7 @@ class ScrapingsController < ApplicationController
     html_doc.search('div.nova-e-avatar > img:nth-child(1)').each do |element|
       avatar = element.values.first
       session[:avatar] = avatar.to_s
-    end
+      end
 
     #scrapping name
     html_doc.search('div.nova-e-text--spacing-xxs').each do |element|

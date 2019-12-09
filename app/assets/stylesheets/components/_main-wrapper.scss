@@ -16,6 +16,13 @@
   width: 100%
 }
 
+.wrapper-index {
+  width: 100%;
+  padding: 48px;
+  background: white;
+  margin-top: -60px;
+}
+
 .id-user {
   border-right: 1px solid $light-grey;
   width: 40%;
@@ -25,6 +32,7 @@
   margin: 1%;
   width: auto;
 }
+
 
 .stat-label {
   border-right: 1px solid $light-grey;
@@ -55,38 +63,9 @@
   color: $dark-blue;
 }
 
-
-.last-connex {
-position: absolute;
-left: 90.18%;
-right: 2.33%;
-top: 32.35%;
-bottom: 32.35%;
-/* label */
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 21px;
-/* or 117% */
-letter-spacing: 0.1px;
-color: #525252;
-}
-
-.ellipse {
-position: absolute;
-left: 87.94%;
-right: 11.09%;
-top: 41.18%;
-bottom: 44.12%;
-background: #219FAD;
-}
-
-.tab-row-user {
+.expertises-profile {
+  padding: 16px;
   display: flex;
-  justify-content: between;
-  width: 400px;
-  height: 150px;
+  flex-wrap: wrap;
 }
-
 

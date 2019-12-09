@@ -5,12 +5,16 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-
   def show
     @user = current_user
     @projects_I_lead = Project.where(user_id: @user.id)
     # @user.projects
-
+    @post = Post.new
+    # @posts = @project.posts. select do |post|
+    # post.persisted?
+    # end
+    @collaborations = @user.collaborations
+    @myexpertises = @user.skills
   end
 
   def new
@@ -25,6 +29,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     @project.visibility = true
     @project.open_to_apply = false
+    @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
     if @project.save
       redirect_to project_path(@project)
     else
@@ -37,6 +42,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @project.project_tags = [params[:project][:project_tags]]
     @project.update(project_params)
     redirect_to project_path
   end

@@ -4,4 +4,9 @@ class PagesController < ApplicationController
   def home
     @users = User.all
   end
+
+  def test_page
+
+  end
+
 end

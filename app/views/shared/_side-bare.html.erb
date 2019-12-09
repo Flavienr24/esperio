@@ -27,13 +27,12 @@
       <% end %>
     </div>
     <div class="menu-down">
-      <%= link_to '#' do %>
+      <%= link_to test_page_path do %>
       <div class="item-menu">
         <i class="menu-icon fas fa-sliders-h"></i>
         <div class="menu-title">Settings</div>
       </div>
       <% end %>
     </div>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"fixed-bottom"%>
   </div>
 </div>

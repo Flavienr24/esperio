@@ -1,6 +1,7 @@
 
-#header-container {
+.header-container {
   position: fixed;
+  z-index: 1;
   width: 82%;
   display: flex;
   justify-content: space-between;
@@ -33,3 +34,63 @@
   color: $dark-blue;
   margin-left: 12px
 }
+
+.navbar-lewagon {
+justify-content: space-between;
+background: white;
+}
+.navbar-lewagon .navbar-collapse {
+flex-grow: 0;
+}
+.navbar-lewagon .navbar-brand img {
+width: 40px;
+}
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+.collapse {
+    display: block !important;
+}
+
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding: 10px;
+  & a {
+    color: $dark-grey;
+  }
+
+}
+
+// SEARCH BAR
+.searchContainer {
+  background-color: $background;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 50%;
+}
+
+
+
+.searchIcon {
+  flex: 0;
+  padding: 0.5rem;
+  margin-top: 0px;
+  margin-left: 5px;
+  color: #9E9E9E;
+}
+
+.searchBox {
+  width: 100%;
+  border: 0;
+  flex: 1;
+  background: transparent;
+  font-weight: 300;
+}
+
+
