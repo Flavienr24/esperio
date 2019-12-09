@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_time
 
   protected
 
@@ -11,4 +12,10 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :phone, :country, :city, :function, :school, :avatar, :company_id, skill_list: []])
   end
+
+
+def set_time
+  @datetime = Time.now
+end
+
 end
