@@ -1435,14 +1435,15 @@ puts 'Creating 10 fake user...'
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password",
-    avatar: url="https://source.unsplash.com/featured/?face#{rand(1..100)}",
+    avatar: Faker::Placeholdit.image(size: '50x50'),
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
     function: Faker::Job.title,
     school: Faker::University.name,
     company: feelows,
-    skill_list: list_of_tags.sample(rand(5..10))
+    skill_list: list_of_tags.sample(rand(5..10)),
+    response: Faker::Number.number(digits: 2)
   )
 
   user.save!

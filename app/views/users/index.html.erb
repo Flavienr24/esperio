@@ -27,11 +27,12 @@
         <!-- avatr et description -->
         <div class="d-flex align-items ">
           <div >
-            avatar
+           <!--  <p>avatar</p> -->
+            <%= user.avatar %>
           </div >
           <div class="collab-card">
-            <p>Name</p>
-            <p>Description fonction du chercheur dans le theme spatial</p>
+            <%= user.fullname %> <br>
+            <%= user.function %>
           </div>
         </div>
       </td>
@@ -39,7 +40,11 @@
         <!-- nb de collaborations -->
         <div class="d-flex align-items-center justify-content-around ">
           <div class="stat-number">
-              45
+            <% total = 0 %>
+            <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+            <% end %>
+            <%= total %>
           </div>
         </div>
       </td>
@@ -47,7 +52,9 @@
         <!-- percent de respponse -->
         <div class=" response">
         <div class="graph-cont">
-          <div class="bar bar1">60%</div>
+          <div class="bar bar1">
+            <p><%= bar = "#{user.response} %" %> </p>
+          </div>
 
         </div>
       </div>
