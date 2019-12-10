@@ -1,3 +1,84 @@
-<h1> Reussi</h1>
+<div id="title-collab">
+<h1>Search-Collaborators</h1>
+</div>
+<table id="collaborators" >
+<thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Collab</th>
+    <th>Responses</th>
+    <th>Projects Lead</th>
+    <th>Location</th>
+    <th>Subscribed Since</th>
+  </tr>
+</thead>
 
-<%= link_to 'Add Collaborators', project_collaborations_path, method: :post, class: 'btn btn-primary'%>
+<tbody class="table-body">
+  <%@users.each do |user| %>
+    <tr class="collab-line">
+      <td>
+        <!-- bouton add collaborateur au projet -->
+        <div class=" btn btn-rounded-s ">
+          <%= link_to '+', project_collaborations_path, method: :post, class: 'btn btn-primary'%>
+        </div>
+      </td>
+      <td>
+        <!-- avatar et description -->
+        <div class="d-flex align-items ">
+          <div >
+            <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
+          </div >
+          <div class="collab-card">
+            <%= user.fullname %> <br>
+            <%= user.function %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- nb de collaborations -->
+        <div class="d-flex align-items-center justify-content-around ">
+          <div class="stat-number">
+            <% total = 0 %>
+            <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+            <% end %>
+            <%= total %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- percent de respponse -->
+        <div class=" response">
+        <div class="graph-cont">
+          <div class="bar bar1" style="width: <%=user.response%>%;">
+            <p><%= "#{user.response} %" %> </p>
+          </div>
+        </div>
+      </div>
+      </td>
+      <td>
+        <!-- nb de follow projects -->
+        <div class="stat-number">
+          <%= user.projects.count %>
+        </div>
+      </td>
+      <td>
+        <!-- nb de lead projects -->
+        <div class="collab-card">
+          <%= user.city %> <br>
+          <%= user.country %>
+        </div>
+      </td>
+      <td>
+        <div class="connex">
+          <%= user.experience %>
+        </div>
+      </td>
+    </tr>
+  <%end%>
+</tbody>
+</table>
+<!-- </div> -->
+
+
