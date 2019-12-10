@@ -4,9 +4,9 @@
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
       <% if current_user.id == @user.id %>
-      <img class="avatar-large" src="${@user.avatar}" alt="avatar">
+        <%= image_tag("#{@user.avatar}", class: "avatar-m dropdown-toggle") %>
       <% else %>
-      <%= image_tag @user.avatar, class: "avatar-large" %>
+        <%= image_tag("#{@user.avatar}", class: "avatar-m dropdown-toggle") %>
       <% end %>
     </div>
     <div class="user-info">
