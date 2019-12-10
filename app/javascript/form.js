@@ -1,71 +1,7 @@
-<style>
-* {
-  box-sizing: border-box;
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  visibility: hidden;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-</style>
-</head>
-
-<body>
-
-
-<h2>Expertises</h2>
-<br>
-
-<div class="skill-get">
-
-</div>
-
-<div class="skill-form">
-
-</div>
-
-
-<input type="text" id="myInput" onkeyup="searchList()" placeholder="Search for names.." title="Type in a name">
-
-
-<ul id="myUL">
-  <% User.skill_counts.each do |skill| %>
-   <li class="list" onclick="getSkill()"><a href="#"><%= skill.name %></a></li>
-  <% end %>
-</ul>
-
-
-
-<script>
-
+input = document.getElementById("myInput");
+input.addEventListener('keyup', (event) => {
+  searchList();
+})
 
 function searchList() {
     var input, filter, ul, li, a, i, txtValue;
@@ -86,7 +22,6 @@ function searchList() {
 }
 
 let listOfTags = [];
-
 
 function getSkill() {
   list = document.querySelector('#myUL')
@@ -112,5 +47,4 @@ function getSkill() {
     });
   }
 
-
-</script>
+  // searchList('<%= j render "projects/form-project" %>');
