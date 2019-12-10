@@ -1,31 +1,33 @@
 #title-collab {
-  top: 72px;
-  position:fixed;
+  top: 92px;
+  position: sticky;
   width:100%;
   background-color:white;
-  padding-top: 24px;
-  padding-bottom:24px;
-  padding-left: 8px
+  padding-top: 16px;
+  padding-bottom:16px;
+  padding-left: 8px;
+  height: 100px;
 }
 
+#collaborators{
+  width: 100%;
+}
 
 #collaborators thead{
-  display:block;
-  width: 100%;
-  top: 140px;
+  top: 192px;
   background-color: white;
   text-align: center;
-  position: fixed;
+  position: sticky;
   height: 4em;
-  justify-content: center;
+  // justify-content: center;
 }
 
 
 #collaborators tbody {
-  display:block;
   // height:10%; /* 5 times the equivalent of a text "size". */
   overflow-y:scroll;
   text-align: center;
+  top:280px;
 
 }
 
@@ -144,6 +146,12 @@
 }
 
 
-.connex {
-  font-size-adjust: 1
+.experience {
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 1rem;
+line-height: 21px;
+letter-spacing: 0.1px;
+  // font-size-adjust: 1
 }
