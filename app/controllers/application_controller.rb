@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-def set_time
-  @datetime = Time.now
-end
-
+  def set_time
+    @datetime = Time.now
+  end
 end

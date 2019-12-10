@@ -8,9 +8,9 @@
     <th>Name</th>
     <th>Collab</th>
     <th>Responses</th>
-    <th>Projects</th>
     <th>Projects Lead</th>
-    <th>Last Connection</th>
+    <th>Location</th>
+    <th>Subscribed Since</th>
   </tr>
 </thead>
 
@@ -24,11 +24,10 @@
         </div>
       </td>
       <td>
-        <!-- avatr et description -->
+        <!-- avatar et description -->
         <div class="d-flex align-items ">
           <div >
-           <!--  <p>avatar</p> -->
-            <%= user.avatar %>
+            <%= image_tag("#{user.avatar}", class: "avatar dropdown-toggle") %>
           </div >
           <div class="collab-card">
             <%= user.fullname %> <br>
@@ -55,25 +54,25 @@
           <div class="bar bar1" style="width: <%=user.response%>%;">
             <p><%= "#{user.response} %" %> </p>
           </div>
-
         </div>
       </div>
       </td>
       <td>
         <!-- nb de follow projects -->
         <div class="stat-number">
-            40
+          <%= user.projects.count %>
         </div>
       </td>
       <td>
         <!-- nb de lead projects -->
-        <div class="stat-number">
-          18
+        <div class="collab-card">
+          <%= user.city %> <br>
+          <%= user.country %>
         </div>
       </td>
       <td>
         <div class="connex">
-          13:27
+          <%= user.experience %>
         </div>
       </td>
     </tr>
