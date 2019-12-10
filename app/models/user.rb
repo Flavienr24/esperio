@@ -17,9 +17,9 @@ class User < ApplicationRecord
 
   pg_search_scope :fullname_search,
     against: [:fullname],
-    # associated_against: {
-    #   tags: [:name]
-    # },
+    associated_against: {
+      projects: [:name]
+    },
     using: {
       tsearch: { any_word: true }
 
