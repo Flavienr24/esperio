@@ -93,18 +93,18 @@
   <div class="flat-card my-4 px-4 py-2">
     <div class="expertises-profile p-3 d-flex">
       <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-      <%= user.fullname %> <br>
-      <%= image_tag("#{user.avatar}") %>
+        <%= user.fullname %> <br>
+        <%= image_tag("#{user.avatar}", class: "avatar-m") %>
       <% end %>
       <p><%= @datetime.to_formatted_s(:short) %></p>
       <% if @project.user == current_user.id %>
-      <div class="user-status">owner</div>
+        <div class="user-status">owner</div>
       <%else %>
-      <div class="user-status">research collaborator</div>
+       <div class="user-status">research collaborator</div>
       <% end %>
-      <%= cl_image_tag post.file.url %>
+      <%#= cl_image_tag post.file.url %>
       <div>
-        <p> <%= post.content %></p>
+        <p> <%#= post.content %></p>
       </div>
     </div>
   </div>
