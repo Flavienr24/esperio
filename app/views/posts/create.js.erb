@@ -15,8 +15,8 @@ function addPost(postHTML) {
 }
 
 <% if @post.errors.any? %>
-  refreshForm('<%= j render "posts/form", project: @project, post: @post %>');
+  refreshForm('<%= j render "shared/form", project: @project, post: @post %>');
 <% else %>
-  addPost('<%= j render "posts/show", post: @post %>');
+  addPost('<%= j render "projects/show", post: @post %>');
   refreshForm('<%= j render "shared/form", project: @project, post: Post.new %>');
 <% end %>
