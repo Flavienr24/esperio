@@ -8,11 +8,9 @@
   padding-left: 8px
 }
 
-
 #collaborators thead{
   display:block;
   width: 100%;
-  top: 140px;
   background-color: white;
   text-align: center;
   position: fixed;
@@ -23,6 +21,7 @@
 
 #collaborators tbody {
   display:block;
+  margin-top: 64px;
   // height:10%; /* 5 times the equivalent of a text "size". */
   overflow-y:scroll;
   text-align: center;
