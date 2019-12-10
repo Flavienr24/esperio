@@ -111,7 +111,7 @@
         <!-- Profile mini card -->
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
-            <%= image_tag user.avatar, class: "avatar-m" %>
+            <%= image_tag("#{user.avatar}", class: "avatar-m") %>
           </div>
           <div class="">
             <p><%= user.fullname %></p>
