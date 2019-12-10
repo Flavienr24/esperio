@@ -17,11 +17,15 @@ class User < ApplicationRecord
 
   pg_search_scope :fullname_search,
     against: [:fullname],
-    associated_against: {
-      projects: [:name]
-    },
+    # associated_against: {
+    #   tags: [:name]
+    # },
     using: {
       tsearch: { any_word: true }
+
+            # project user expertise
+      # Searching against multiple columns
+      # ca peut interessant cette ligne  ignoring: :accents
     }
 
   validates :fullname, presence: true

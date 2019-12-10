@@ -3,7 +3,7 @@
   <div class="searchContainer">
     <i class="fa fa-search searchIcon"></i>
 
-    <%= simple_form_for users_path, method: :get do %>
+    <%= form_tag users_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           placeholder: "Research a user",
