@@ -4,7 +4,7 @@
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
       <% if current_user.id == @user.id %>
-      <img src="${@user.avatar}" alt="avatar">
+      <img class="avatar-large" src="${@user.avatar}" alt="avatar">
       <% else %>
       <%= image_tag @user.avatar, class: "avatar-large" %>
       <% end %>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def my_profile
     @user = current_user
-    @projects_I_lead = @user.projects
+    @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
   end
