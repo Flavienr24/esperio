@@ -1,13 +1,20 @@
+list = document.getElementById("myUL");
+
 input = document.getElementById("myInput");
 input.addEventListener('keyup', (event) => {
   searchList();
+})
+
+list.addEventListener('click', (event) => {
+  getSkill();
+  hideItem();
 })
 
 function searchList() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     ul = document.getElementById("myUL");
-    ul.style.visibility = "visible"
+    ul.style.display = ""
     filter = input.value.toUpperCase();
     li = ul.getElementsByTagName("li");
     for (i = 0; i < li.length; i++) {
@@ -19,32 +26,21 @@ function searchList() {
             li[i].style.display = "none";
         }
     }
-}
-
-let listOfTags = [];
+};
 
 function getSkill() {
-  list = document.querySelector('#myUL')
-  list.style.visibility = "visible";
+  event.preventDefault();
+  // list = document.getElementById('myUL');
   skill = event.path[0].innerText;
-  skillList = document.querySelector('.skill-get');
-  skillForm = document.querySelector('.skill-form');
-  skillList.insertAdjacentHTML("beforeend", `<li class="tag-expertise">${skill}</li>`);
-  skillForm.insertAdjacentHTML("beforeend", `<input class="form-control string optional" type="text" value="${skill}" name="project[project_tags]" id="list_of_tags">`);
+  tagExpertise = document.querySelector('.skill-list');
+  tagExport = document.querySelector('.tag-export');
+  tagExpertise.insertAdjacentHTML("beforeend", ` <div class="tag-expertise"><i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>${skill}</div>`);
+  tagExport.insertAdjacentHTML("beforeend", `<input class="form-control string optional" type="text" value="${skill}" name="projet[project_tags]" id="project_project_tags"">`);
+};
 
-  listOfTags.push(skill);
-  console.log(listOfTags)
-  // Les items s'ajoute à l'array. Comment exploiter l'array ?
-
-  item = list.addEventListener('click', (event) => {
-    console.log(event.path[1]);
+function hideItem() {
     element = event.path[1];
     element.style.display = "none";
-    input = document.getElementById("myInput");
-    input.value = null
     input.focus()
-    list.style.visibility = "hidden";
-    });
-  }
-
-  // searchList('<%= j render "projects/form-project" %>');
+    input.value = null
+   };

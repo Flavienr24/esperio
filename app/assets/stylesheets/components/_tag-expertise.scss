@@ -35,3 +35,27 @@
   color: white,
 }
 
+#myUL {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  & li a {
+    list-style-type: none;
+    margin:10px;
+    width: fit-content;
+    height: 32px;
+    background: $background;
+    border: 1px solid #525252;
+    border-radius: 25px;
+    margin-right: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background: rgba(33, 159, 173, 0.1);
+      border: 1px solid #219FAD;
+    }
+  }
+}
