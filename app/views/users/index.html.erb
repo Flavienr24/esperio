@@ -8,9 +8,9 @@
     <th>Name</th>
     <th>Collab</th>
     <th>Responses</th>
-    <th>Projects</th>
     <th>Projects Lead</th>
-    <th>Last Connection</th>
+    <th>Location</th>
+    <th>Subscribed Since</th>
   </tr>
 </thead>
 
@@ -24,14 +24,14 @@
         </div>
       </td>
       <td>
-        <!-- avatr et description -->
+        <!-- avatar et description -->
         <div class="d-flex align-items ">
           <div >
-            avatar
+            <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
           </div >
           <div class="collab-card">
-            <p>Name</p>
-            <p>Description fonction du chercheur dans le theme spatial</p>
+            <%= user.fullname %> <br>
+            <%= user.function %>
           </div>
         </div>
       </td>
@@ -39,7 +39,11 @@
         <!-- nb de collaborations -->
         <div class="d-flex align-items-center justify-content-around ">
           <div class="stat-number">
-              45
+            <% total = 0 %>
+            <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+            <% end %>
+            <%= total %>
           </div>
         </div>
       </td>
@@ -47,26 +51,28 @@
         <!-- percent de respponse -->
         <div class=" response">
         <div class="graph-cont">
-          <div class="bar bar1">60%</div>
-
+          <div class="bar bar1" style="width: <%=user.response%>%;">
+            <p><%= "#{user.response} %" %> </p>
+          </div>
         </div>
       </div>
       </td>
       <td>
         <!-- nb de follow projects -->
         <div class="stat-number">
-            40
+          <%= user.projects.count %>
         </div>
       </td>
       <td>
         <!-- nb de lead projects -->
-        <div class="stat-number">
-          18
+        <div class="collab-card">
+          <%= user.city %> <br>
+          <%= user.country %>
         </div>
       </td>
       <td>
         <div class="connex">
-          13:27
+          <%= user.experience %>
         </div>
       </td>
     </tr>

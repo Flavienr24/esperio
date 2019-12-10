@@ -1442,9 +1442,10 @@ puts 'Creating 10 fake user...'
     function: Faker::Job.title,
     school: Faker::University.name,
     company: feelows,
-    skill_list: list_of_tags.sample(rand(5..10))
+    skill_list: list_of_tags.sample(rand(5..10)),
+    response: Faker::Number.number(digits: 2),
+    experience: ["Early Career", "Experienced", "Senior"].sample
   )
-
   user.save!
 
 
