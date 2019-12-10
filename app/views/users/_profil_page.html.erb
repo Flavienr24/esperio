@@ -85,21 +85,6 @@
   </div>
   <!-- Colonne droite -->
   <div class="col-4 px-0 pl-3 ">
-    <!-- Collaboration -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3>Collaboration</h3>
-      <div class="p-3">
-        <%  @user.collaborations.each do |collaboration| %>
-        <div class="d-flex align-items-center">
-          <%= image_tag collaboration.project.user.avatar, class: "avatar-s" %>
-          <div class="">
-          <p><%= collaboration.project.user.fullname %></p>
-          <%= collaboration.project.user.function class: "light-description" %>
-          </div>
-        </div>
-        <%end %>
-      </div>
-    </div>
     <!-- Network -->
     <div class="flat-card my-4 px-4 py-2">
       <%#= @mynetworks.count%>
