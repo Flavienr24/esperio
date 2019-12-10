@@ -11,6 +11,7 @@ end
   protected
 
   def after_sign_up_path_for(resource)
+    @user.update(avatar: session[:avatar])
     user_path(@user) # Or :prefix_to_your_route
   end
 
