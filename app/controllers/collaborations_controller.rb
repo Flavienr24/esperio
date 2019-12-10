@@ -20,7 +20,7 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.new(user: user, project: @project)
     @collaboration.joined = 'Pending'
     if @collaboration.save
-      redirect_to project_path(@project)
+      redirect_to new_project_collaboration_path(@project)
     else
       render 'new'
     end
