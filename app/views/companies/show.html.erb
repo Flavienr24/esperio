@@ -18,7 +18,7 @@
     <div class="pt-5">
       <h4>Last projects</h4>
       <div class="d-flex align-items-center justify-content-between mt-3">
-      <% Project.last(3).each do |project| %>
+      <% Project.last(3).reverse.each do |project| %>
       <div class="project-mini-card">
         <%= link_to project_path(project) do %>
         <h4><%= project.name %></h4>
