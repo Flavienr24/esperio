@@ -19,5 +19,7 @@ class UsersController < ApplicationController
     @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
+    @user.avatar = src="flavien.png"
+
   end
 end
