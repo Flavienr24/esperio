@@ -1,15 +1,20 @@
-<!--  Première partie de l'écran -->
-<!-- Colonne gauche -->
+<!--  COL GAUCHE HAUTE  - PROJET -->
 <div class="col-8 px-0">
   <div class="flat-card mb-4 px-4 py-2">
-    <!-- Projets -->
-    <div class="d-flex bd-highlight">
-      <div class="flex-grow-1 bd-highlight">
+    <div class="d-flex justify-content-between">
       <h2 class="font-weight-bold"> <%= @project.name %></h2>
-      </div>
-      <div class="p-2 bd-highlight">
-        <div class="project-status"><%= @project.status %></div>
-      </div>
+      <div class="project-status"><%= @project.status %></div>
+    </div>
+      <!--  <div class="p-2 bd-highlight">
+      </div> -->
+    <div class="d-flex w-50 justify-content-between">
+      <div class="light-description"> Created at: <%= @project.created_at.to_formatted_s(:short)  %></div>
+    </div>
+    <div class="description mt-3">
+      <h3 class="mb-2">Description</h3>
+      <div class="d-flex flex-wrap"><%= @project.description %></div>
+    </div>
+    <div class="d-flex justify-content-end">
       <div class="p-2 bd-highlight">
         <% if current_user.id == @user.id %>
           <%= link_to edit_project_path(@project), class: 'button-font' do %>
@@ -18,73 +23,81 @@
         <% end %>
       </div>
     </div>
-    <div class="d-flex w-50 justify-content-between">
-      <div class="light-description"><%= @project.created_at.to_formatted_s(:short)  %></div>
-    </div>
-    <div class="description mt-3">
-      <h3 class="mb-2">Description</h3>
-      <div class="d-flex flex-wrap"><%= @project.description %></div>
-    </div>
   </div>
 </div>
-<!-- Colonne droite -->
+<!--   COL DROITE HAUTE -  EXPERTISE  -->
 <div class="col-4 px-0 pl-3 ">
-  <!-- Expertise -->
   <div class="flat-card mb-4 px-4 py-2">
     <div class="d-flex justify-content-between">
       <h3> Project expertises</h3>
-      <%= link_to '+', edit_project_path(@project), class: 'btn btn-circle'%>
     </div>
     <div class="p-3">
       <div class="expertises-profile">
         <% @project.project_tags.each do |tag| %>
-        <div class="tag-expertise">
-          <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-          <%= tag.upcase %>
-        </div>
+          <div class="tag-expertise">
+            <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+            <%= tag.upcase %>
+          </div>
         <% end %>
       </div>
     </div>
+    <%= link_to '+ Expertises', edit_project_path(@project), class: 'btn btn-rounded'%>
   </div>
 </div>
-<!-- deuxième partie de l'écran - contributions + collaborators + projets d'ativités -->
-<!-- Colonne gauche -->
-<div class="d-flex wrapper-profile">
-  <div class="col-8 px-0">
-    <!-- Contributions -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3>Contributions</h3>
-      <div class="d-flex w-50 justify-content-between">
-        <div class="expertises-profile">
+<!-- COL  GAUCHE- MIDDLE CONTRIBUTIONS-->
+<div class="col-8 px-0">
+  <div class="flat-card mb-4 px-4 py-2">
+    <!-- FORMULAIRE-->
+    <div class="flat-card-relative my-4 px-4 py-2">
+      <h3> Activities feed</h3>
+      <%= image_tag("#{@user.avatar}", class: "avatar-large move ") %>
+      <div>
           <%= render 'shared/form', project: @project, post: @post %>
           <%#= render 'projects/show', project: @project, post: @post %>
-        </div>
       </div>
     </div>
+    <div class="col-8 px-0" id="posts">
+      <!-- CONTRIBUTIONS -->
+      <% @project.posts.reverse_each do |post| %>
+        <div class="flat-card my-4 px-4 py-2">
+          <div class="expertises-profile p-3 d-flex">
+            <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+              <%= user.fullname %> <br>
+              <%= image_tag("#{user.avatar}", class: "avatar-m") %>
+            <% end %>
+            <p><%= @datetime.to_formatted_s(:long_ordinal) %></p>
+            <% if @project.user == current_user.id %>
+              <div class="user-status">owner</div>
+            <%else %>
+              <div class="user-status">research collaborator</div>
+            <% end %>
+            <%= cl_image_tag post.file.url %>
+            <div>
+              <p> <%= post.content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <!-- Colonne droite -->
-  <div class="col-4 px-0 pl-3 ">
-    <!-- Collaboration -->
-    <div class="flat-card my-4 px-4 py-2">
-      <div class="d-flex justify-content-between">
-       <h3>Collaboration</h3>
-        <%= link_to '+', new_project_collaboration_path(@project), class: 'btn btn-circle'%>
-      </div>
-      <div class="p-3">
-        <% @project.collaborations.each do |element| %>
+</div>
+
+<!-- COLL DROITE  MIDDLE  - COLLABOR + ACTVIVITIES-->
+<!-- COLLABORATION -->
+<div class="col-4 px-0 pl-3 ">
+  <div class="flat-card mb-4 px-4 py-2">
+    <div class="d-flex justify-content-between">
+      <h3>Fellows</h3>
+    </div>
+    <div class="p-3">
+      <% @project.collaborations.each do |element| %>
         <div class="">
           <%= image_tag("#{element.user.avatar}", class: "avatar-m mr-2") %>
           <%= link_to element.user.fullname, user_profile_path(element.user) %> <br>
         </div>
-        <% end %>
-        <div class="d-flex align-items-center">
-          <div class="">
-          </div>
-        </div>
-      </div>
+      <% end %>
+      <br>
     </div>
-  </div>
-  <br>
   <!-- <h2>Activities</h2> -->
   <div class="col-4 px-0 pl-3 ">
     <div class="flat-card my-4 px-4 py-2">
@@ -99,30 +112,21 @@
         <%= @t_min %> ago
       <% end %>
     </div>
+      <%= link_to '+ Fellows', new_project_collaboration_path(@project), class: 'btn btn-rounded'%>
   </div>
-</div>
-<!--  troisième partie de l'écran -->
-<!-- Colonne gauche -->
-<div class="col-8 px-0" id="posts">
-  <!-- Contributions -->
-  <% @project.posts.reverse_each do |post| %>
-  <div class="flat-card my-4 px-4 py-2">
-    <div class="expertises-profile p-3 d-flex">
-      <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-        <%= user.fullname %> <br>
-        <%= image_tag("#{user.avatar}", class: "avatar-m") %>
-      <% end %>
-      <p><%= @datetime.to_formatted_s(:long_ordinal) %></p>
-      <% if @project.user == current_user.id %>
-        <div class="user-status">owner</div>
+  <!-- ACTIVITIES -->
+  <div class="flat-card mb-4 px-4 py-2">
+    <h3>Activities</h3>
+    <div class="d-flex justify-content-between">
+      <%= @project.posts.count%> - posts
+    </div>
+    <div>created :<%if @t_day == 1 %>
+      <%= @t_day %> day ago
+      <% elsif @t_day > 1 %>
+      <%= @t_day %> days ago
       <%else %>
-       <div class="user-status">research collaborator</div>
+      <%= @t_min %> ago
       <% end %>
-      <%= cl_image_tag post.file.url %>
-      <div>
-        <p> <%= post.content %></p>
-      </div>
     </div>
   </div>
-  <% end %>
 </div>
