@@ -1,4 +1,5 @@
 #side-bar {
+  z-index: 1;
   position: fixed;
   height: 100%;
   width: 18%;
@@ -60,5 +61,5 @@
 
 .menu-title {
   font-weight: normal;
-  font-size: 0.8em;
+  font-size: 1.3em;
 }

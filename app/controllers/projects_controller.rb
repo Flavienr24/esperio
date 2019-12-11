@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     @project.status = 'In Progress'
     @project.user = current_user
     @project.visibility = true
-    @project.open_to_apply = false
+    @project.open_to_apply = true
     @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
     if @project.save
       redirect_to project_path(@project)
@@ -53,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :status, :visibility, :open_to_apply)
+    params.require(:project).permit(:name, :description, :status, :visibility)
   end
 end
