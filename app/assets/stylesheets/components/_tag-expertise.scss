@@ -3,7 +3,8 @@
 .tag-expertise {
   margin:3px;
   width: fit-content;
-  height: 24px;
+  min-height: 24px;
+  height: fit-content;
   background: $background;
   border: 1px solid #525252;
   border-radius: 25px;
