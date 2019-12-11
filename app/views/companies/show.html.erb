@@ -22,7 +22,10 @@
       <% end %>
     </div>
     <div class="pt-5">
-      <h4 class="font-weight-bold">Last projects</h4>
+      <div class="d-flex align-items-center">
+        <h4 class="font-weight-bold">Last projects</h4>
+        <%= link_to 'New Project' ,new_project_path(@project), class: "btn btn-rounded" %>
+      </div>
       <div class="d-flex align-items-center justify-content-between mt-3">
         <% Project.last(3).reverse.each do |project| %>
         <div class="project-mini-card mb-3">
@@ -34,7 +37,6 @@
         <% end %>
         <% end %>
         <div class="">
-          <%= link_to '+' ,new_project_path(@project), class: "btn btn-circle mt-0 mb-3" %>
         </div>
       </div>
     </div>
@@ -62,13 +64,13 @@
         <div class="dashboard-card">
           <!-- Faire un each pour récupérer 5 user -->
           <div class="p-2">
-            <% User.order(rand(1..User.count)).first(5).each do |user| %>
+            <% User.order(rand(1..User.count - 1 )).first(5).each do |user| %>
             <div class="d-flex justify-content-start align-items-center p-2">
               <div class="mr-3">
-                <%= image_tag user.avatar, class: "avatar-m" %>
+                <%= image_tag("#{user.avatar}", class: "avatar-m") %>
               </div>
               <div class="">
-                <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
+                <%= link_to user.fullname, user_profile_path(user), class: "link-label pl-0" %>
                 <div class="light-description"><%= user.function %></div>
               </div>
             </div>

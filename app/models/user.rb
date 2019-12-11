@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   # $list_of_tags = ['medecin', 'doctor', 'biologist', 'scientist', 'junior', 'test', 'les tags cest cool', 'cette gem est superbe!', 'travail!']
 
+# Pour upload photo profil. Plutôt utiliser AWS pour upload phot.
+  # mount_uploader :avatar, FileUploader
   include PgSearch::Model
 
   pg_search_scope :fullname_search,
@@ -30,4 +32,8 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :function, presence: true
   validates :school, presence: true
+
+  def self.all_except(user)
+    where.not(id: user.id)
+  end
 end

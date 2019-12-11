@@ -3,12 +3,10 @@
 <div class="w-100 px-4 py-2 flat-card d-flex">
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
-      <%# if current_user.id == @user.id %>
-        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
-      <%# else %>
-      <%# image_tag  (url="https://source.unsplash.com/featured/?face") %>
-      <% if @user.avatar.present? %>
-        <%= image_tag("#{@user.avatar}", class: "avatar-large") %>
+      <% if current_user.id == @user.id %>
+      <%= image_tag("flavien.png", class: "avatar-large") %>
+      <% else %>
+        <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar">
       <% end %>
     </div>
     <div class="user-info">
@@ -86,7 +84,7 @@
           <div>
             <% project.collaborations.each do |element| %>
               <%= link_to user_profile_path(element.user) do %>
-                <%= image_tag("#{element.user.avatar}", class: "avatar-m") %>
+                <%= cl_image_tag element.user.avatar,  class: "avatar-m" %>
               <% end %>
             <% end %>
           </div>
@@ -102,11 +100,12 @@
       <%#= @mynetworks.count%>
       <h3>Network</h3>
       <div class="p-2">
-        <% User.order(rand(1..User.count)).first(5).each do |user| %>
+
+        <% @users_except_me.sample(5).each do |user| %>
         <!-- Profile mini card -->
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
-            <%= image_tag("#{user.avatar}", class: "avatar-m") %>
+            <%= cl_image_tag user.avatar, class: "avatar-m" %>
           </div>
           <div class="">
             <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>

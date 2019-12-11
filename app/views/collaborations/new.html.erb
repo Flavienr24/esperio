@@ -1,5 +1,8 @@
 <div id="title-collab">
   <h1>Search-Collaborators</h1>
+  <p class="light-description">
+    Find here the candidates closest to your expectations
+  </p>
 </div>
 <table id="collaborators" >
 <thead>
@@ -20,14 +23,16 @@
       <td>
         <!-- bouton add collaborateur au projet -->
         <% if @project.collaborations.where(user: user).present? %>
-          <%= link_to 'X', project_collaboration_path(@project, @project.collaborations.where(user: user).first.id, user: user), method: :delete, class: "btn btn-rounded-s-erase" %>
+          <%= link_to project_collaboration_path(@project, @project.collaborations.where(user: user).first.id, user: user), method: :delete, class: "btn btn-circle btn-collab-add" do %>
+            <div><i class="fas fa-check"></i></div>
+        <% end %>
         <% else %>
-          <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, class: "btn btn-rounded-s" %>
+          <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, class: "btn btn-circle" %>
         <% end %>
       </td>
       <td>
         <!-- avatar et description -->
-        <div class="d-flex align-items ">
+        <div class="d-flex align-items-center ">
           <div >
             <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
           </div >
@@ -51,13 +56,13 @@
       </td>
       <td>
         <!-- percent de respponse -->
-        <div class=" response">
-        <div class="graph-cont">
-          <div class="bar bar1" style="width: <%=user.response%>%;">
-            <p><%= "#{user.response} %" %> </p>
+        <p><%= "#{user.response} %" %> </p>
+        <div class=" response height=24px">
+          <div class="graph-cont">
+            <div class="bar bar1" style="width: <%=user.response.to_i%>%;">
+            </div>
           </div>
         </div>
-      </div>
       </td>
       <td>
         <!-- nb de follow projects -->
@@ -73,7 +78,7 @@
         </div>
       </td>
       <td>
-        <div class="connex">
+        <div class="experience">
           <%= user.experience %>
         </div>
       </td>

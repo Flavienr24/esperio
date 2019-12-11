@@ -80,6 +80,7 @@
       <% end %>
     </div>
   </div>
+
 </div>
 
 <!-- COLL DROITE  MIDDLE  - COLLABOR + ACTVIVITIES-->
@@ -95,6 +96,21 @@
         <%= image_tag("#{element.user.avatar}", class: "avatar-m mr-2") %>
         <%= link_to element.user.fullname, user_profile_path(element.user) %> <br>
       </div>
+
+  <br>
+  <!-- <h2>Activities</h2> -->
+  <div class="col-4 px-0 pl-3 ">
+    <div class="flat-card my-4 px-4 py-2">
+      <h3>Activities</h3>
+      <%= @project.posts.count%> - posts
+      created :
+      <%if @t_day == 1 %>
+          <%= @t_day %> day ago
+      <% elsif @t_day > 1 %>
+          <%= @t_day %> days ago
+      <%else %>
+        <%= @t_min %> ago
+
       <% end %>
     </div>
         <%= link_to '+ Fellows', new_project_collaboration_path(@project), class: 'btn btn-rounded'%>
