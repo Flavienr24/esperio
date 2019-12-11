@@ -19,7 +19,6 @@ Collaboration.destroy_all
 
 list_of_functions = []
 
-feelows = Company.create(name: 'Feellows')
 
 function_json =[
 {
@@ -101,6 +100,11 @@ function_json =[
   "function": "Cybersecurity Reseacher"
 }
 ]
+
+function_json.each do |element|
+  list_of_functions << element[:function]
+end
+
 
 list_of_tags = []
 
@@ -1524,7 +1528,7 @@ puts 'Creating 10 fake user...'
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
-    function: Faker::Job.title,
+    function: list_of_functions.sample,
     school: Faker::University.name,
     company: feelows,
     skill_list: list_of_tags.sample(rand(5..10)),
