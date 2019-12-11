@@ -20,7 +20,7 @@ Collaboration.destroy_all
 list_of_tags = []
 
 
-feelows = Company.create(name: 'Feellows')
+feellows = Company.create(name: 'Feellows')
 
 project_json = [
   {
@@ -1677,6 +1677,25 @@ avatar_json.each do |element|
   list_of_avatars << element[:avatar]
 end
 
+puts "creating John"
+
+fla = User.new(
+  fullname: "Flavien Rosellini",
+  email: "flavien@feellows.com",
+  password: "password",
+  avatar: "flavien.png",
+  phone: "0706070809",
+  country: "France",
+  city: "Marseille",
+  function: "Materials researcher",
+  school: "Mines Paristech",
+  company: feellows,
+  skill_list: list_of_tags.sample(rand(5..10)),
+  response: Faker::Number.number(digits: 2),
+  experience: "Experienced"
+  )
+fla.save!
+
 puts 'Creating 10 fake user...'
 
 10.times do
@@ -1684,13 +1703,13 @@ puts 'Creating 10 fake user...'
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password",
-    avatar: "https://source.unsplash.com/featured/?face#{rand(1..100)}",
+    avatar: list_of_avatars.sample,
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
     function: Faker::Job.title,
     school: Faker::University.name,
-    company: feelows,
+    company: feellows,
     skill_list: list_of_tags.sample(rand(5..10)),
     response: Faker::Number.number(digits: 2),
     experience: ["Early Career", "Experienced", "Senior"].sample
