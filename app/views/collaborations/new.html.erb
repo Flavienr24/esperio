@@ -32,7 +32,7 @@
             <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
           </div >
           <div class="collab-card">
-            <%= user.fullname %> <br>
+            <span class="font-weight-bold"><%= link_to user.fullname, user_profile_path(user) %> <br></span>
             <%= user.function %>
           </div>
         </div>
@@ -68,8 +68,8 @@
       <td>
         <!-- nb de lead projects -->
         <div class="collab-card">
-          <%= user.city %> <br>
-          <%= user.country %>
+          <span class="font-weight-bold"><%= user.country %> <br></span>
+          <%= user.city %>
         </div>
       </td>
       <td>

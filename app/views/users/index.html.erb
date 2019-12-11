@@ -22,9 +22,7 @@
     <tr class="collab-line">
       <td>
         <!-- bouton add collaborateur au projet -->
-        <div class=" btn btn-rounded-s ">
-        +
-        </div>
+        <%= link_to '>', user_profile_path(user), class: "btn btn-circle" %>
       </td>
       <td>
         <!-- avatar et description -->
@@ -33,7 +31,7 @@
             <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
           </div>
           <div class="collab-card">
-            <%= user.fullname %> <br>
+            <span class="font-weight-bold"><%= user.fullname %> <br></span>
             <%= user.function %>
           </div>
         </div>
@@ -69,8 +67,8 @@
       <td>
         <!-- nb de lead projects -->
         <div class="collab-card">
-          <%= user.city %> <br>
-          <%= user.country %>
+          <span class="font-weight-bold"><%= user.country %> <br></span>
+          <%= user.city %>
         </div>
       </td>
       <td>

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def my_profile
     @user = current_user
+    @user.avatar = src="flavien.png"
     @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
