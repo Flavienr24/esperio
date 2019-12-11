@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
     @projects_I_lead = @user.projects
     @collaborations = @user.collaborations
