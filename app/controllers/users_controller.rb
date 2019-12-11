@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users_except_me = User.all_except(current_user)
     @user = User.find(params[:id])
     @projects_I_lead = @user.projects
     @collaborations = @user.collaborations
@@ -14,10 +15,12 @@ class UsersController < ApplicationController
   end
 
   def my_profile
+    @users_except_me = User.all_except(current_user)
     @user = current_user
     @user.avatar = src="flavien.png"
     @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
   end
+
 end
