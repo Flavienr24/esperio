@@ -30,4 +30,8 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :function, presence: true
   validates :school, presence: true
+
+  def self.all_except(user)
+    where.not(id: user.id)
+  end
 end
