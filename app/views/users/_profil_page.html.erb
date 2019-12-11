@@ -4,9 +4,10 @@
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
       <% if current_user.id == @user.id %>
-      <%= image_tag("flavien.png", class: "avatar-large") %>
+        <%= image_tag("flavien.png", class: "avatar-large") %>
       <% else %>
-        <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar">
+        <%= image_tag (@user.avatar), class: "avatar-large" %>
+        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
       <% end %>
     </div>
     <div class="user-info">
@@ -23,7 +24,15 @@
   </div>
   <div class="stat-label">
     <%#= @mycollaborations.count%>
-    <div class="stat-number"><%= @user.collaborations.count%></div>
+    <div class="stat-number">
+      <%#= @user.collaborations.count%>
+<!-- Test collaboration -->
+      <% if current_user.id == @user.id %>
+        14
+      <% else %>
+        <%= rand(3..24) %>
+      <% end %>
+      </div>
     <p>Collaborations</p>
   </div>
   <div class="stat-label">
