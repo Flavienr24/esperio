@@ -1,8 +1,15 @@
 <div class="container">
-  <div class="flat-card margin-form">
-    <h3 class="title">New Project</h3>
-    <%= simple_form_for @project do |f| %>
-    <%= f.error_notification %>
+  <%= simple_form_for @project do |f| %>
+  <%= f.error_notification %>
+  <div class="flat-card p-5">
+    <h3 class="title">
+      <% if current_page?(controller: 'projects', action: 'new') %>
+      Create a new project
+      <% else %>
+      Edit your project
+      <% end %>
+    </h3>
+  <div class="floating-card p-5 mx-4">
     <div class="form-inputs">
       <%= f.input :name,
       required: true,
@@ -16,78 +23,54 @@
       input_html: { autocomplete: "description" }%>
       <%= f.input :visibility,
       autofocus: true,
-      label: "Private",
+      label: "Define your project as private (visible only by you and collaborators added)",
       input_html: { autocomplete: "true" }%>
     </div>
+
   </div>
-  <!-- Skill search display none -->
-  <div class="skills-positions" style="display: none">
-    <div class="flat-card margin-form">
+    <div class="floating-card mt-3 p-5 mx-4">
+      <div class="text-center pb-4"><h3>Skills & Expertises</h3></div>
       <div class="skills">
-        <h3>Skills & Expertises</h3>
-        <div class="light-description">Choose expertises needed for project</div>
-        <%= f.input :project_tags,
-        autofocus: true,
-        placeholder: "Separated tags with commas",
-        input_html: { autocomplete: "true" }
-        %>
-        <div>
-          <% @project.project_tags.each do |tag| %>
-          <div class="tag-expertise">
-            <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
-            <%= tag.upcase %>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- TEST -->
-  <div class="skills-positions">
-    <div class="flat-card margin-form">
-      <div class="skills">
-        <h3>Skills & Expertises</h3>
-        <div class="light-description">Choose expertises needed for project</div>
-        <div class="d-flex">
-          <div class="tags-search">
-            <%= f.input :project_tags,
-            type: "text",
-            placeholder: "Search for names",
-            :input_html => {
-            :id => "myInput",
-            :autocomplete => "off",
-            # :onkeyup => "searchList()"
-            }
-            %>
+        <div class="tags-search">
+            <label for="search" class="form-inputs">Expertises needed for this project</label>
+            <input type="text" class="form-control mt-2" name="search" placeholder="Search company expertise" id="myInput" autocomplete="off">
             <div class="skill-list">
               <!-- Tag expertise bucket -->
               <div class="d-flex flex-wrap">
-                <% @project.project_tags.join.split(',').each do |tag| %>
+                <% @project.project_tags.each do |tag| %>
                 <div class="tag-expertise">
                   <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
                   <%= tag.upcase %>
                 </div>
                 <% end %>
               </div>
-              <div class="tag-export">
+              <div class="tag-export" style="display: none">
               </div>
             </div>
-            <div class="list-tags-search">
-              <ul id="myUL">
-                <% User.skill_counts.each do |skill| %>
-                <li class="list" style="display: none"><a href="#"><%= skill.name %></a></li>
-                <% end %>
-              </ul>
-            </div>
+          </div>
+          <div class="list-tags-search">
+            <ul id="myUL">
+              <% User.skill_counts.each do |skill| %>
+              <li class="list"><a href="#"><%= skill.name %></a></li>
+              <% end %>
+            </ul>
           </div>
         </div>
-        <div class="end-form margin-form d-flex justify-content-center">
-          <div class="btn btn-rounded btn-group-vertical">
-            <%= f.button :submit, "Create"%>
-          </div>
-        </div>
+    </div>
+    <div class="d-flex justify-content-between mt-4">
+      <div class="">
+        <%= link_to 'Back', :back, class: "btn btn-secondary" %>
+      </div>
+      <div class="">
+        <% if current_page?(controller: 'projects', action: 'new') %>
+          <% form_btn = "Create" %>
+        <% else %>
+          <% form_btn = "Edit" %>
+        <% end %>
+
+        <%= f.button :submit, form_btn, class: "btn-primary" %>
       </div>
     </div>
-    <% end %>
+  <% end %>
   </div>
 </div>

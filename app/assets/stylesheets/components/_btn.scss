@@ -85,14 +85,15 @@
   font-weight: bold;
   border-radius: 8px;
   font-size: 14px;
+  &:hover {
+    background: $primary;
+    color: white;
+    border: 0px;
+  }
 }
 
 .button-font i {
   font-size: 32px;
   color: $primary;
   margin-left: 0px;
-}
-
-.btn{
-  color: white;
 }

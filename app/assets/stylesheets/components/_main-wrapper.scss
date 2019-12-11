@@ -23,6 +23,15 @@
   margin-top: -60px;
 }
 
+.form-wrapper {
+  width: 40%;
+  margin-top: 50px;
+}
+
+.signup-wrapper {
+  width: 60%;
+  margin-top: 50px;
+}
 .id-user {
   border-right: 1px solid $light-grey;
   width: 40%;
@@ -70,18 +79,28 @@
 }
 
 .tags-search {
-  width: 60%;
+  width: 40%;
 }
 
 .list-tags-search {
-  width: 40%;
+  width: 60%;
   display: flex;
   display: wrap;
+  height: 230px;
   max-height: 230px;
   overflow: scroll;
+  padding-left: 20px;
+  border-left: 1px solid;
+  margin-left: 74px;
 }
 
 .skill-list {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 16px;
+}
+
+.skills {
+  max-height: 400px;
+  display: flex;
 }
