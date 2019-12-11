@@ -2,19 +2,13 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.all.order("created_at DESC")
   end
 
   def show
     @user = current_user
     @projects_I_lead = Project.where(user_id: @user.id)
-    # @user.projects
     @post = Post.new
-    @posts = @project.posts. select do |post|
-    post.persisted?
-    end
-    @collaborations = @user.collaborations
-    @myexpertises = @user.skills
   end
 
   def new
@@ -28,7 +22,7 @@ class ProjectsController < ApplicationController
     @project.status = 'In Progress'
     @project.user = current_user
     @project.visibility = true
-    @project.open_to_apply = false
+    @project.open_to_apply = true
     @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
     if @project.save
       redirect_to project_path(@project)
@@ -59,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :status, :visibility, :open_to_apply)
+    params.require(:project).permit(:name, :description, :status, :visibility)
   end
 end

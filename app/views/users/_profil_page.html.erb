@@ -3,10 +3,12 @@
 <div class="w-100 px-4 py-2 flat-card d-flex">
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
-      <% if current_user.id == @user.id %>
-      <img src="${@user.avatar}" alt="avatar">
-      <% else %>
-      <%= image_tag @user.avatar, class: "avatar-large" %>
+      <%# if current_user.id == @user.id %>
+        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
+      <%# else %>
+      <%# image_tag  (url="https://source.unsplash.com/featured/?face") %>
+      <% if @user.avatar.present? %>
+        <%= image_tag("#{@user.avatar}", class: "avatar-large") %>
       <% end %>
     </div>
     <div class="user-info">
@@ -46,7 +48,7 @@
     <!-- Expertises -->
     <div class="flat-card my-4 px-4 py-2">
       <h3>Expertises</h3>
-      <div class="expertises-profile p-3 d-flex flex-wrap">
+      <div class="expertises-profile">
 <!-- Test affichage expertise -->
         <% @myexpertises.each do |expertise| %>
           <div class="tag-expertise">
@@ -68,15 +70,25 @@
       <div class="m-3">
         <% @projects_I_lead.each do |project|%>
         <div class="floating-card">
-          <h4><%= project.name %></h4>
+          <div class="d-flex justify-content-between">
+            <h4 class="bold-p"><%= project.name %></h4>
+            <div class="project-status"><%= project.status %></div>
+          </div>
+
           <div class="d-flex w-50 justify-content-between">
           <div class="light-description"><%= project.created_at %></div>
-          <div class="project-status"><%= project.status %></div>
           </div>
           <div class="description mt-3"><%= project.description %></div>
           <div class="d-flex justify-content-end">
             <!-- Avatars des contributeurs à intégrer  -->
             <%= link_to '>', project_path(project), class: 'btn btn-circle'%>
+          </div>
+          <div>
+            <% project.collaborations.each do |element| %>
+              <%= link_to user_profile_path(element.user) do %>
+                <%= image_tag("#{element.user.avatar}", class: "avatar-m") %>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <% end %>
@@ -85,26 +97,28 @@
   </div>
   <!-- Colonne droite -->
   <div class="col-4 px-0 pl-3 ">
-    <!-- Collaboration -->
-    <div class="flat-card my-4 px-4 py-2">
-      <h3>Collaboration</h3>
-      <div class="p-3">
-        <%  @user.collaborations.each do |collaboration| %>
-        <div class="d-flex align-items-center">
-          <%= image_tag collaboration.project.user.avatar, class: "avatar-s" %>
-          <div class="">
-          <p><%= collaboration.project.user.fullname %></p>
-          <%= collaboration.project.user.function class: "light-description" %>
-          </div>
-        </div>
-        <%end %>
-      </div>
-    </div>
     <!-- Network -->
     <div class="flat-card my-4 px-4 py-2">
       <%#= @mynetworks.count%>
       <h3>Network</h3>
-      <!-- <h2>Network</h2> -->
+      <div class="p-2">
+        <% User.order(rand(1..User.count)).first(5).each do |user| %>
+        <!-- Profile mini card -->
+        <div class="d-flex justify-content-start align-items-center p-2">
+          <div class="mr-3">
+            <%= image_tag("#{user.avatar}", class: "avatar-m") %>
+          </div>
+          <div class="">
+            <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
+            <div class="light-description"><%= user.function %></div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <!-- end -->
+      <div class="d-flex justify-content-end ">
+      <%= link_to "See more researchers", users_path, class: "link-label" %>
+      </div>
     </div>
   </div>
 </div>

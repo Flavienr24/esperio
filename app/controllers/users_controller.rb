@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
      @users = User.all
      @users = @users.fullname_search(params[:query]) if params[:query].present?
-     @users = User.all.tagged_with(params[:query], any: true) if @users.empty?
+     @users = User.all.select { |user| user.skill_list.include?(params[:query]) } if @users.empty?
      @user = User.find(current_user.id)
   end
 
@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
   def my_profile
     @user = current_user
-    @projects_I_lead = @user.projects
+    @user.avatar = src="flavien.png"
+    @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
   end

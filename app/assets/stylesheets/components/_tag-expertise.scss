@@ -1,7 +1,7 @@
 
 // à finaliser: l'icône, l'espacement depuis le bord droit...
 .tag-expertise {
-  margin:10px;
+  margin:6px;
   width: fit-content;
   height: 32px;
   background: $background;
@@ -22,6 +22,26 @@
 
 .project-status {
   background: #FFB946;
+  border-radius: 12px;
+  width: 92px;
+  height: 23px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white,
+}
+
+
+.user-status {
+  background: #525252;
   border-radius: 3px;
   width: 80px;
   height: 14px;
@@ -59,3 +79,4 @@
     }
   }
 }
+

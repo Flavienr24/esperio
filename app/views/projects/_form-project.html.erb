@@ -1,9 +1,4 @@
 <div class="container">
-  <!--<div class="form"> -->
-  <!-- <div class="row justify-content-center"> -->
-  <!-- <div class="col-md-8"> à voir si c'est ça-->
-  <!-- <h1 id="title_project"> Give a title to your project</h1> -->
-  <!--  <div class="form"> -->
   <div class="flat-card margin-form">
     <h3 class="title">New Project</h3>
     <%= simple_form_for @project do |f| %>
@@ -21,15 +16,11 @@
       input_html: { autocomplete: "description" }%>
       <%= f.input :visibility,
       autofocus: true,
-      label: "Public",
-      input_html: { autocomplete: "true" }%>
-      <%= f.input :open_to_apply,
-      autofocus: true,
-      placeholder: "Yes",
+      label: "Private",
       input_html: { autocomplete: "true" }%>
     </div>
   </div>
-
+  <!-- Skill search display none -->
   <div class="skills-positions" style="display: none">
     <div class="flat-card margin-form">
       <div class="skills">
@@ -51,8 +42,7 @@
       </div>
     </div>
   </div>
-
-<!-- TEST -->
+  <!-- TEST -->
   <div class="skills-positions">
     <div class="flat-card margin-form">
       <div class="skills">
@@ -64,32 +54,40 @@
             type: "text",
             placeholder: "Search for names",
             :input_html => {
-                    :id => "myInput",
-                    :autocomplete => "off",
-                    # :onkeyup => "searchList()"
-                  }
+            :id => "myInput",
+            :autocomplete => "off",
+            # :onkeyup => "searchList()"
+            }
             %>
-
             <div class="skill-list">
-                <!-- Tag expertise bucket -->
+              <!-- Tag expertise bucket -->
+              <div class="d-flex flex-wrap">
+                <% @project.project_tags.join.split(',').each do |tag| %>
+                <div class="tag-expertise">
+                  <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
+                  <%= tag.upcase %>
+                </div>
+                <% end %>
+              </div>
+              <div class="tag-export">
+              </div>
             </div>
-            <div class="tag-export">
-
+            <div class="list-tags-search">
+              <ul id="myUL">
+                <% User.skill_counts.each do |skill| %>
+                <li class="list" style="display: none"><a href="#"><%= skill.name %></a></li>
+                <% end %>
+              </ul>
             </div>
           </div>
-          <div class="list-tags-search">
-            <ul id="myUL">
-              <% User.skill_counts.each do |skill| %>
-               <li class="list" style="display: none"><a href="#"><%= skill.name %></a></li>
-              <% end %>
-            </ul>
+        </div>
+        <div class="end-form margin-form d-flex justify-content-center">
+          <div class="btn btn-rounded btn-group-vertical">
+            <%= f.button :submit, "Create"%>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-
-    <%= f.button :submit, "Create Project"%>
     <% end %>
+  </div>
 </div>

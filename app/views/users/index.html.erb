@@ -1,32 +1,84 @@
-<h1> Search Collaborators</h1>
-
-<div>
-   <div class="row">
-    <% @users.each do |user| %>
-      <div class="col-12 col-md-6 d-flex">
-        <img src="${user.avatar}" alt="avatar">
-        <h2><%= user.fullname %> </h2>
-        <p><%= user.function %></p>
-        <!-- <p>Collaborations: <%# @user.collaborations.count%></p> -->
-        <p> Responses: </p>
-        <p> Projects lead: <%= user.projects.count%></p>
-        <p>Last Connection:   </p>
-        <%= user.email %>
-        <%= link_to 'Profile', user_profile_path(user), class: 'btn btn-primary' %>
-      </div>
-  <% end %>
-  </div>
+<div id="title-collab">
+    <h1>Researchers Available</h1>
+  <p class="light-description">
+    Find here the candidates closest to your expectations
+  </p>
 </div>
+<table id="collaborators" >
+<thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Collab</th>
+    <th>Responses</th>
+    <th>Projects Lead</th>
+    <th>Location</th>
+    <th>Subscribed Since</th>
+  </tr>
+</thead>
 
-<%= simple_form_for users_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          placeholder: "Research a user"
-        %>
+<tbody class="table-body">
+  <%@users.each do |user| %>
+    <tr class="collab-line">
+      <td>
+        <!-- bouton add collaborateur au projet -->
+        <%= link_to '>', user_profile_path(user), class: "btn btn-circle" %>
+      </td>
+      <td>
+        <!-- avatar et description -->
+        <div class="d-flex align-items-center ">
+          <div>
+            <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
+          </div>
+          <div class="collab-card">
+            <span class="font-weight-bold"><%= user.fullname %> <br></span>
+            <%= user.function %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- nb de collaborations -->
+        <div class="d-flex align-items-center justify-content-around ">
+          <div class="stat-number">
+            <% total = 0 %>
+            <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+            <% end %>
+            <%= total %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- percent de respponse -->
+        <div class=" response">
+        <div class="graph-cont">
+          <div class="bar bar1" style="width: <%=user.response%>%;">
+            <p><%= "#{user.response} %" %> </p>
+          </div>
+        </div>
+      </div>
+      </td>
+      <td>
+        <!-- nb de follow projects -->
+        <div class="stat-number">
+          <%= user.projects.count %>
+        </div>
+      </td>
+      <td>
+        <!-- nb de lead projects -->
+        <div class="collab-card">
+          <span class="font-weight-bold"><%= user.country %> <br></span>
+          <%= user.city %>
+        </div>
+      </td>
+      <td>
+        <div class="experience">
+          <%= user.experience %>
+        </div>
+      </td>
+    </tr>
+  <%end%>
+</tbody>
+</table>
+<!-- </div> -->
 
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-
-  <div id="skills">
-    <%= render 'user', users: @users %>
-  </div>

@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
 
   get "test_page", to: "pages#test_page"
+  get "index_skills", to: "pages#skills_index"
 
 end

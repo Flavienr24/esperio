@@ -1,0 +1,181 @@
+<div class="flat-card">
+<h1>Search Collaborators</h1>
+<div class="tab">
+  <div class="tab-header">
+    tab header
+  </div>
+    <div class="row">
+
+      <% @users.each do |user| %>
+        <div class="tab_row_user d-flex">
+          <div class="btn btn-rounded"></div>
+          <div> avatar</div>
+          <div class="mini-card">
+            <p>name</p>
+            <div class="light-description">description fonction</div>
+          </div>
+          <div class="stat-label">
+          <%#= @mycollaborations.count%>
+            <div class="stat-number"><%= @user.collaborations.count%></div>
+            <p>Collaborations</p>
+          </div>
+          <div class="stat-label">
+          <%#= projects.count%>
+            <div class="stat-number">32</div>
+          </div>
+          <div class="ellipse"></div>
+          <div class="last-connex"> time.sample</div>
+        </div>
+      <% end %>
+    </div>
+    </div>
+</div>
+
+  <div>
+ <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 col-md-6 d-flex">
+        <img src="${user.avatar}" alt="avatar">
+        <h2><%= user.fullname %> </h2>
+        <p><%= user.function %></p>
+        <!-- <p>Collaborations: <%# @user.collaborations.count%></p> -->
+        <p> Responses: </p>
+        <p> Projects lead: <%= user.projects.count%></p>
+        <p>Last Connection:   </p>
+        <%= user.email %>
+        <%= link_to 'Profile', user_profile_path(user), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= simple_form_for users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Research a user"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+  <% end %>
+
+  <div id="skills">
+    <%= render 'user', users: @users %>
+  </div>
+
+===========================================
+<div class="divTable blueTable">
+  <div class="divTableHeading">
+    <div class="divTableRow d-flex">
+      <div class="divTableHead">bouton</div>
+      <div class="divTableHead">Name</div>
+      <div class="divTableHead">Collaborations</div>
+      <div class="divTableHead">Responses</div>
+      <div class="divTableHead">Projects</div>
+      <div class="divTableHead">Projects Lead</div>
+      <div class="divTableHead">Last Connection</div>
+    </div>
+  </div>
+  <div class="divTableBody">
+    <%# @users.each do |user| %>
+      <div class="divTableRow d-flex">
+        <div class="divTableCell btn btn-rounded">+</div>
+        <div class="divTableCell">
+          <div> avatar</div>
+           <div class="mini-card">
+            <p>name</p>
+            <p>description fonction</p>
+            </div>
+        </div>
+        <div class="divTableCell">
+          <div class="stat-label">
+            <div class="stat-number"><%= @user.collaborations.count%></div>
+            <p>Collaborations</p>
+          </div>
+        </div>
+        <div class="divTableCell">Response</div>
+        <div class="divTableCell">
+          <div class="stat-label">
+            <div class="stat-number">40</div>
+          </div>
+        </div>
+        <div class="divTableCell">
+          <div class="stat-label">
+            <div class="stat-number">18</div>
+          </div>
+        </div>
+        <div class="divTableCell">
+          <div class="last-connex">13:27</div>
+        </div>
+      </div>
+    # <%# end %>
+  </div>
+</div>
+=============================================
+style table
+
+// /* DivTable.com */
+// .divTable{ display: table; }
+// .divTableRow { display: table-row; }
+// .divTableHeading { display: table-header-group;}
+// .divTableCell, .divTableHead { display: table-cell;}
+// .divTableHeading { display: table-header-group;}
+// .divTableFoot { display: table-footer-group;}
+// .divTableBody { display: table-row-group;}
+
+// table.blueTable {
+//   border: 1px solid #1C6EA4;
+//   background-color: #EEEEEE;
+//   width: 100%;
+//   text-align: left;
+//   border-collapse: collapse;
+// }
+// table.blueTable td, table.blueTable th {
+//   border: 1px solid #AAAAAA;
+//   padding: 3px 2px;
+// }
+// table.blueTable tbody td {
+//   font-size: 13px;
+// }
+// table.blueTable tr:nth-child(even) {
+//   background: #D0E4F5;
+// }
+// table.blueTable thead {
+//   background: #1C6EA4;
+//   background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+//   background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+//   background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+//   border-bottom: 2px solid #444444;
+// }
+// table.blueTable thead th {
+//   font-size: 15px;
+//   font-weight: bold;
+//   color: #FFFFFF;
+//   border-left: 2px solid #D0E4F5;
+// }
+// table.blueTable thead th:first-child {
+//   border-left: none;
+// }
+
+// table.blueTable tfoot {
+//   font-size: 14px;
+//   font-weight: bold;
+//   color: #FFFFFF;
+//   background: #D0E4F5;
+//   background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+//   background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+//   background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+//   border-top: 2px solid #444444;
+// }
+// table.blueTable tfoot td {
+//   font-size: 14px;
+// }
+// table.blueTable tfoot .links {
+//   text-align: right;
+// }
+// table.blueTable tfoot .links a{
+//   display: inline-block;
+//   background: #1C6EA4;
+//   color: #FFFFFF;
+//   padding: 2px 8px;
+//   border-radius: 5px;
+// }
