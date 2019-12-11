@@ -29,10 +29,10 @@
 
   </div>
     <div class="floating-card mt-3 p-5 mx-4">
-      <div class="text-center pb-4"><h3>Skills & Expertises</h3></div>
+      <div class="text-center pb-4"><h3>Expertises needed for this project</h3></div>
       <div class="skills">
         <div class="tags-search">
-            <label for="search" class="form-inputs">Expertises needed for this project</label>
+            <label for="search" class="form-inputs">Search for an expertises...</label>
             <input type="text" class="form-control mt-2" name="search" placeholder="Search company expertise" id="myInput" autocomplete="off">
             <div class="skill-list">
               <!-- Tag expertise bucket -->
@@ -49,11 +49,14 @@
             </div>
           </div>
           <div class="list-tags-search">
-            <ul id="myUL">
-              <% User.skill_counts.each do |skill| %>
-              <li class="list"><a href="#"><%= skill.name %></a></li>
-              <% end %>
-            </ul>
+            <div class="form-inputs">...or pick them</div>
+            <div class="scroll-list">
+              <ul id="myUL">
+                <% User.skill_counts.each do |skill| %>
+                <li class="list"><a href="#"><%= skill.name %></a></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
     </div>

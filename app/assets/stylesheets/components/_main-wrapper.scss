@@ -84,14 +84,20 @@
 
 .list-tags-search {
   width: 60%;
-  display: flex;
+  // display: flex;
   display: wrap;
-  height: 230px;
-  max-height: 230px;
-  overflow: scroll;
+  // height: 230px;
+  // max-height: 230px;
   padding-left: 20px;
   border-left: 1px solid;
   margin-left: 74px;
+}
+
+.scroll-list {
+  overflow: scroll;
+  height: 230px;
+  max-height: 230px;
+  margin-top: 16px;
 }
 
 .skill-list {
