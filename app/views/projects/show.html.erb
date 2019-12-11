@@ -98,11 +98,6 @@
       <%else %>
         <%= @t_min %> ago
       <% end %>
-
-      <%#= User.all.tagged_with(@project.project_tags, :any => true).count %>
-      <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-      <%= user.fullname %> <br>
-      <% end %>
     </div>
   </div>
 </div>
