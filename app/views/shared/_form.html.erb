@@ -1,8 +1,12 @@
 
 <!--  Simple form page projet -->
+
 <%= simple_form_for([ project, post ], remote: true) do |form| %>
+<div class="post">
   <%= form.input :content, as: :text %>
+</div>
   <%= form.submit "Send", class:"btn btn-primary"%>
   <%= form.input :file %>
   <% form.input :file_cache, as: :hidden%>
 <% end %>
+
