@@ -18,99 +18,91 @@ Project.destroy_all
 Collaboration.destroy_all
 
 list_of_functions = []
-
-
-function_json =[
-{
-  "function": "Aerospace Engineering and Operations Technicians Reseacher"
-},
-{
-  "function": "Architectural and Engineering Managers Reseacher"
-},
-{
-  "function": "Computer Hardware Engineers Reseacher"
-},
-{
-  "function": "Electrical and Electronics Engineering Technicians Reseacher"
-},
-{
-  "function": "Electrical and Electronics Engineers Reseacher"
-},
-{
-  "function": "Industrial Engineers Reseacher"
-},
-{
-  "function": "Materials Engineers Reseacher"
-},
-{
-  "function": "Mechanical Engineers Reseacher"
-},
-{
-  "function": "Calculation engineer in aeronautical industry researcher Reseacher"
-},
-{
-  "function": "Stress Analyst Reseacher"
-},
-{
-  "function": "Supervisory Physical Scientist Reseacher"
-},
-{
-  "function": "Supervisory Interdisciplinary Reseacher"
-},
-{
-  "function": "Environmental Reseacher"
-},
-{
-  "function": "Interdisciplinary Regulatory Project Reseacher"
-},
-{
-  "function": "Engineer Reseacher"
-},
-{
-  "function": "Regional Agreement State Program Officer Reseacher"
-},
-{
-  "function": "Biologist Reseacher"
-},
-{
-  "function": "Mathematician Reseacher"
-},
-{
-  "function": "Mathematical Statistician Reseacher"
-},
-{
-  "function": "Mechanical Reseacher"
-},
-{
-  "function": "Mech Reseacher"
-},
-{
-  "function": "Aeronautic Design Reseacher"
-},
-{
-  "function": "Aerospace Stress Analyst Reseacher"
-},
-{
-  "function": "Technical Support Reseacher"
-},
-{
-  "function": "Appplications Integration Reseacher"
-},
-{
-  "function": "Cybersecurity Reseacher"
-}
-]
-
-function_json.each do |element|
-  list_of_functions << element[:function]
-end
-
-
 list_of_tags = []
 list_description = []
 list_project_name = []
+list_of_avatars = []
 
-feellows = Company.create(name: 'Feellows')
+function_json =[
+  {
+    "function": "Aerospace Engineering and Operations Technicians Reseacher"
+  },
+  {
+    "function": "Architectural and Engineering Managers Reseacher"
+  },
+  {
+    "function": "Computer Hardware Engineers Reseacher"
+  },
+  {
+    "function": "Electrical and Electronics Engineering Technicians Reseacher"
+  },
+  {
+    "function": "Electrical and Electronics Engineers Reseacher"
+  },
+  {
+    "function": "Industrial Engineers Reseacher"
+  },
+  {
+    "function": "Materials Engineers Reseacher"
+  },
+  {
+    "function": "Mechanical Engineers Reseacher"
+  },
+  {
+    "function": "Calculation engineer in aeronautical industry researcher Reseacher"
+  },
+  {
+    "function": "Stress Analyst Reseacher"
+  },
+  {
+    "function": "Supervisory Physical Scientist Reseacher"
+  },
+  {
+    "function": "Supervisory Interdisciplinary Reseacher"
+  },
+  {
+    "function": "Environmental Reseacher"
+  },
+  {
+    "function": "Interdisciplinary Regulatory Project Reseacher"
+  },
+  {
+    "function": "Engineer Reseacher"
+  },
+  {
+    "function": "Regional Agreement State Program Officer Reseacher"
+  },
+  {
+    "function": "Biologist Reseacher"
+  },
+  {
+    "function": "Mathematician Reseacher"
+  },
+  {
+    "function": "Mathematical Statistician Reseacher"
+  },
+  {
+    "function": "Mechanical Reseacher"
+  },
+  {
+    "function": "Mech Reseacher"
+  },
+  {
+    "function": "Aeronautic Design Reseacher"
+  },
+  {
+    "function": "Aerospace Stress Analyst Reseacher"
+  },
+  {
+    "function": "Technical Support Reseacher"
+  },
+  {
+    "function": "Appplications Integration Reseacher"
+  },
+  {
+    "function": "Cybersecurity Reseacher"
+  }
+]
 
 project_json = [
   {
@@ -199,17 +191,12 @@ project_json = [
   }
 ]
 
-project_json.each do |element|
-  list_description << element[:description]
-  list_project_name << element[:name]
-end
-
 skill_json = [
-   {
-     "web-scraper-order": "1575731012-101",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Aeroelasticity"
-   },
+  {
+    "web-scraper-order": "1575731012-101",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Aeroelasticity"
+  },
   {
     "web-scraper-order": "1575731012-182",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1607,8 +1594,6 @@ skill_json = [
   }
 ]
 
-list_of_avatars = []
-
 avatar_json = [
   {
     "web-scraper-order": "1576087743-306",
@@ -1762,6 +1747,16 @@ avatar_json = [
   }
 ]
 
+feellows = Company.create(name: 'Feellows')
+
+function_json.each do |element|
+  list_of_functions << element[:function]
+end
+
+project_json.each do |element|
+  list_project_name << element[:name]
+  list_description << element[:description​]
+end
 
 skill_json.each do |element|
   list_of_tags << element[:skills]
@@ -1829,6 +1824,9 @@ puts 'Finished!'
  puts "company created : #{Company.count} "
  puts "user created : #{User.count} "
 
+
+#            ---------------  Blocs For Scrapping --------------
+
 # name = "Martin_Jean"  # programmer la recuperation de la saisie sur le sign up en JS
 # url = "https://www.researchgate.net/profile/#{name}"
 # # url = File.read("/home/deguil/Bureau/toto.html") code pour relier une page en local
@@ -1859,28 +1857,4 @@ puts 'Finished!'
 #   puts name
 #   end
 
-
-
-
-# puts 'Destroy Database...'
-
-# Company.destroy_all
-# User.destroy_all
-# Project.destroy_all
-# Collaboration.destroy_all
-
-# puts 'Creating Database...'
-
-# company_test = Company.create(name:"The big company")
-
-# user_test = User.create(first_name:"John", last_name:"Lascience", country:"France", city:"Paris", function:"Fellow researcher", school:"Harvar University", phone:"+33 1 42 61 65 34", email:"john@john.com", password:"password", company_id: company_test.id)
-
-# project_test = Project.create(name:"Hydrolic model conception", description:"We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.", user_id: user_test.id, status: 'In Progress', visibility: true, open_to_apply: false)
-
-# collaboration_test = Collaboration.create(project_id: project_test.id, user_id: user_test.id, joined: 'Pending')
-
-# puts Company.count
-# puts User.count
-# puts Project.count
-# puts Collaboration.count
-
+#        ------------------------------------------------------
