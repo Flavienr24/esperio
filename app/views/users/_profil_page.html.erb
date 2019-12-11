@@ -3,12 +3,10 @@
 <div class="w-100 px-4 py-2 flat-card d-flex">
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
-      <%# if current_user.id == @user.id %>
-        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
-      <%# else %>
-      <%# image_tag  (url="https://source.unsplash.com/featured/?face") %>
-      <% if @user.avatar.present? %>
-        <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+      <% if current_user.id == @user.id %>
+      <%= image_tag("flavien.png", class: "avatar-large") %>
+      <% else %>
+        <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar">
       <% end %>
     </div>
     <div class="user-info">
