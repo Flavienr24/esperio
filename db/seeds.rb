@@ -19,75 +19,94 @@ Collaboration.destroy_all
 
 list_of_tags = []
 
+
 feelows = Company.create(name: 'Feellows')
 
 project_json = [
-  { "name": "BioSentinel",
-    "Description​": "The BioSentinel mission was selected as one of the secondary payloads, and the sole biological experiment, to fly on the Space Launch System’s first Exploration Mission (EM-1) planned to launch in 2020.
-  The primary objective of BioSentinel is to develop a biosensor to detect and measure the impact of space radiation on living organisms over long durations beyond Low Earth Orbit (LEO).  "
-},
-  { "name": "EcAMSat ",
-    "Description​": "The E. coli AntiMicrobial Satellite (EcAMSat) mission will investigate space microgravity effects on the antibiotic resistance and its genetic basis of E. coli, a bacterial pathogen responsible for urinary tract infection in humans and animals. Bacterial antibiotic resistance may pose a danger to astronauts in microgravity, where the immune response is weakened. Scientists believe that the results of this experiment could help design effective countermeasures to protect astronauts’ health during long-duration human space missions. EcAMSat is being developed through a partnership between NASA’s Ames Research Center and the Stanford University School of Medicine. EcAMSAT is slated for launch in late 2016. "
-},
-  { "name": "PowerCell ",
-    "Description​": " ​In its first flight, the PowerCell Payload will investigate the performance of microbial mini-ecologies containing both photosynthetic microbes and consumer organisms. Photosynthetic cyanobacteria will produce the carbohydrate sucrose (table sugar), which will feed Bacillus subtilis, a robust bacterium commonly found in soil and the gut. "
-},
-  { "name": "AVA ",
-    "Description​": "Affordable Vehicle Avionics (AVA): Common Modular Avionics System for Nano-Launchers Offering Affordable Access to Space.  NASA Ames Research Center has developed and tested a prototype low-cost avionics package for space launch vehicles that provides complete GNC functionality in a package smaller than a tissue box (100mm x 120mm x 69mm; 4in x 4.7in x 2.7in), with a mass of less than 0.84kg (2lbs). "
-},
-  { "name": "TechEdSat-5​",
-    "Description​": "​In late 2016, TechEdSat-5 will launch from the International Space Station (ISS). This CubeSat will deploy an exo-brake, an exo-atmospheric drag chute that can be used for controlled de-orbit of a small payload canister from Earth orbit. This capability is useful for returning biological samples from ISS and even planetary samples from beyond Earth. TechEdSat-5 will demonstrate improved GPS tracking and a modulated exo-brake allowing more precise control of exo-atmospheric drag, re-entry time and location. It features multiple cameras to help verify exo-brake deployment and modulation. GPS tracking is anticipated to give precise orbital trajectories leading to better drag assessment and re-entry targeting among other benefits. "
-},
-  { "name": "Nodes",
-    "Description​": "NASA’s Nodes satellites, a pair of tissue box-size CubeSats, launched to the International Space Station on December 6, 2015. The two Nodes satellites were deployed from the Station on May 16, 2016 to demonstrate new network capabilities critical to the operation of swarms of spacecraft.
-
-Weighing just 4.5 pounds each and measuring 4 inches by 4 inches by 6.5 inches, the Nodes satellites, once deployed, will test new network capabilities for operating swarms of spacecraft in the future. "
-},
-  { "name": "EDSN ",
-    "Description​": "On November 3, 2015, the eight small satellites of the Edison Demonstration of Smallsat Networks (EDSN) mission were lost in the failure of the launch vehicle that was carrying them to orbit as secondary payloads. There will be an opportunity to complete some of the objectives of the EDSN mission in the Nodes follow-on mission. "
-},
-  { "name": "PhoneSat",
-    "Description​": "​NASA's PhoneSat project tests whether spacecraft can be built using smartphones to launch the lowest-cost satellites ever flown in space. Each PhoneSat nanosatellite is one cubesat unit - a satellite in a 10 cm (approx. 4 inches) cube or about the size of a tissue box - and weighs approximately three pounds. Engineers believe PhoneSat technology will enable NASA to launch multiple new satellites capable of conducting science and exploration missions at a small fraction of the cost of conventional satellites."
-},
-  { "name": "Exploration Ground Systems ",
-    "Description​": "Exploration Ground Systems' primary objective is to prepare the center to process and launch the next-generation vehicles and spacecraft designed to achieve NASA's goals for space exploration. "
-},
-  { "name": "HEO-ESD Integration ",
-    "Description​": "Exploration Systems Development Division (ESD) has been charged to oversee the development of nation’s next generation of human exploration systems. ESD Responsibilities include: Provide HEO MD with insight and oversight of programs developing human exploration capabilities (MPCV, SLS, and 21st Century Ground Systems), Complete Constellation Transition during FY11, Manage cross-program integration across MPCV, SLS and 21CGS Programs (Manage interfaces between programs and cross-program risks as well as ensure cross-program integration is occurring). "
-},
-  { "name": " International Space Station (ISS)",
-    "Description​": "The International Space Station is an unprecedented achievement in global human endeavors to conceive, plan, build, operate, and utilize a research platform in space. With the assembly of the space station at its completion and the support of a full-time crew of six, a new era of utilization for research has begun. "
-},
-  { "name": "James Webb Space Telescope (JWST) ",
-    "Description​": "The James Webb Space Telescope is a large, infrared-optimized space telescope. Webb will probe for the \"first light\" after the Big Bang and find the first galaxies that formed in the early Universe, connecting the Big Bang to our own Milky Way Galaxy. Webb will peer through dusty clouds to see stars forming planetary systems, connecting the Milky Way to our own Solar System and look for the chemical signatures of extra-terrestrial life. "
-},
-  { "name": "Joint Polar Satellite System-2 (JPSS-2) ",
-    "Description​": "JPSS-2 will provide operational continuity of satellite-based observations and products for NOAA Polar-Orbiting Environmental Satellites (POES) and Suomi NPP satellite and ground systems. The baseline plan for JPSS Ground System will be sustained to support JPSS-2, similar to JPSS-1. "
-},
-  { "name": "Joint Polar Satellite System Ground (JPSS Ground) ",
-    "Description​": "The ground system for the JPSS mission is a global network of receiving stations linked to NOAA, which distributes the satellite data and derived products to users worldwide. The versatile ground system controls the spacecraft, ingests and processes data and provides information to users like NOAA's National  "
-},
-  { "name": "Landsat 9 ",
-    "Description​": "Landsat 9 — a partnership between NASA and the U.S. Geological Survey — will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life "
-},
-  { "name": "Lucy ",
-    "Description​": "Lucy will be the first space mission to study the Trojan asteroids of Jupiter. The mission takes its name from the fossilized human ancestor (called “Lucy” by her discoverers) whose skeleton provided unique insight into humanity's evolution. Likewise, the Lucy mission will revolutionize our knowledge of planetary origins and the formation of the solar system. "
-},
-  { "name": "Mars 2020 ",
-    "Description​": "Designed to advance high-priority science goals for Mars exploration, the mission would address key questions about the potential for life on Mars. The mission would also provide opportunities to gather knowledge and demonstrate technologies that address the challenges of future human expeditions to Mars.. "
-},
-  { "name": "Multi-Purpose Crew Vehicle (Orion MPCV) ",
-    "Description​": "This spacecraft will serve as the primary crew vehicle for missions beyond low Earth orbit. The Orion MPCV is capable of conducting regular in-space operations (rendezvous, docking, extravehicular activity) in conjunction with payloads delivered by the Space Launch System. "
-},
-  { "name": "Psyche ",
-    "Description​": "The Psyche mission is a journey to a unique metal asteroid orbiting the Sun between Mars and Jupiter. What makes the asteroid Psyche unique is that it appears to be the exposed nickel-iron core of an early planet, one of the building blocks of our solar system. "
-},
-  { "name": "Space Launch System (SLS) ",
-    "Description​": "The Space Launch System (SLS) Program will develop a heavy-lift launch vehicle to expand human presence to celestial destinations beyond low Earth orbit. This launch vehicle will be capable of lifting the Orion MPCV to asteroids, the moon, Lagrange points and, ultimately, to Mars. "
-},
-  { "name": "Wide Field Infrared Survey Telescope (WFIRST) ",
-    "Description​": "NASA's current plans call for WFIRST to perform an extraordinarily broad set of scientific investigations: studying the newly-discovered phenomenon of dark energy, measuring the history of cosmic acceleration, completing the exoplanet census begun by NASA's Kepler Space Telescope and demonstrating technology for direct imaging and characterization of exoplanets. "
-}
+  {
+    "name": "BioSentinel",
+    "description​": "The BioSentinel mission was selected as one of the secondary payloads, and the sole biological experiment, to fly on the Space Launch System’s first Exploration Mission (EM-1) planned to launch in 2020. The primary objective of BioSentinel is to develop a biosensor to detect and measure the impact of space radiation on living organisms over long durations beyond Low Earth Orbit (LEO)."
+  },
+  {
+    "name": "EcAMSat ",
+    "description​": "The E. coli AntiMicrobial Satellite (EcAMSat) mission will investigate space microgravity effects on the antibiotic resistance and its genetic basis of E. coli, a bacterial pathogen responsible for urinary tract infection in humans and animals. Bacterial antibiotic resistance may pose a danger to astronauts in microgravity, where the immune response is weakened. Scientists believe that the results of this experiment could help design effective countermeasures to protect astronauts’ health during long-duration human space missions. EcAMSat is being developed through a partnership between NASA’s Ames Research Center and the Stanford University School of Medicine. EcAMSAT is slated for launch in late 2016. "
+  },
+  {
+  "name": "PowerCell ",
+  "description​": " ​In its first flight, the PowerCell Payload will investigate the performance of microbial mini-ecologies containing both photosynthetic microbes and consumer organisms. Photosynthetic cyanobacteria will produce the carbohydrate sucrose (table sugar), which will feed Bacillus subtilis, a robust bacterium commonly found in soil and the gut. "
+  },
+  {
+    "name": "AVA ",
+    "description​": "Affordable Vehicle Avionics (AVA): Common Modular Avionics System for Nano-Launchers Offering Affordable Access to Space.  NASA Ames Research Center has developed and tested a prototype low-cost avionics package for space launch vehicles that provides complete GNC functionality in a package smaller than a tissue box (100mm x 120mm x 69mm; 4in x 4.7in x 2.7in), with a mass of less than 0.84kg (2lbs). "
+  },
+  {
+    "name": "TechEdSat-5​",
+    "description​": "​In late 2016, TechEdSat-5 will launch from the International Space Station (ISS). This CubeSat will deploy an exo-brake, an exo-atmospheric drag chute that can be used for controlled de-orbit of a small payload canister from Earth orbit. This capability is useful for returning biological samples from ISS and even planetary samples from beyond Earth. TechEdSat-5 will demonstrate improved GPS tracking and a modulated exo-brake allowing more precise control of exo-atmospheric drag, re-entry time and location. It features multiple cameras to help verify exo-brake deployment and modulation. GPS tracking is anticipated to give precise orbital trajectories leading to better drag assessment and re-entry targeting among other benefits. "
+  },
+  {
+    "name": "Nodes",
+    "description​": "NASA’s Nodes satellites, a pair of tissue box-size CubeSats, launched to the International Space Station on December 6, 2015. The two Nodes satellites were deployed from the Station on May 16, 2016 to demonstrate new network capabilities critical to the operation of swarms of spacecraft. Weighing just 4.5 pounds each and measuring 4 inches by 4 inches by 6.5 inches, the Nodes satellites, once deployed, will test new network capabilities for operating swarms of spacecraft in the future. "
+  },
+  {
+    "name": "EDSN ",
+    "description​": "On November 3, 2015, the eight small satellites of the Edison Demonstration of Smallsat Networks (EDSN) mission were lost in the failure of the launch vehicle that was carrying them to orbit as secondary payloads. There will be an opportunity to complete some of the objectives of the EDSN mission in the Nodes follow-on mission. "
+  },
+  {
+    "name": "PhoneSat",
+    "description​": "​NASA's PhoneSat project tests whether spacecraft can be built using smartphones to launch the lowest-cost satellites ever flown in space. Each PhoneSat nanosatellite is one cubesat unit - a satellite in a 10 cm (approx. 4 inches) cube or about the size of a tissue box - and weighs approximately three pounds. Engineers believe PhoneSat technology will enable NASA to launch multiple new satellites capable of conducting science and exploration missions at a small fraction of the cost of conventional satellites."
+  },
+  {
+    "name": "Exploration Ground Systems ",
+    "description​": "Exploration Ground Systems' primary objective is to prepare the center to process and launch the next-generation vehicles and spacecraft designed to achieve NASA's goals for space exploration. "
+  },
+  {
+    "name": "HEO-ESD Integration ",
+    "description​": "Exploration Systems Development Division (ESD) has been charged to oversee the development of nation’s next generation of human exploration systems. ESD Responsibilities include: Provide HEO MD with insight and oversight of programs developing human exploration capabilities (MPCV, SLS, and 21st Century Ground Systems), Complete Constellation Transition during FY11, Manage cross-program integration across MPCV, SLS and 21CGS Programs (Manage interfaces between programs and cross-program risks as well as ensure cross-program integration is occurring). "
+  },
+  {
+    "name": " International Space Station (ISS)",
+    "description​": "The International Space Station is an unprecedented achievement in global human endeavors to conceive, plan, build, operate, and utilize a research platform in space. With the assembly of the space station at its completion and the support of a full-time crew of six, a new era of utilization for research has begun. "
+  },
+  {
+    "name": "James Webb Space Telescope (JWST) ",
+    "description​": "The James Webb Space Telescope is a large, infrared-optimized space telescope. Webb will probe for the \"first light\" after the Big Bang and find the first galaxies that formed in the early Universe, connecting the Big Bang to our own Milky Way Galaxy. Webb will peer through dusty clouds to see stars forming planetary systems, connecting the Milky Way to our own Solar System and look for the chemical signatures of extra-terrestrial life. "
+  },
+  {
+    "name": "Joint Polar Satellite System-2 (JPSS-2) ",
+    "description​": "JPSS-2 will provide operational continuity of satellite-based observations and products for NOAA Polar-Orbiting Environmental Satellites (POES) and Suomi NPP satellite and ground systems. The baseline plan for JPSS Ground System will be sustained to support JPSS-2, similar to JPSS-1. "
+  },
+  {
+    "name": "Joint Polar Satellite System Ground (JPSS Ground) ",
+    "description​": "The ground system for the JPSS mission is a global network of receiving stations linked to NOAA, which distributes the satellite data and derived products to users worldwide. The versatile ground system controls the spacecraft, ingests and processes data and provides information to users like NOAA's National  "
+  },
+  {
+    "name": "Landsat 9 ",
+    "description​": "Landsat 9 — a partnership between NASA and the U.S. Geological Survey — will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life "
+  },
+  {
+    "name": "Lucy ",
+    "description​": "Lucy will be the first space mission to study the Trojan asteroids of Jupiter. The mission takes its name from the fossilized human ancestor (called “Lucy” by her discoverers) whose skeleton provided unique insight into humanity's evolution. Likewise, the Lucy mission will revolutionize our knowledge of planetary origins and the formation of the solar system. "
+  },
+  {
+    "name": "Mars 2020 ",
+    "description​": "Designed to advance high-priority science goals for Mars exploration, the mission would address key questions about the potential for life on Mars. The mission would also provide opportunities to gather knowledge and demonstrate technologies that address the challenges of future human expeditions to Mars.. "
+  },
+  {
+    "name": "Multi-Purpose Crew Vehicle (Orion MPCV) ",
+    "description​": "This spacecraft will serve as the primary crew vehicle for missions beyond low Earth orbit. The Orion MPCV is capable of conducting regular in-space operations (rendezvous, docking, extravehicular activity) in conjunction with payloads delivered by the Space Launch System. "
+  },
+  {
+    "name": "Psyche ",
+    "description​": "The Psyche mission is a journey to a unique metal asteroid orbiting the Sun between Mars and Jupiter. What makes the asteroid Psyche unique is that it appears to be the exposed nickel-iron core of an early planet, one of the building blocks of our solar system. "
+  },
+  {
+    "name": "Space Launch System (SLS) ",
+    "description​": "The Space Launch System (SLS) Program will develop a heavy-lift launch vehicle to expand human presence to celestial destinations beyond low Earth orbit. This launch vehicle will be capable of lifting the Orion MPCV to asteroids, the moon, Lagrange points and, ultimately, to Mars. "
+  },
+  {
+    "name": "Wide Field Infrared Survey Telescope (WFIRST) ",
+    "description​": "NASA's current plans call for WFIRST to perform an extraordinarily broad set of scientific investigations: studying the newly-discovered phenomenon of dark energy, measuring the history of cosmic acceleration, completing the exoplanet census begun by NASA's Kepler Space Telescope and demonstrating technology for direct imaging and characterization of exoplanets. "
+  }
 ]
 
 
@@ -1494,8 +1513,168 @@ skill_json = [
   }
 ]
 
+list_of_avatars = []
+
+avatar_json = [
+  {
+    "web-scraper-order": "1576087743-306",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/W38gzvwECGJuhjTJXrGoqx85DWCmhZirBgnUIcFMEzc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTkzNzguanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-304",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/-PpkKihOXkEvUtGkUs3ZLx5zgFUbtlmCSeaj7d9zuyU/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTk1OTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-302",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/aNQYYS0hAZyxZ0qlqKbI-bERqUBV36z8xUK5jacrLEs/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTk4ODIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-309",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/y7Bns8m4C0uAv5Du1P6xT1hlOzWrqw7LpxWZbdmTGBc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTkwNTUuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-307",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/MUQryrqYMGA36eLrLrM2Iq-5YlMGeFdBtjHLTmxSxCw/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTkzNjIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-317",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/gkiIiKK0ks5Y4qVsSYFhElYxUDvncbX3EsVAgbJ7irM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgwNTcuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-327",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/az0O-t54XP7gdj0tQ_rXEfnOklBdTnTQRdEAVNq0aEo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcyMTYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-330",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/x8tsW9Zw6dtnDzJ5zdySt6DN8XG7TQfJ2WSwAJOwoi8/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcwNzEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-310",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/-o5Rg7x3-3rYPel8kUTIrBTQvLk4IeqgwU9lPpM0bmQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg5NjEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-320",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/9YWvScT1RgNNJ-bVW-Xd9dT71PvYJMlQZqamJjKC1FE/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgwMDQuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-315",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/xJKi-M6Xe2tBUne7Bw0OHwsDA-r348mblWr_wPG0y_0/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg1OTMuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-313",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/ej9u9FCtLiX4aa_VLlQj4L9WkdXOxOCTCgKpGG5sGGA/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg2ODEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-321",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/ShAXZYXpiveAT79W-wkdhHltnEPSixX6Bf4sWCxii8I/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc3NTIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-316",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/w8CtEByVr_lAoZBYPr8N4wgAr-uf-vt9hT4LtHBV3HI/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgxMzAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-314",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/T14TWrXsDLz_3iAsCZKzCM_RXTuzgdYyg_4_aovptWs/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg2MzcuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-311",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/QLnNxDo8L3Rrmq7YHpEVCpCPRcgeFtOD0nematF6keE/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg4NTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-305",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/_q3D1rdwLPmcsOHPCb5qndEWHcgOl24c7e2XI9fSmzo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTk1MTIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-319",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/oKxcwoM3nBhSK_GX-xkAQGEECAVFZBRCsiC0kQtqveo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgwMTkuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-322",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/KtVmVIgEZHq26hQ5o2fIXdJU5dIj8ik0eE9Ti960UyI/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc2MjQuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-331",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/1RqfCen6OzTwpa1Z6VcFwLpnmFzHtUa0grdPklsPFwA/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcwMjQuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-312",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/BI_G5LclqPSCqy2mkGwAWtRP_7n_lPV5y8l_TN0Dcsw/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTg3OTUuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-324",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/B3hqpqRZKwr-ohCW-1joHaEdZwKMStrjFrg1YiELKmU/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTczMzAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-328",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/A-c--Se7LBB5_J4TAD3aGD8qFixATj2lXG4uYZYFtHo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcxNTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-329",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/vUBSMjqE1ryizGYWO2T5pq8wJgH-bHHBrJZZ9rb2_2A/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcwNzguanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-323",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/xutQfSXqMjiqWglMGla7qfQ2qzOGeWs8AjrbwEZnTjg/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc0MDIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-308",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/bGrx6Ywy6yAXOmlQwyYf5WDoIILOMQkUUlGGI-ThusQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTkyODMuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-325",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/Z559-60WgkMvZDWr2VG_-mxxspkzjNOZ0LNck71Sjz0/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTczMjkuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-303",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/Ff4z95BhtN-zUiABugurfZv7lAEwtO7ZgNoJGhrqhw4/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTk2OTYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-318",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/eDIzN8nagytpvzVz457tCkcfnV6eLq7jcmXFwUaPujM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgwNDIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576087743-326",
+    "web-scraper-start-url": "https://generated.photos/faces/adult#",
+    "avatar": "https://images.generated.photos/opEpP9uvMuaYNKlzu-njojNlwpaM84K2vEKeaIZHElc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTczMDAuanBn.jpg"
+  }
+]
+
+
 skill_json.each do |element|
   list_of_tags << element[:skills]
+end
+
+avatar_json.each do |element|
+  list_of_avatars << element[:avatar]
 end
 
 puts 'Creating 10 fake user...'
@@ -1505,7 +1684,7 @@ puts 'Creating 10 fake user...'
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: "password",
-    avatar: url="https://source.unsplash.com/featured/?face#{rand(1..100)}",
+    avatar: "https://source.unsplash.com/featured/?face#{rand(1..100)}",
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
