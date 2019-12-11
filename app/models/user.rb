@@ -22,6 +22,10 @@ class User < ApplicationRecord
     },
     using: {
       tsearch: { any_word: true }
+
+            # project user expertise
+      # Searching against multiple columns
+      # ca peut interessant cette ligne  ignoring: :accents
     }
 
   validates :fullname, presence: true

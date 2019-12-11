@@ -11,7 +11,6 @@ class CollaborationsController < ApplicationController
   def new
     @collaboration = Collaboration.new
     @project = Project.find(params[:project_id])
-
   end
 
   def create
@@ -20,7 +19,7 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.new(user: user, project: @project)
     @collaboration.joined = 'Pending'
     if @collaboration.save
-      redirect_to project_path(@project)
+      redirect_to new_project_collaboration_path(@project)
     else
       render 'new'
     end
@@ -35,8 +34,9 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:project_id])
     @collaboration.destroy
-    redirect_to collaborations_path
+    redirect_to new_project_collaboration_path(@project)
   end
 
   private

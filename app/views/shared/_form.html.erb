@@ -2,7 +2,7 @@
 <!--  Simple form page projet -->
 <%= simple_form_for([ project, post ], remote: true) do |form| %>
   <%= form.input :content, as: :text %>
-  <%= form.submit "Add a contribution", class:"btn btn-primary"%>
+  <%= form.submit "Send", class:"btn btn-primary"%>
   <%= form.input :file %>
   <% form.input :file_cache, as: :hidden%>
 <% end %>

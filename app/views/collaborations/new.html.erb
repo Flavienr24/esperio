@@ -1,7 +1,88 @@
-<h1> Reussi</h1>
+<div id="title-collab">
+  <h1>Search-Collaborators</h1>
+</div>
+<table id="collaborators" >
+<thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Collab</th>
+    <th>Responses</th>
+    <th>Projects Lead</th>
+    <th>Location</th>
+    <th>Subscribed Since</th>
+  </tr>
+</thead>
 
-<% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-  <%= user.fullname %> <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, id: 'button_add_collab' ,class: 'btn btn-circle' %> <br>
-<% end %>
+<tbody class="table-body">
+  <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+    <tr class="collab-line">
+      <td>
+        <!-- bouton add collaborateur au projet -->
+        <% if @project.collaborations.where(user: user).present? %>
+          <%= link_to 'X', project_collaboration_path(@project, @project.collaborations.where(user: user).first.id, user: user), method: :delete, class: "btn btn-rounded-s-erase" %>
+        <% else %>
+          <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, class: "btn btn-rounded-s" %>
+        <% end %>
+      </td>
+      <td>
+        <!-- avatar et description -->
+        <div class="d-flex align-items ">
+          <div >
+            <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
+          </div >
+          <div class="collab-card">
+            <span class="font-weight-bold"><%= link_to user.fullname, user_profile_path(user) %> <br></span>
+            <%= user.function %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- nb de collaborations -->
+        <div class="d-flex align-items-center justify-content-around ">
+          <div class="stat-number">
+            <% total = 0 %>
+            <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+            <% end %>
+            <%= total %>
+          </div>
+        </div>
+      </td>
+      <td>
+        <!-- percent de respponse -->
+        <div class=" response">
+        <div class="graph-cont">
+          <div class="bar bar1" style="width: <%=user.response%>%;">
+            <p><%= "#{user.response} %" %> </p>
+          </div>
+        </div>
+      </div>
+      </td>
+      <td>
+        <!-- nb de follow projects -->
+        <div class="stat-number">
+          <%= user.projects.count %>
+        </div>
+      </td>
+      <td>
+        <!-- nb de lead projects -->
+        <div class="collab-card">
+          <span class="font-weight-bold"><%= user.country %> <br></span>
+          <%= user.city %>
+        </div>
+      </td>
+      <td>
+        <div class="connex">
+          <%= user.experience %>
+        </div>
+      </td>
+    </tr>
+  <%end%>
+</tbody>
+</table>
+<!-- </div> -->
 
+<br>
+<br>
 <%= link_to 'Back', project_path(@project), class: 'btn btn-rounded'%>

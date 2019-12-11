@@ -3,45 +3,51 @@
   <div class="p-4">
     <div class="d-flex align-items-center justify-content-between">
       <div class="dashboard-stat-card">
+        <%= link_to projects_path, class: "text-decoration-none" do %>
         <h4>Projects in progress</h4>
         <div class="stat-number"><%= Project.all.count %></div>
       </div>
+      <% end %>
       <div class="dashboard-stat-card">
+        <%= link_to index_skills_path, class: "text-decoration-none" do %>
         <h4>Expertises owned</h4>
         <div class="stat-number"><%= User.skill_counts.count %></div>
       </div>
+      <% end %>
       <div class="dashboard-stat-card">
+        <%= link_to users_path, class: "text-decoration-none" do %>
         <h4>Company researchers</h4>
         <div class="stat-number"><%= User.all.count %></div>
       </div>
+      <% end %>
     </div>
     <div class="pt-5">
-      <h4>Last projects</h4>
+      <h4 class="font-weight-bold">Last projects</h4>
       <div class="d-flex align-items-center justify-content-between mt-3">
-      <% Project.last(3).reverse.each do |project| %>
-      <div class="project-mini-card">
-        <%= link_to project_path(project) do %>
-        <h4><%= project.name %></h4>
-        <div class="light-description mt-1"><%= project.description.truncate(220) %></div>
-        <i class="fas fa-long-arrow-alt-right d-flex justify-content-end"></i>
-      </div>
-      <% end %>
-      <% end %>
-      </div>
-      <div class="d-flex justify-content-end ">
-      <%= link_to "See more projects", "#", class: "link-label" %>
+        <% Project.last(3).reverse.each do |project| %>
+        <div class="project-mini-card mb-3">
+          <%= link_to project_path(project) do %>
+          <h4><%= project.name %></h4>
+          <div class="light-description mt-1"><%= project.description.truncate(220) %></div>
+          <i class="fas fa-long-arrow-alt-right d-flex justify-content-end"></i>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="">
+          <%= link_to '+' ,new_project_path(@project), class: "btn btn-circle mt-0 mb-3" %>
+        </div>
       </div>
     </div>
     <div class="pt-3 d-flex justify-content-between align-items-start">
       <div class="col-8 pl-0">
-        <h4>Most representative projects</h4>
+        <h4 class="font-weight-bold mb-3">Most representative projects</h4>
         <div class="dashboard-card">
           <!-- Faire un each pour récupérer les 5 premières expertises -->
           <% User.skill_counts.most_used(5).each do |skill| %>
           <div class="expertise-mini-card">
             <div class="tag-expertise"><i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i><%= skill.name %></div>
             <p><%= skill.taggings_count %>
-            <% if skill.taggings_count > 1 %>
+              <% if skill.taggings_count > 1 %>
               researchers
               <% else %>
               researcher
@@ -49,27 +55,25 @@
             owned this expertise</p>
           </div>
           <% end %>
-          <div class="d-flex justify-content-end pt-3">
-          <%= link_to "See more expertises", "#", class: "link-label" %>
-          </div>
         </div>
       </div>
       <div class="col-4 pr-0">
-        <h4>Most active researchers</h4>
+        <h4 class="font-weight-bold mb-3">Most active researchers</h4>
         <div class="dashboard-card">
           <!-- Faire un each pour récupérer 5 user -->
-          <div class="d-flex justify-content-start align-items-center p-2">
-            <div class="avatar-m mr-3">user.avatar</div>
-            <div class="">
-              <p>user.name</p>
-              <div class="light-description"> user.function</div>
+          <div class="p-2">
+            <% User.order(rand(1..User.count)).first(5).each do |user| %>
+            <div class="d-flex justify-content-start align-items-center p-2">
+              <div class="mr-3">
+                <%= image_tag user.avatar, class: "avatar-m" %>
+              </div>
+              <div class="">
+                <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
+                <div class="light-description"><%= user.function %></div>
+              </div>
             </div>
+            <% end %>
           </div>
-          <!-- end -->
-          <div class="d-flex justify-content-end ">
-          <%= link_to "See more researchers", users_path, class: "link-label" %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
