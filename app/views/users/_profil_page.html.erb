@@ -109,7 +109,7 @@
             <%= image_tag("#{user.avatar}", class: "avatar-m") %>
           </div>
           <div class="">
-            <p><%= user.fullname %></p>
+            <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
             <div class="light-description"><%= user.function %></div>
           </div>
         </div>
