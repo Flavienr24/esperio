@@ -1,1 +1,2 @@
-.env*
+#.env
+CLOUDINARY_URL=cloudinary://147223565491313:g9xLKRzZMemUTAsme6NRujw61LE@drnaa38rv

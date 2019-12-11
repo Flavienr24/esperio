@@ -37,7 +37,7 @@
     </div>
     <div class="p-3">
       <div class="expertises-profile">
-        <% @project.project_tags.join.split(',').each do |tag| %>
+        <% @project.project_tags.each do |tag| %>
         <div class="tag-expertise">
           <i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>
           <%= tag.upcase %>
@@ -57,7 +57,7 @@
       <div class="d-flex w-50 justify-content-between">
         <div class="expertises-profile">
           <%= render 'shared/form', project: @project, post: @post %>
-          <%= render 'projects/show', project: @project, post: @post %>
+          <%#= render 'projects/show', project: @project, post: @post %>
         </div>
       </div>
     </div>
@@ -90,7 +90,15 @@
     <div class="flat-card my-4 px-4 py-2">
       <h3>Activities</h3>
       <%= @project.posts.count%> - posts
-      created : <%= @datetime - @project.created_at %> days ago
+      created :
+      <%if @t_day == 1 %>
+          <%= @t_day %> day ago
+      <% elsif @t_day > 1 %>
+          <%= @t_day %> days ago
+      <%else %>
+        <%= @t_min %> ago
+      <% end %>
+
       <%#= User.all.tagged_with(@project.project_tags, :any => true).count %>
       <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
       <%= user.fullname %> <br>
@@ -109,7 +117,7 @@
         <%= user.fullname %> <br>
         <%= image_tag("#{user.avatar}", class: "avatar-m") %>
       <% end %>
-      <p><%= @datetime.to_formatted_s(:short) %></p>
+      <p><%= @datetime.to_formatted_s(:long_ordinal) %></p>
       <% if @project.user == current_user.id %>
         <div class="user-status">owner</div>
       <%else %>
@@ -117,7 +125,7 @@
       <% end %>
       <%= cl_image_tag post.file.url %>
       <div>
-        <p> <%#= post.content %></p>
+        <p> <%= post.content %></p>
       </div>
     </div>
   </div>
