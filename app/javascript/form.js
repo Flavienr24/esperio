@@ -31,7 +31,7 @@ function searchList() {
 function getSkill() {
   event.preventDefault();
   // list = document.getElementById('myUL');
-  skill = event.path[0].innerText;
+  skill = event.composedPath()[0].innerText;
   tagExpertise = document.querySelector('.skill-list');
   tagExport = document.querySelector('.tag-export');
   tagExpertise.insertAdjacentHTML("beforeend", ` <div class="tag-expertise"><i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>${skill}</div>`);
