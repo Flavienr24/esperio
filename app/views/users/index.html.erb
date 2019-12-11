@@ -1,5 +1,5 @@
 <div id="title-collab">
-    <h1>Researchers Available</h1>
+  <h1>Researchers Available</h1>
   <p class="light-description">
     Find here the candidates closest to your expectations
   </p>
@@ -50,13 +50,13 @@
       </td>
       <td>
         <!-- percent de respponse -->
-        <div class=" response">
-        <div class="graph-cont">
-          <div class="bar bar1" style="width: <%=user.response%>%;">
-            <p><%= "#{user.response} %" %> </p>
+        <p><%= "#{user.response} %" %> </p>
+        <div class=" response height=24px">
+          <div class="graph-cont">
+            <div class="bar bar1" style="width: <%=user.response.to_i%>%;">
+            </div>
           </div>
         </div>
-      </div>
       </td>
       <td>
         <!-- nb de follow projects -->

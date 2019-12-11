@@ -106,8 +106,8 @@
 
 
 #collaborators .collab-card{
-  background: #FFFFFF;
-  box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
+  // background: #FFFFFF;
+  // box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
   margin:8px;
   text-align: left;
 }
@@ -133,18 +133,21 @@
   width: 100%; /* Full width */
   background-color: #ddd;
   border-radius: 25px;
+  height:inherit
 }
 .bar{
   text-align: right; /* Right-align text */
   padding-top: 10px; /* Add top padding */
   padding-bottom: 10px; /* Add bottom padding */
   color: white;
-  border-radius: 25px;
+  border-radius: inherit;
+  height: inherit;
 }
 
 .bar1 {
   background-color: #4CAF50;
   border-radius: 25px;
+  height:inherit
 }
 
 
