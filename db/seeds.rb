@@ -17,6 +17,91 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
+list_of_functions = []
+
+feelows = Company.create(name: 'Feellows')
+
+function_json =[
+{
+  "function": "Aerospace Engineering and Operations Technicians Reseacher"
+},
+{
+  "function": "Architectural and Engineering Managers Reseacher"
+},
+{
+  "function": "Computer Hardware Engineers Reseacher"
+},
+{
+  "function": "Electrical and Electronics Engineering Technicians Reseacher"
+},
+{
+  "function": "Electrical and Electronics Engineers Reseacher"
+},
+{
+  "function": "Industrial Engineers Reseacher"
+},
+{
+  "function": "Materials Engineers Reseacher"
+},
+{
+  "function": "Mechanical Engineers Reseacher"
+},
+{
+  "function": "Calculation engineer in aeronautical industry researcher Reseacher"
+},
+{
+  "function": "Stress Analyst Reseacher"
+},
+{
+  "function": "Supervisory Physical Scientist Reseacher"
+},
+{
+  "function": "Supervisory Interdisciplinary Reseacher"
+},
+{
+  "function": "Environmental Reseacher"
+},
+{
+  "function": "Interdisciplinary Regulatory Project Reseacher"
+},
+{
+  "function": "Engineer Reseacher"
+},
+{
+  "function": "Regional Agreement State Program Officer Reseacher"
+},
+{
+  "function": "Biologist Reseacher"
+},
+{
+  "function": "Mathematician Reseacher"
+},
+{
+  "function": "Mathematical Statistician Reseacher"
+},
+{
+  "function": "Mechanical Reseacher"
+},
+{
+  "function": "Mech Reseacher"
+},
+{
+  "function": "Aeronautic Design Reseacher"
+},
+{
+  "function": "Aerospace Stress Analyst Reseacher"
+},
+{
+  "function": "Technical Support Reseacher"
+},
+{
+  "function": "Appplications Integration Reseacher"
+},
+{
+  "function": "Cybersecurity Reseacher"
+}
+]
+
 list_of_tags = []
 
 feelows = Company.create(name: 'Feellows')
