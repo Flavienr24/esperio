@@ -6,9 +6,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @datetime = Time.now
     @user = current_user
     @projects_I_lead = Project.where(user_id: @user.id)
     @post = Post.new
+    @t_day = (((@datetime - @project.created_at) / 3600) / 24).to_i
+    @t_min = Time.at(@datetime - @project.created_at).utc.strftime("%H:%M:%S")
   end
 
   def new
