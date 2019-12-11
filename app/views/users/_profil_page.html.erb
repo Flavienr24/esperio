@@ -83,6 +83,13 @@
             <!-- Avatars des contributeurs à intégrer  -->
             <%= link_to '>', project_path(project), class: 'btn btn-circle'%>
           </div>
+          <div>
+            <% project.collaborations.each do |element| %>
+              <%= link_to user_profile_path(element.user) do %>
+                <%= image_tag("#{element.user.avatar}", class: "avatar-m") %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
         <% end %>
       </div>
