@@ -17,8 +17,98 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
-list_of_tags = []
+list_of_functions = []
 
+
+function_json =[
+{
+  "function": "Aerospace Engineering and Operations Technicians Reseacher"
+},
+{
+  "function": "Architectural and Engineering Managers Reseacher"
+},
+{
+  "function": "Computer Hardware Engineers Reseacher"
+},
+{
+  "function": "Electrical and Electronics Engineering Technicians Reseacher"
+},
+{
+  "function": "Electrical and Electronics Engineers Reseacher"
+},
+{
+  "function": "Industrial Engineers Reseacher"
+},
+{
+  "function": "Materials Engineers Reseacher"
+},
+{
+  "function": "Mechanical Engineers Reseacher"
+},
+{
+  "function": "Calculation engineer in aeronautical industry researcher Reseacher"
+},
+{
+  "function": "Stress Analyst Reseacher"
+},
+{
+  "function": "Supervisory Physical Scientist Reseacher"
+},
+{
+  "function": "Supervisory Interdisciplinary Reseacher"
+},
+{
+  "function": "Environmental Reseacher"
+},
+{
+  "function": "Interdisciplinary Regulatory Project Reseacher"
+},
+{
+  "function": "Engineer Reseacher"
+},
+{
+  "function": "Regional Agreement State Program Officer Reseacher"
+},
+{
+  "function": "Biologist Reseacher"
+},
+{
+  "function": "Mathematician Reseacher"
+},
+{
+  "function": "Mathematical Statistician Reseacher"
+},
+{
+  "function": "Mechanical Reseacher"
+},
+{
+  "function": "Mech Reseacher"
+},
+{
+  "function": "Aeronautic Design Reseacher"
+},
+{
+  "function": "Aerospace Stress Analyst Reseacher"
+},
+{
+  "function": "Technical Support Reseacher"
+},
+{
+  "function": "Appplications Integration Reseacher"
+},
+{
+  "function": "Cybersecurity Reseacher"
+}
+]
+
+function_json.each do |element|
+  list_of_functions << element[:function]
+end
+
+
+list_of_tags = []
+list_description = []
+list_project_name = []
 
 feellows = Company.create(name: 'Feellows')
 
@@ -109,13 +199,17 @@ project_json = [
   }
 ]
 
+project_json.each do |element|
+  list_description << element[:description]
+  list_project_name << element[:name]
+end
 
 skill_json = [
-  {
-    "web-scraper-order": "1575731012-101",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "School"
-  },
+   {
+     "web-scraper-order": "1575731012-101",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Aeroelasticity"
+   },
   {
     "web-scraper-order": "1575731012-182",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -226,15 +320,15 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Mice"
   },
-  {
-    "web-scraper-order": "1575731012-293",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Diabetes"
-  },
-  {
-    "web-scraper-order": "1575731012-301",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Rats"
+   {
+     "web-scraper-order": "1575731012-293",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Composite Beam Theory"
+   },
+   {
+     "web-scraper-order": "1575731012-301",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "SDA"
   },
   {
     "web-scraper-order": "1575731012-148",
@@ -276,11 +370,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Industry"
   },
-  {
-    "web-scraper-order": "1575731012-227",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Column"
-  },
+   {
+     "web-scraper-order": "1575731012-227",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Modeling and Analysis of Primary and Secondary Structures"
+   },
   {
     "web-scraper-order": "1575731012-128",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -331,21 +425,21 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Social Science"
   },
-  {
-    "web-scraper-order": "1575731012-186",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "India"
-  },
+   {
+     "web-scraper-order": "1575731012-186",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Hagler Systems and Supporting"
+   },
   {
     "web-scraper-order": "1575731012-169",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "ANSYS"
   },
-  {
-    "web-scraper-order": "1575731012-225",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Gromacs"
-  },
+   {
+     "web-scraper-order": "1575731012-225",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "manufacturing"
+   },
   {
     "web-scraper-order": "1575731012-258",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -401,11 +495,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Manuscripts"
   },
-  {
-    "web-scraper-order": "1575731012-161",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cancer Research"
-  },
+   {
+     "web-scraper-order": "1575731012-161",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Structure Strength"
+   },
   {
     "web-scraper-order": "1575731012-59",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -476,11 +570,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Publications"
   },
-  {
-    "web-scraper-order": "1575731012-99",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "R"
-  },
+   {
+     "web-scraper-order": "1575731012-99",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Structure Weight"
+   },
   {
     "web-scraper-order": "1575731012-79",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -521,11 +615,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Collaboration"
   },
-  {
-    "web-scraper-order": "1575731012-109",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cancer Cell Line"
-  },
+   {
+     "web-scraper-order": "1575731012-109",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Material Thickness of the Structure"
+   },
   {
     "web-scraper-order": "1575731012-39",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -656,21 +750,21 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Time Series"
   },
-  {
-    "web-scraper-order": "1575731012-126",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Dissertations"
-  },
+   {
+     "web-scraper-order": "1575731012-126",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Conceptual Design"
+   },
   {
     "web-scraper-order": "1575731012-173",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Machine Learning"
   },
-  {
-    "web-scraper-order": "1575731012-118",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cancer Biology"
-  },
+   {
+     "web-scraper-order": "1575731012-118",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Aerospace Stress Analyst"
+   },
   {
     "web-scraper-order": "1575731012-115",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -691,11 +785,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Nano"
   },
-  {
-    "web-scraper-order": "1575731012-272",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Microsoft Office Excel"
-  },
+   {
+     "web-scraper-order": "1575731012-272",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Material Innovation"
+   },
   {
     "web-scraper-order": "1575731012-181",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -791,31 +885,31 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Nanotechnology"
   },
-  {
-    "web-scraper-order": "1575731012-159",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "PEAKS"
-  },
+   {
+     "web-scraper-order": "1575731012-159",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Control of Laboratory Controls"
+   },
   {
     "web-scraper-order": "1575731012-81",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Engineering"
   },
-  {
-    "web-scraper-order": "1575731012-280",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Agriculture"
-  },
-  {
-    "web-scraper-order": "1575731012-72",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Citations"
-  },
-  {
-    "web-scraper-order": "1575731012-241",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Gaussian"
-  },
+   {
+     "web-scraper-order": "1575731012-280",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Laboratory Control Analysis"
+   },
+   {
+     "web-scraper-order": "1575731012-72",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Mechanical Engineering"
+   },
+   {
+     "web-scraper-order": "1575731012-241",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Mechanisms of Hatch"
+   },
   {
     "web-scraper-order": "1575731012-158",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -846,11 +940,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Protein Expression"
   },
-  {
-    "web-scraper-order": "1575731012-298",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Emotion"
-  },
+   {
+     "web-scraper-order": "1575731012-298",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Training"
+   },
   {
     "web-scraper-order": "1575731012-152",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -881,11 +975,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "ELISA"
   },
-  {
-    "web-scraper-order": "1575731012-91",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Universities"
-  },
+   {
+     "web-scraper-order": "1575731012-91",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Test Systems"
+   },
   {
     "web-scraper-order": "1575731012-53",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1056,11 +1150,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Plating"
   },
-  {
-    "web-scraper-order": "1575731012-252",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Fish"
-  },
+   {
+     "web-scraper-order": "1575731012-252",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Space Equipment"
+   },
   {
     "web-scraper-order": "1575731012-266",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1101,11 +1195,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Reasoning"
   },
-  {
-    "web-scraper-order": "1575731012-248",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Children"
-  },
+   {
+     "web-scraper-order": "1575731012-248",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "EAC"
+   },
   {
     "web-scraper-order": "1575731012-94",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1171,11 +1265,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Soil"
   },
-  {
-    "web-scraper-order": "1575731012-265",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Happiness"
-  },
+   {
+     "web-scraper-order": "1575731012-265",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Eurocom"
+   },
   {
     "web-scraper-order": "1575731012-206",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1306,11 +1400,11 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Images"
   },
-  {
-    "web-scraper-order": "1575731012-85",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Students"
-  },
+   {
+     "web-scraper-order": "1575731012-85",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Spatial Instructor"
+   },
   {
     "web-scraper-order": "1575731012-292",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1471,16 +1565,16 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Remote Sensing"
   },
-  {
-    "web-scraper-order": "1575731012-188",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Education"
-  },
-  {
-    "web-scraper-order": "1575731012-175",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Primer"
-  },
+   {
+     "web-scraper-order": "1575731012-188",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Spatial Data Systems"
+   },
+   {
+     "web-scraper-order": "1575731012-175",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Satellite System"
+   },
   {
     "web-scraper-order": "1575731012-232",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -1707,7 +1801,7 @@ puts 'Creating 10 fake user...'
     phone: Faker::PhoneNumber.phone_number_with_country_code,
     country: Faker::Address.country,
     city: Faker::Address.city,
-    function: Faker::Job.title,
+    function: list_of_functions.sample,
     school: Faker::University.name,
     company: feellows,
     skill_list: list_of_tags.sample(rand(5..10)),
@@ -1719,8 +1813,8 @@ puts 'Creating 10 fake user...'
 
   2.times do
     project = Project.new(
-    name: Faker::Restaurant.name,
-    description: Faker::Lorem.sentence,
+    name: list_project_name.sample,
+    description: list_description.sample,
     status: 'In Progress',
     visibility: true,
     open_to_apply: false,
