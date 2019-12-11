@@ -64,10 +64,10 @@
         <div class="dashboard-card">
           <!-- Faire un each pour récupérer 5 user -->
           <div class="p-2">
-            <% User.order(rand(1..User.count)).first(5).each do |user| %>
+            <% User.order(rand(1..User.count - 1 )).first(5).each do |user| %>
             <div class="d-flex justify-content-start align-items-center p-2">
               <div class="mr-3">
-                <%= image_tag user.avatar, class: "avatar-m" %>
+                <%= image_tag("#{user.avatar}", class: "avatar-m") %>
               </div>
               <div class="">
                 <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
