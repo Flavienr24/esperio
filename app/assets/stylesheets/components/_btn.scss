@@ -85,6 +85,11 @@
   font-weight: bold;
   border-radius: 8px;
   font-size: 14px;
+  &:hover {
+    background: $primary;
+    color: white;
+    border: 0px;
+  }
 }
 
 .button-font i {
@@ -92,5 +97,3 @@
   color: $primary;
   margin-left: 0px;
 }
-
-

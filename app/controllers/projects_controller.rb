@@ -24,9 +24,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.status = 'In Progress'
     @project.user = current_user
-    @project.visibility = true
-    @project.open_to_apply = true
-    @project.project_tags = [params[:project][:project_tags]] if params[:project][:project_tags].present?
+    @project.project_tags = params[:project][:project_tags] if params[:project][:project_tags].present?
     if @project.save
       redirect_to project_path(@project)
     else
@@ -39,7 +37,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.project_tags = [params[:project][:project_tags]]
+    @project.project_tags.concat(params[:project][:project_tags])
     @project.update(project_params)
     redirect_to project_path
   end
@@ -56,6 +54,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :status, :visibility)
+    params.require(:project).permit(:name, :description, :visibility)
   end
 end
