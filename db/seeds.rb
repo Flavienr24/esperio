@@ -17,177 +17,188 @@ User.destroy_all
 Project.destroy_all
 Collaboration.destroy_all
 
+puts 'DB cleaned'
+
+feellows = Company.create(name: 'Feellows')
+
+puts 'Company created'
+
+
 list_of_functions = []
 list_of_tags = []
-list_description = []
-list_project_name = []
+list_descriptions = []
+list_project_names = []
 list_of_avatars = []
+list_of_cities = ["Paris", "Grenoble", "Toulouse", "Marseille"]
+
+puts 'Arrays created'
+
 
 function_json =[
   {
-    "function": "Aerospace Engineering and Operations Technicians Reseacher"
+    "function": "Aerospace Engineering and Operations Reseacher"
   },
   {
-    "function": "Architectural and Engineering Managers Reseacher"
+    "function": "Architectural and Engineering Reseacher"
   },
   {
-    "function": "Computer Hardware Engineers Reseacher"
+    "function": "Computer Hardware Reseacher"
   },
   {
-    "function": "Electrical and Electronics Engineering Technicians Reseacher"
+    "function": "Microprocessor Engineering Reseacher"
   },
   {
-    "function": "Electrical and Electronics Engineers Reseacher"
+    "function": "Electrical and Electronics Reseacher"
   },
   {
-    "function": "Industrial Engineers Reseacher"
+    "function": "Industrial Reseacher Junior"
   },
   {
-    "function": "Materials Engineers Reseacher"
+    "function": "Materials Expert"
   },
   {
-    "function": "Mechanical Engineers Reseacher"
+    "function": "Cosmic Physic Reseacher"
   },
   {
-    "function": "Calculation engineer in aeronautical industry researcher Reseacher"
+    "function": "Calculation Engineering Reseacher"
   },
   {
-    "function": "Stress Analyst Reseacher"
+    "function": "Stress Analyst Expert"
   },
   {
-    "function": "Supervisory Physical Scientist Reseacher"
+    "function": "Physical Scientist Fellow"
   },
   {
-    "function": "Supervisory Interdisciplinary Reseacher"
+    "function": "Supervisory Interdisciplinary Fellow"
   },
   {
-    "function": "Environmental Reseacher"
+    "function": "Spacial Environment Reseacher"
   },
   {
-    "function": "Interdisciplinary Regulatory Project Reseacher"
+    "function": "Chief Reseacher Officer Assistant"
   },
   {
-    "function": "Engineer Reseacher"
+    "function": "Aeropace Reseacher"
   },
   {
-    "function": "Regional Agreement State Program Officer Reseacher"
+    "function": "Space Travel Reseacher"
   },
   {
-    "function": "Biologist Reseacher"
+    "function": "Lunar Biologist Reseacher"
   },
   {
-    "function": "Mathematician Reseacher"
+    "function": "Mathematician Expert"
   },
   {
-    "function": "Mathematical Statistician Reseacher"
+    "function": "Mathematical Statistic Fellow"
   },
   {
-    "function": "Mechanical Reseacher"
+    "function": "Mechanical Expert"
   },
   {
-    "function": "Mech Reseacher"
+    "function": "PHD Intern"
   },
   {
     "function": "Aeronautic Design Reseacher"
   },
   {
-    "function": "Aerospace Stress Analyst Reseacher"
+    "function": "Innovation Manager"
   },
   {
-    "function": "Technical Support Reseacher"
+    "function": "Space Security Expert"
   },
   {
     "function": "Appplications Integration Reseacher"
   },
   {
-    "function": "Cybersecurity Reseacher"
+    "function": "Cybersecurity Expert"
   }
 ]
 
 project_json = [
   {
     "name": "BioSentinel",
-    "description​": "The BioSentinel mission was selected as one of the secondary payloads, and the sole biological experiment, to fly on the Space Launch System’s first Exploration Mission (EM-1) planned to launch in 2020. The primary objective of BioSentinel is to develop a biosensor to detect and measure the impact of space radiation on living organisms over long durations beyond Low Earth Orbit (LEO)."
+    "description": "The BioSentinel mission was selected as one of the secondary payloads, and the sole biological experiment, to fly on the Space Launch System’s first Exploration Mission (EM-1) planned to launch in 2020. The primary objective of BioSentinel is to develop a biosensor to detect and measure the impact of space radiation on living organisms over long durations beyond Low Earth Orbit (LEO)."
   },
   {
     "name": "EcAMSat ",
-    "description​": "The E. coli AntiMicrobial Satellite (EcAMSat) mission will investigate space microgravity effects on the antibiotic resistance and its genetic basis of E. coli, a bacterial pathogen responsible for urinary tract infection in humans and animals. Bacterial antibiotic resistance may pose a danger to astronauts in microgravity, where the immune response is weakened. Scientists believe that the results of this experiment could help design effective countermeasures to protect astronauts’ health during long-duration human space missions. EcAMSat is being developed through a partnership between NASA’s Ames Research Center and the Stanford University School of Medicine. EcAMSAT is slated for launch in late 2016. "
+    "description": "The E. coli AntiMicrobial Satellite (EcAMSat) mission will investigate space microgravity effects on the antibiotic resistance and its genetic basis of E. coli, a bacterial pathogen responsible for urinary tract infection in humans and animals. Bacterial antibiotic resistance may pose a danger to astronauts in microgravity, where the immune response is weakened. Scientists believe that the results of this experiment could help design effective countermeasures to protect astronauts’ health during long-duration human space missions. EcAMSat is being developed through a partnership between NASA’s Ames Research Center and the Stanford University School of Medicine. EcAMSAT is slated for launch in late 2016."
   },
   {
-  "name": "PowerCell ",
-  "description​": " ​In its first flight, the PowerCell Payload will investigate the performance of microbial mini-ecologies containing both photosynthetic microbes and consumer organisms. Photosynthetic cyanobacteria will produce the carbohydrate sucrose (table sugar), which will feed Bacillus subtilis, a robust bacterium commonly found in soil and the gut. "
+    "name": "PowerCell ",
+    "description": "In its first flight, the PowerCell Payload will investigate the performance of microbial mini-ecologies containing both photosynthetic microbes and consumer organisms. Photosynthetic cyanobacteria will produce the carbohydrate sucrose (table sugar), which will feed Bacillus subtilis, a robust bacterium commonly found in soil and the gut."
   },
   {
     "name": "AVA ",
-    "description​": "Affordable Vehicle Avionics (AVA): Common Modular Avionics System for Nano-Launchers Offering Affordable Access to Space.  NASA Ames Research Center has developed and tested a prototype low-cost avionics package for space launch vehicles that provides complete GNC functionality in a package smaller than a tissue box (100mm x 120mm x 69mm; 4in x 4.7in x 2.7in), with a mass of less than 0.84kg (2lbs). "
+    "description": "Affordable Vehicle Avionics (AVA): Common Modular Avionics System for Nano-Launchers Offering Affordable Access to Space.  NASA Ames Research Center has developed and tested a prototype low-cost avionics package for space launch vehicles that provides complete GNC functionality in a package smaller than a tissue box (100mm x 120mm x 69mm; 4in x 4.7in x 2.7in), with a mass of less than 0.84kg (2lbs)."
   },
   {
     "name": "TechEdSat-5​",
-    "description​": "​In late 2016, TechEdSat-5 will launch from the International Space Station (ISS). This CubeSat will deploy an exo-brake, an exo-atmospheric drag chute that can be used for controlled de-orbit of a small payload canister from Earth orbit. This capability is useful for returning biological samples from ISS and even planetary samples from beyond Earth. TechEdSat-5 will demonstrate improved GPS tracking and a modulated exo-brake allowing more precise control of exo-atmospheric drag, re-entry time and location. It features multiple cameras to help verify exo-brake deployment and modulation. GPS tracking is anticipated to give precise orbital trajectories leading to better drag assessment and re-entry targeting among other benefits. "
+    "description": "In late 2016, TechEdSat-5 will launch from the International Space Station (ISS). This CubeSat will deploy an exo-brake, an exo-atmospheric drag chute that can be used for controlled de-orbit of a small payload canister from Earth orbit. This capability is useful for returning biological samples from ISS and even planetary samples from beyond Earth. TechEdSat-5 will demonstrate improved GPS tracking and a modulated exo-brake allowing more precise control of exo-atmospheric drag, re-entry time and location. It features multiple cameras to help verify exo-brake deployment and modulation. GPS tracking is anticipated to give precise orbital trajectories leading to better drag assessment and re-entry targeting among other benefits."
   },
   {
     "name": "Nodes",
-    "description​": "NASA’s Nodes satellites, a pair of tissue box-size CubeSats, launched to the International Space Station on December 6, 2015. The two Nodes satellites were deployed from the Station on May 16, 2016 to demonstrate new network capabilities critical to the operation of swarms of spacecraft. Weighing just 4.5 pounds each and measuring 4 inches by 4 inches by 6.5 inches, the Nodes satellites, once deployed, will test new network capabilities for operating swarms of spacecraft in the future. "
+    "description": "NASA’s Nodes satellites, a pair of tissue box-size CubeSats, launched to the International Space Station on December 6, 2015. The two Nodes satellites were deployed from the Station on May 16, 2016 to demonstrate new network capabilities critical to the operation of swarms of spacecraft. Weighing just 4.5 pounds each and measuring 4 inches by 4 inches by 6.5 inches, the Nodes satellites, once deployed, will test new network capabilities for operating swarms of spacecraft in the future."
   },
   {
     "name": "EDSN ",
-    "description​": "On November 3, 2015, the eight small satellites of the Edison Demonstration of Smallsat Networks (EDSN) mission were lost in the failure of the launch vehicle that was carrying them to orbit as secondary payloads. There will be an opportunity to complete some of the objectives of the EDSN mission in the Nodes follow-on mission. "
+    "description": "On November 3, 2015, the eight small satellites of the Edison Demonstration of Smallsat Networks (EDSN) mission were lost in the failure of the launch vehicle that was carrying them to orbit as secondary payloads. There will be an opportunity to complete some of the objectives of the EDSN mission in the Nodes follow-on mission."
   },
   {
     "name": "PhoneSat",
-    "description​": "​NASA's PhoneSat project tests whether spacecraft can be built using smartphones to launch the lowest-cost satellites ever flown in space. Each PhoneSat nanosatellite is one cubesat unit - a satellite in a 10 cm (approx. 4 inches) cube or about the size of a tissue box - and weighs approximately three pounds. Engineers believe PhoneSat technology will enable NASA to launch multiple new satellites capable of conducting science and exploration missions at a small fraction of the cost of conventional satellites."
+    "description": "NASA's PhoneSat project tests whether spacecraft can be built using smartphones to launch the lowest-cost satellites ever flown in space. Each PhoneSat nanosatellite is one cubesat unit - a satellite in a 10 cm (approx. 4 inches) cube or about the size of a tissue box - and weighs approximately three pounds. Engineers believe PhoneSat technology will enable NASA to launch multiple new satellites capable of conducting science and exploration missions at a small fraction of the cost of conventional satellites."
   },
   {
     "name": "Exploration Ground Systems ",
-    "description​": "Exploration Ground Systems' primary objective is to prepare the center to process and launch the next-generation vehicles and spacecraft designed to achieve NASA's goals for space exploration. "
+    "description": "Exploration Ground Systems' primary objective is to prepare the center to process and launch the next-generation vehicles and spacecraft designed to achieve NASA's goals for space exploration."
   },
   {
     "name": "HEO-ESD Integration ",
-    "description​": "Exploration Systems Development Division (ESD) has been charged to oversee the development of nation’s next generation of human exploration systems. ESD Responsibilities include: Provide HEO MD with insight and oversight of programs developing human exploration capabilities (MPCV, SLS, and 21st Century Ground Systems), Complete Constellation Transition during FY11, Manage cross-program integration across MPCV, SLS and 21CGS Programs (Manage interfaces between programs and cross-program risks as well as ensure cross-program integration is occurring). "
+    "description": "Exploration Systems Development Division (ESD) has been charged to oversee the development of nation’s next generation of human exploration systems. ESD Responsibilities include: Provide HEO MD with insight and oversight of programs developing human exploration capabilities (MPCV, SLS, and 21st Century Ground Systems), Complete Constellation Transition during FY11, Manage cross-program integration across MPCV, SLS and 21CGS Programs (Manage interfaces between programs and cross-program risks as well as ensure cross-program integration is occurring). "
   },
   {
-    "name": " International Space Station (ISS)",
-    "description​": "The International Space Station is an unprecedented achievement in global human endeavors to conceive, plan, build, operate, and utilize a research platform in space. With the assembly of the space station at its completion and the support of a full-time crew of six, a new era of utilization for research has begun. "
+    "name": "International Space Station (ISS)",
+    "description": "The International Space Station is an unprecedented achievement in global human endeavors to conceive, plan, build, operate, and utilize a research platform in space. With the assembly of the space station at its completion and the support of a full-time crew of six, a new era of utilization for research has begun. "
   },
   {
     "name": "James Webb Space Telescope (JWST) ",
-    "description​": "The James Webb Space Telescope is a large, infrared-optimized space telescope. Webb will probe for the \"first light\" after the Big Bang and find the first galaxies that formed in the early Universe, connecting the Big Bang to our own Milky Way Galaxy. Webb will peer through dusty clouds to see stars forming planetary systems, connecting the Milky Way to our own Solar System and look for the chemical signatures of extra-terrestrial life. "
+    "description": "The James Webb Space Telescope is a large, infrared-optimized space telescope. Webb will probe for the \"first light\" after the Big Bang and find the first galaxies that formed in the early Universe, connecting the Big Bang to our own Milky Way Galaxy. Webb will peer through dusty clouds to see stars forming planetary systems, connecting the Milky Way to our own Solar System and look for the chemical signatures of extra-terrestrial life."
   },
   {
     "name": "Joint Polar Satellite System-2 (JPSS-2) ",
-    "description​": "JPSS-2 will provide operational continuity of satellite-based observations and products for NOAA Polar-Orbiting Environmental Satellites (POES) and Suomi NPP satellite and ground systems. The baseline plan for JPSS Ground System will be sustained to support JPSS-2, similar to JPSS-1. "
+    "description": "JPSS-2 will provide operational continuity of satellite-based observations and products for NOAA Polar-Orbiting Environmental Satellites (POES) and Suomi NPP satellite and ground systems. The baseline plan for JPSS Ground System will be sustained to support JPSS-2, similar to JPSS-1."
   },
   {
     "name": "Joint Polar Satellite System Ground (JPSS Ground) ",
-    "description​": "The ground system for the JPSS mission is a global network of receiving stations linked to NOAA, which distributes the satellite data and derived products to users worldwide. The versatile ground system controls the spacecraft, ingests and processes data and provides information to users like NOAA's National  "
+    "description": "The ground system for the JPSS mission is a global network of receiving stations linked to NOAA, which distributes the satellite data and derived products to users worldwide. The versatile ground system controls the spacecraft, ingests and processes data and provides information to users like NOAA's National."
   },
   {
     "name": "Landsat 9 ",
-    "description​": "Landsat 9 — a partnership between NASA and the U.S. Geological Survey — will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life "
+    "description": "Landsat 9 — a partnership between NASA and the U.S. Geological Survey — will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life."
   },
   {
     "name": "Lucy ",
-    "description​": "Lucy will be the first space mission to study the Trojan asteroids of Jupiter. The mission takes its name from the fossilized human ancestor (called “Lucy” by her discoverers) whose skeleton provided unique insight into humanity's evolution. Likewise, the Lucy mission will revolutionize our knowledge of planetary origins and the formation of the solar system. "
+    "description": "Lucy will be the first space mission to study the Trojan asteroids of Jupiter. The mission takes its name from the fossilized human ancestor (called “Lucy” by her discoverers) whose skeleton provided unique insight into humanity's evolution. Likewise, the Lucy mission will revolutionize our knowledge of planetary origins and the formation of the solar system."
   },
   {
     "name": "Mars 2020 ",
-    "description​": "Designed to advance high-priority science goals for Mars exploration, the mission would address key questions about the potential for life on Mars. The mission would also provide opportunities to gather knowledge and demonstrate technologies that address the challenges of future human expeditions to Mars.. "
+    "description": "Designed to advance high-priority science goals for Mars exploration, the mission would address key questions about the potential for life on Mars. The mission would also provide opportunities to gather knowledge and demonstrate technologies that address the challenges of future human expeditions to Mars."
   },
   {
     "name": "Multi-Purpose Crew Vehicle (Orion MPCV) ",
-    "description​": "This spacecraft will serve as the primary crew vehicle for missions beyond low Earth orbit. The Orion MPCV is capable of conducting regular in-space operations (rendezvous, docking, extravehicular activity) in conjunction with payloads delivered by the Space Launch System. "
+    "description": "This spacecraft will serve as the primary crew vehicle for missions beyond low Earth orbit. The Orion MPCV is capable of conducting regular in-space operations (rendezvous, docking, extravehicular activity) in conjunction with payloads delivered by the Space Launch System."
   },
   {
     "name": "Psyche ",
-    "description​": "The Psyche mission is a journey to a unique metal asteroid orbiting the Sun between Mars and Jupiter. What makes the asteroid Psyche unique is that it appears to be the exposed nickel-iron core of an early planet, one of the building blocks of our solar system. "
+    "description": "The Psyche mission is a journey to a unique metal asteroid orbiting the Sun between Mars and Jupiter. What makes the asteroid Psyche unique is that it appears to be the exposed nickel-iron core of an early planet, one of the building blocks of our solar system."
   },
   {
     "name": "Space Launch System (SLS) ",
-    "description​": "The Space Launch System (SLS) Program will develop a heavy-lift launch vehicle to expand human presence to celestial destinations beyond low Earth orbit. This launch vehicle will be capable of lifting the Orion MPCV to asteroids, the moon, Lagrange points and, ultimately, to Mars. "
+    "description": "The Space Launch System (SLS) Program will develop a heavy-lift launch vehicle to expand human presence to celestial destinations beyond low Earth orbit. This launch vehicle will be capable of lifting the Orion MPCV to asteroids, the moon, Lagrange points and, ultimately, to Mars."
   },
   {
     "name": "Wide Field Infrared Survey Telescope (WFIRST) ",
-    "description​": "NASA's current plans call for WFIRST to perform an extraordinarily broad set of scientific investigations: studying the newly-discovered phenomenon of dark energy, measuring the history of cosmic acceleration, completing the exoplanet census begun by NASA's Kepler Space Telescope and demonstrating technology for direct imaging and characterization of exoplanets. "
+    "description": "NASA's current plans call for WFIRST to perform an extraordinarily broad set of scientific investigations: studying the newly-discovered phenomenon of dark energy, measuring the history of cosmic acceleration, completing the exoplanet census begun by NASA's Kepler Space Telescope and demonstrating technology for direct imaging and characterization of exoplanets."
   }
 ]
 
@@ -220,22 +231,22 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-30",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Western Blot"
+    "skills": "Astronomy & Astrophysics"
   },
   {
     "web-scraper-order": "1575731012-168",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cell Culture"
+    "skills": "Extragalactic Astronomy"
   },
   {
     "web-scraper-order": "1575731012-297",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Food"
+    "skills": "Gravitational Physics"
   },
   {
     "web-scraper-order": "1575731012-55",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Conferences"
+    "skills": "Space"
   },
   {
     "web-scraper-order": "1575731012-250",
@@ -250,7 +261,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-196",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "RNA"
+    "skills": "Extrasolar Planets"
   },
   {
     "web-scraper-order": "1575731012-243",
@@ -260,12 +271,12 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-66",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "pH"
+    "skills": "Galaxy Evolution"
   },
   {
     "web-scraper-order": "1575731012-195",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cell Biology"
+    "skills": "Planetary Sciences and Astrogeology"
   },
   {
     "web-scraper-order": "1575731012-31",
@@ -285,17 +296,17 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-42",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Correction"
+    "skills": "Astroparticle Physics"
   },
   {
     "web-scraper-order": "1575731012-275",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Mind"
+    "skills": "Galaxy"
   },
   {
     "web-scraper-order": "1575731012-224",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Methodology"
+    "skills": "Space Technology for Development"
   },
   {
     "web-scraper-order": "1575731012-191",
@@ -305,37 +316,37 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-201",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Mice"
+    "skills": "Dark Matter"
   },
-   {
-     "web-scraper-order": "1575731012-293",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Composite Beam Theory"
-   },
-   {
-     "web-scraper-order": "1575731012-301",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "SDA"
+  {
+    "web-scraper-order": "1575731012-293",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Composite Beam Theory"
+  },
+  {
+    "web-scraper-order": "1575731012-301",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Spacecraft"
   },
   {
     "web-scraper-order": "1575731012-148",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Immunohistochemistry"
+    "skills": "High Energy Physics"
   },
   {
     "web-scraper-order": "1575731012-193",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Journal Impact Factor"
+    "skills": "Black Holes"
   },
   {
     "web-scraper-order": "1575731012-282",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Time"
+    "skills": "General Relativity"
   },
   {
     "web-scraper-order": "1575731012-74",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Philosophy"
+    "skills": "Extrasolar Materials"
   },
   {
     "web-scraper-order": "1575731012-149",
@@ -355,32 +366,32 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-264",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Industry"
+    "skills": "Astrophotography"
   },
-   {
+  {
      "web-scraper-order": "1575731012-227",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Modeling and Analysis of Primary and Secondary Structures"
-   },
+     "skills": "Modeling and Analysis Structures"
+  },
   {
     "web-scraper-order": "1575731012-128",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Acids"
+    "skills": "Particle Physics"
   },
   {
     "web-scraper-order": "1575731012-216",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Survey"
+    "skills": "Radiation Detection"
   },
   {
     "web-scraper-order": "1575731012-103",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Innovation"
+    "skills": "Innovation Management"
   },
   {
     "web-scraper-order": "1575731012-138",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Simulink"
+    "skills": "Radiation Measurements"
   },
   {
     "web-scraper-order": "1575731012-69",
@@ -390,17 +401,17 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-70",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Real-Time PCR"
+    "skills": "Real-Time Simulation"
   },
   {
     "web-scraper-order": "1575731012-242",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Ethics"
+    "skills": "Space Ethics"
   },
   {
     "web-scraper-order": "1575731012-256",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Higher Education"
+    "skills": "Particle Accelerators"
   },
   {
     "web-scraper-order": "1575731012-289",
@@ -410,47 +421,47 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-267",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Social Science"
+    "skills": "Atom Science"
   },
    {
      "web-scraper-order": "1575731012-186",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Hagler Systems and Supporting"
+     "skills": "Spacial Systems and Supporting"
    },
   {
     "web-scraper-order": "1575731012-169",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "ANSYS"
+    "skills": "ISS"
   },
    {
      "web-scraper-order": "1575731012-225",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "manufacturing"
+     "skills": "Manufacturing Aerospace"
    },
   {
     "web-scraper-order": "1575731012-258",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Oil"
+    "skills": "Oil & Energy"
   },
   {
     "web-scraper-order": "1575731012-154",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "XRD Analysis"
+    "skills": "X-Ray Analysis"
   },
   {
     "web-scraper-order": "1575731012-141",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Next Generation Sequencing"
+    "skills": "Stellar Structure"
   },
   {
     "web-scraper-order": "1575731012-174",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Teaching"
+    "skills": "Optical Astronomy"
   },
   {
     "web-scraper-order": "1575731012-22",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "MATLAB"
+    "skills": "Infrared Astronomy"
   },
   {
     "web-scraper-order": "1575731012-286",
@@ -460,42 +471,37 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-210",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Drugs"
+    "skills": "Radio Astronomy"
   },
   {
     "web-scraper-order": "1575731012-77",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Publishing"
+    "skills": "Active Galactic Nuclei"
   },
   {
     "web-scraper-order": "1575731012-226",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Computer Science"
+    "skills": "Spacial Computer Science"
   },
   {
     "web-scraper-order": "1575731012-285",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Soil Science"
+    "skills": "Materials Development"
   },
   {
-    "web-scraper-order": "1575731012-253",
+    "web-scraper-order": "1575731012-161",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Manuscripts"
+    "skills": "Structure Strength"
   },
-   {
-     "web-scraper-order": "1575731012-161",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Structure Strength"
-   },
   {
     "web-scraper-order": "1575731012-59",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Attitude"
+    "skills": "Altitude Analysis"
   },
   {
     "web-scraper-order": "1575731012-180",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Articles"
+    "skills": "Micro & Nanocomposites"
   },
   {
     "web-scraper-order": "1575731012-277",
@@ -508,11 +514,6 @@ skill_json = [
     "skills": "Materials Science"
   },
   {
-    "web-scraper-order": "1575731012-162",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Journalism"
-  },
-  {
     "web-scraper-order": "1575731012-177",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Cell Line"
@@ -523,24 +524,9 @@ skill_json = [
     "skills": "Big Data"
   },
   {
-    "web-scraper-order": "1575731012-119",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Program"
-  },
-  {
     "web-scraper-order": "1575731012-219",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Stress"
-  },
-  {
-    "web-scraper-order": "1575731012-104",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Classification"
-  },
-  {
-    "web-scraper-order": "1575731012-56",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Concrete"
+    "skills": "Stress Measurements"
   },
   {
     "web-scraper-order": "1575731012-262",
@@ -551,11 +537,6 @@ skill_json = [
     "web-scraper-order": "1575731012-50",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Bioinformatics"
-  },
-  {
-    "web-scraper-order": "1575731012-44",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Publications"
   },
    {
      "web-scraper-order": "1575731012-99",
@@ -570,7 +551,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-179",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Biotechnology"
+    "skills": "Spacial Biotechnology"
   },
   {
     "web-scraper-order": "1575731012-291",
@@ -583,16 +564,6 @@ skill_json = [
     "skills": "Carbon"
   },
   {
-    "web-scraper-order": "1575731012-47",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Staining"
-  },
-  {
-    "web-scraper-order": "1575731012-41",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Academic Journals"
-  },
-  {
     "web-scraper-order": "1575731012-135",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Nanoparticle Research"
@@ -600,17 +571,17 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-190",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Collaboration"
+    "skills": "International Collaboration"
   },
    {
      "web-scraper-order": "1575731012-109",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
      "skills": "Material Thickness of the Structure"
    },
-  {
-    "web-scraper-order": "1575731012-39",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Antibodies"
+   {
+     "web-scraper-order": "1575731012-39",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "Antibodies"
   },
   {
     "web-scraper-order": "1575731012-208",
@@ -628,11 +599,6 @@ skill_json = [
     "skills": "Material Characterization"
   },
   {
-    "web-scraper-order": "1575731012-34",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Publication"
-  },
-  {
     "web-scraper-order": "1575731012-122",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Instruments"
@@ -643,19 +609,9 @@ skill_json = [
     "skills": "UV-Visible Spectroscopy"
   },
   {
-    "web-scraper-order": "1575731012-231",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Training"
-  },
-  {
     "web-scraper-order": "1575731012-46",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Mechanical Engineering"
-  },
-  {
-    "web-scraper-order": "1575731012-80",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Gels"
   },
   {
     "web-scraper-order": "1575731012-90",
@@ -663,19 +619,9 @@ skill_json = [
     "skills": "Materials Chemistry"
   },
   {
-    "web-scraper-order": "1575731012-164",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Papers"
-  },
-  {
     "web-scraper-order": "1575731012-276",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Solubility"
-  },
-  {
-    "web-scraper-order": "1575731012-214",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Plants"
   },
   {
     "web-scraper-order": "1575731012-146",
@@ -686,16 +632,6 @@ skill_json = [
     "web-scraper-order": "1575731012-235",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Electrochemistry"
-  },
-  {
-    "web-scraper-order": "1575731012-240",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "SDS-PAGE"
-  },
-  {
-    "web-scraper-order": "1575731012-228",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Powders"
   },
   {
     "web-scraper-order": "1575731012-137",
@@ -713,19 +649,14 @@ skill_json = [
     "skills": "Protein Purification"
   },
   {
-    "web-scraper-order": "1575731012-278",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Peptides"
-  },
-  {
     "web-scraper-order": "1575731012-121",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Heat"
+    "skills": "Heat Analysis"
   },
   {
     "web-scraper-order": "1575731012-151",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Resistance"
+    "skills": "Spacial Resistance"
   },
   {
     "web-scraper-order": "1575731012-147",
@@ -737,70 +668,60 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Time Series"
   },
-   {
-     "web-scraper-order": "1575731012-126",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Conceptual Design"
-   },
+  {
+    "web-scraper-order": "1575731012-126",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Conceptual Design"
+  },
   {
     "web-scraper-order": "1575731012-173",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Machine Learning"
   },
-   {
-     "web-scraper-order": "1575731012-118",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Aerospace Stress Analyst"
-   },
   {
+    "web-scraper-order": "1575731012-118",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Aerospace Stress Analyst"
+   },
+   {
     "web-scraper-order": "1575731012-115",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Civil Engineering"
-  },
-  {
+   },
+   {
     "web-scraper-order": "1575731012-83",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Advanced Statistical Analysis"
-  },
-  {
-    "web-scraper-order": "1575731012-170",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "SPSS"
-  },
-  {
+   },
+   {
+     "web-scraper-order": "1575731012-170",
+     "web-scraper-start-url": "https://www.researchgate.net/topics",
+     "skills": "SPSS"
+   },
+   {
     "web-scraper-order": "1575731012-88",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Nano"
-  },
-   {
-     "web-scraper-order": "1575731012-272",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Material Innovation"
    },
-  {
-    "web-scraper-order": "1575731012-181",
+   {
+    "web-scraper-order": "1575731012-272",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Filing"
-  },
+    "skills": "Material Innovation"
+   },
   {
     "web-scraper-order": "1575731012-92",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Neural Networks"
   },
   {
-    "web-scraper-order": "1575731012-58",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "FLUENT"
-  },
-  {
     "web-scraper-order": "1575731012-36",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Solvents"
+    "skills": "Solvents Solution"
   },
   {
     "web-scraper-order": "1575731012-132",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Nanomaterials"
+    "skills": "Nano Textile"
   },
   {
     "web-scraper-order": "1575731012-48",
@@ -810,7 +731,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-183",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Buffer"
+    "skills": "Robotisation & Automatisation"
   },
   {
     "web-scraper-order": "1575731012-62",
@@ -818,34 +739,29 @@ skill_json = [
     "skills": "Analytical Chemistry"
   },
   {
-    "web-scraper-order": "1575731012-35",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Research Papers"
-  },
-  {
     "web-scraper-order": "1575731012-221",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Extraction"
+    "skills": "Materials Extraction"
   },
   {
     "web-scraper-order": "1575731012-220",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Materials"
+    "skills": "New Materials"
   },
   {
     "web-scraper-order": "1575731012-60",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Bacteria"
+    "skills": "Bacteria Analysis"
   },
   {
     "web-scraper-order": "1575731012-97",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Light"
+    "skills": "Light Measurement"
   },
   {
     "web-scraper-order": "1575731012-284",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Glass"
+    "skills": "Glass Resistance"
   },
   {
     "web-scraper-order": "1575731012-178",
@@ -855,12 +771,12 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-38",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Extracts"
+    "skills": "Extractions"
   },
   {
     "web-scraper-order": "1575731012-205",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Modeling"
+    "skills": "System Modeling"
   },
   {
     "web-scraper-order": "1575731012-78",
@@ -875,33 +791,18 @@ skill_json = [
    {
      "web-scraper-order": "1575731012-159",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Control of Laboratory Controls"
+     "skills": "Laboratory Controls"
    },
   {
     "web-scraper-order": "1575731012-81",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Engineering"
+    "skills": "Propulsion Engineering"
   },
-   {
-     "web-scraper-order": "1575731012-280",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Laboratory Control Analysis"
-   },
-   {
-     "web-scraper-order": "1575731012-72",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Mechanical Engineering"
-   },
-   {
-     "web-scraper-order": "1575731012-241",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Mechanisms of Hatch"
-   },
   {
-    "web-scraper-order": "1575731012-158",
+    "web-scraper-order": "1575731012-241",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Botany"
-  },
+    "skills": "Mechanisms of Hatch"
+   },
   {
     "web-scraper-order": "1575731012-143",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
@@ -928,19 +829,9 @@ skill_json = [
     "skills": "Protein Expression"
   },
    {
-     "web-scraper-order": "1575731012-298",
+     "web-scraper-order": "1575731012-152",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Training"
-   },
-  {
-    "web-scraper-order": "1575731012-152",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Sustainability"
-  },
-  {
-    "web-scraper-order": "1575731012-51",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Websites"
+     "skills": "Sustainability"
   },
   {
     "web-scraper-order": "1575731012-279",
@@ -950,12 +841,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-33",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Statistics"
-  },
-  {
-    "web-scraper-order": "1575731012-249",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Informality"
+    "skills": "Advanced Statistics"
   },
   {
     "web-scraper-order": "1575731012-67",
@@ -967,30 +853,15 @@ skill_json = [
      "web-scraper-start-url": "https://www.researchgate.net/topics",
      "skills": "Test Systems"
    },
-  {
+   {
     "web-scraper-order": "1575731012-53",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Graphene"
   },
   {
-    "web-scraper-order": "1575731012-106",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Bioinformatic Tools"
-  },
-  {
-    "web-scraper-order": "1575731012-105",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "English"
-  },
-  {
     "web-scraper-order": "1575731012-145",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Organic"
-  },
-  {
-    "web-scraper-order": "1575731012-213",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Matrix"
+    "skills": "Space Organisms"
   },
   {
     "web-scraper-order": "1575731012-202",
@@ -1001,11 +872,6 @@ skill_json = [
     "web-scraper-order": "1575731012-244",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Finite Element Analysis"
-  },
-  {
-    "web-scraper-order": "1575731012-54",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Free Will"
   },
   {
     "web-scraper-order": "1575731012-65",
@@ -1030,7 +896,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-198",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Physics"
+    "skills": "Theorical Physics"
   },
   {
     "web-scraper-order": "1575731012-150",
@@ -1046,21 +912,6 @@ skill_json = [
     "web-scraper-order": "1575731012-192",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Biochemistry"
-  },
-  {
-    "web-scraper-order": "1575731012-127",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Dyes"
-  },
-  {
-    "web-scraper-order": "1575731012-184",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Questionnaire"
-  },
-  {
-    "web-scraper-order": "1575731012-112",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Business"
   },
   {
     "web-scraper-order": "1575731012-207",
@@ -1083,16 +934,6 @@ skill_json = [
     "skills": "DNA"
   },
   {
-    "web-scraper-order": "1575731012-273",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Social Media"
-  },
-  {
-    "web-scraper-order": "1575731012-211",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Sample Size"
-  },
-  {
     "web-scraper-order": "1575731012-82",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Transfection"
@@ -1101,11 +942,6 @@ skill_json = [
     "web-scraper-order": "1575731012-236",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Dataset"
-  },
-  {
-    "web-scraper-order": "1575731012-68",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Assays"
   },
   {
     "web-scraper-order": "1575731012-155",
@@ -1133,19 +969,9 @@ skill_json = [
     "skills": "DNA Sequencing"
   },
   {
-    "web-scraper-order": "1575731012-209",
+    "web-scraper-order": "1575731012-252",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Plating"
-  },
-   {
-     "web-scraper-order": "1575731012-252",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Space Equipment"
-   },
-  {
-    "web-scraper-order": "1575731012-266",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Plant Biotechnology"
+    "skills": "Space Equipment"
   },
   {
     "web-scraper-order": "1575731012-29",
@@ -1173,29 +999,14 @@ skill_json = [
     "skills": "Psychology"
   },
   {
-    "web-scraper-order": "1575731012-116",
+    "web-scraper-order": "1575731012-248",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Fungi"
+    "skills": "EAC"
   },
-  {
-    "web-scraper-order": "1575731012-172",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Reasoning"
-  },
-   {
-     "web-scraper-order": "1575731012-248",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "EAC"
-   },
   {
     "web-scraper-order": "1575731012-94",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Fluorescence"
-  },
-  {
-    "web-scraper-order": "1575731012-98",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "References"
   },
   {
     "web-scraper-order": "1575731012-23",
@@ -1210,77 +1021,22 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-75",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Brain"
-  },
-  {
-    "web-scraper-order": "1575731012-52",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Climate Change"
-  },
-  {
-    "web-scraper-order": "1575731012-108",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Enzymes"
+    "skills": "Brain Studies"
   },
   {
     "web-scraper-order": "1575731012-290",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Gas"
+    "skills": "Gas & Petrol"
   },
-  {
-    "web-scraper-order": "1575731012-134",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Programming in MATLAB"
-  },
-  {
-    "web-scraper-order": "1575731012-26",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Publisher"
-  },
-  {
-    "web-scraper-order": "1575731012-223",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Ecology"
-  },
-  {
-    "web-scraper-order": "1575731012-24",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Books"
-  },
-  {
-    "web-scraper-order": "1575731012-87",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Soil"
-  },
-   {
-     "web-scraper-order": "1575731012-265",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Eurocom"
-   },
   {
     "web-scraper-order": "1575731012-206",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Neuroscience"
+    "skills": "Neuroscience Physical"
   },
   {
     "web-scraper-order": "1575731012-64",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Organic Chemistry"
-  },
-  {
-    "web-scraper-order": "1575731012-89",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Coating"
-  },
-  {
-    "web-scraper-order": "1575731012-296",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Internet of Things"
-  },
-  {
-    "web-scraper-order": "1575731012-153",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Journal Articles"
   },
   {
     "web-scraper-order": "1575731012-212",
@@ -1318,19 +1074,9 @@ skill_json = [
     "skills": "Antennas"
   },
   {
-    "web-scraper-order": "1575731012-295",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Health"
-  },
-  {
     "web-scraper-order": "1575731012-257",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Medicine"
-  },
-  {
-    "web-scraper-order": "1575731012-247",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Genetics"
+    "skills": "Spacial Medicine"
   },
   {
     "web-scraper-order": "1575731012-270",
@@ -1346,11 +1092,6 @@ skill_json = [
     "web-scraper-order": "1575731012-95",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Structural Equation Modeling"
-  },
-  {
-    "web-scraper-order": "1575731012-100",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Soil Analysis"
   },
   {
     "web-scraper-order": "1575731012-203",
@@ -1378,11 +1119,6 @@ skill_json = [
     "skills": "Molecular Dynamics Simulation"
   },
   {
-    "web-scraper-order": "1575731012-28",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Running"
-  },
-  {
     "web-scraper-order": "1575731012-171",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Images"
@@ -1403,24 +1139,9 @@ skill_json = [
     "skills": "Mathematics"
   },
   {
-    "web-scraper-order": "1575731012-163",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Abaqus"
-  },
-  {
-    "web-scraper-order": "1575731012-200",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Proteins"
-  },
-  {
     "web-scraper-order": "1575731012-110",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Pressure"
-  },
-  {
-    "web-scraper-order": "1575731012-114",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Environmentalism"
+    "skills": "Spacial Pressure"
   },
   {
     "web-scraper-order": "1575731012-133",
@@ -1431,11 +1152,6 @@ skill_json = [
     "web-scraper-order": "1575731012-197",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Coding"
-  },
-  {
-    "web-scraper-order": "1575731012-299",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Liquids"
   },
   {
     "web-scraper-order": "1575731012-283",
@@ -1455,57 +1171,32 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-32",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Thinking"
+    "skills": "Design Thinking"
   },
   {
     "web-scraper-order": "1575731012-63",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Graphs"
+    "skills": "Graphs & Statistics"
   },
   {
     "web-scraper-order": "1575731012-96",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Economics"
-  },
-  {
-    "web-scraper-order": "1575731012-120",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Protein Purification Techniques"
+    "skills": "Spacial Economics"
   },
   {
     "web-scraper-order": "1575731012-167",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Software"
-  },
-  {
-    "web-scraper-order": "1575731012-255",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Biology"
+    "skills": "Embed Software"
   },
   {
     "web-scraper-order": "1575731012-123",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Cloning"
+    "skills": "System Cloning"
   },
   {
     "web-scraper-order": "1575731012-40",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Artificial Intelligence"
-  },
-  {
-    "web-scraper-order": "1575731012-25",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Writing"
-  },
-  {
-    "web-scraper-order": "1575731012-86",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Regression"
-  },
-  {
-    "web-scraper-order": "1575731012-84",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Research Topics"
   },
   {
     "web-scraper-order": "1575731012-229",
@@ -1520,27 +1211,12 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-274",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "3D"
+    "skills": "3D Modelisation"
   },
   {
     "web-scraper-order": "1575731012-269",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Thin Films and Nanotechnology"
-  },
-  {
-    "web-scraper-order": "1575731012-71",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Python"
-  },
-  {
-    "web-scraper-order": "1575731012-27",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Learning"
-  },
-  {
-    "web-scraper-order": "1575731012-204",
-    "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Indexes"
   },
   {
     "web-scraper-order": "1575731012-166",
@@ -1552,20 +1228,15 @@ skill_json = [
     "web-scraper-start-url": "https://www.researchgate.net/topics",
     "skills": "Remote Sensing"
   },
-   {
-     "web-scraper-order": "1575731012-188",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Spatial Data Systems"
-   },
-   {
-     "web-scraper-order": "1575731012-175",
-     "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Satellite System"
-   },
   {
-    "web-scraper-order": "1575731012-232",
+    "web-scraper-order": "1575731012-188",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Color"
+    "skills": "Spatial Data Systems"
+  },
+  {
+    "web-scraper-order": "1575731012-175",
+    "web-scraper-start-url": "https://www.researchgate.net/topics",
+    "skills": "Satellite System"
   },
   {
     "web-scraper-order": "1575731012-217",
@@ -1744,6 +1415,156 @@ avatar_json = [
     "web-scraper-order": "1576087743-326",
     "web-scraper-start-url": "https://generated.photos/faces/adult#",
     "avatar": "https://images.generated.photos/opEpP9uvMuaYNKlzu-njojNlwpaM84K2vEKeaIZHElc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTczMDAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-371",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/qLxZf8QIWxth3K6LptwsuHv-srvBtGWoIf3ZSPk1KCM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTQyMTMuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-374",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/rsAcp-MhjJ1FheHgv8FboWulSr73a4R5I7jjiXHw0j8/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTIzNzYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-386",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/cxCmB0vip5nDCuCI5f7zAWuWq-PihiKXwwC1fbG3nw0/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODA0NzkuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-365",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/SrnUOK3bTqassb2BtZtbacf84lQy_3bmTDQ19SHh93w/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc2MzUuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-387",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/Zb1dr22AuWLuPhPAYo8NEAC_EBEts-UcD_REyMCtzaQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/Nzk3MDguanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-379",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/dBPdjdxgUTO9FCL3jKJDnHhvjr7MVDoLXPv77KtmXUM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODcxOTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-370",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/BT8E_uGw2plxR961uc9no-ewh0PmySTmRXS1Vyu3q0I/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTQ1NzEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-376",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/G_CN6gDeqWdzqeS1FoWnxf7caCMn8Rz3ZlLDOe9OuYk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTA5MTYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-362",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/HSmNPeyAEuN3MvU3Fj4WhKk8pIknSUU2aCNZ_1FTo10/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTkxODQuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-390",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/_U9A0WKAE3KQ4AkaoMR8WPAMZHHcqtzjfrANa5tJyIU/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/NzU0OTYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-389",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/bIQKl-p-4KPlUWaKZzPX2vgX-VjPuP9eo4D3sIMBokc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/NzY3ODMuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-367",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/hOyq1OrBN3AOUM50HDAnggird2TjFtJfaSIlFiJangE/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTcxNzIuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-375",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/pmUoaO0kttTblJ0IVaMdPinQbKVpZxVKnKXm3wg7h2w/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTE4MTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-373",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/1CRTSr_-waNlizn3hnjg0LDIUMXGpqWEv8nUY9Okda8/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTI3MDguanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-385",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/HLg7IUUTtM1efaVK2vbKYb4bFKMmEYCs9KGFLAgWWh4/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODExMzguanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-378",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/VKZaV8MTG8dH2t163om6Phmf8Uk1kDFx0nF9OfLFoZE/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODcyOTYuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-377",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/jCNIyT8axxb67-V8fYTA5VgYi9aReCMaHWJjaK3gCHI/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTA0NDEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-380",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/KoWk_W3maCjZFfnK10pEjNhYxzJy-XNjHmuBbmYwXi0/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODYxNjUuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-382",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/yH-IQaYvGEqXubkcjm_JBpdtAYV65KeXN7whsX52p6I/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODUzNTAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-384",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/l3jiQshmZ8XIN55Wq1S7Fl0O61MbVJ60Yr948NcoZO4/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODI5MzAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-381",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/3UOJ3BN471a4q8LMUswgi7ekZOs-styXQBLMiTdy7R4/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODYwOTEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-363",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/RQSN--OUhdYAR8zlcSkrPDwDjL9QkR7tWKQJ9m3Z99Y/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTgzOTQuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-369",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/jlFpmGlpG6Da_TTU1dLVinmK3Hu4VChU_j-WyOasAB8/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTQ2NjcuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-383",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/WGf4KOuvaYdNd1aIq_OyTbQi7UEYWlO2r9cYDXPehNs/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/ODQ1MjAuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-391",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/2jFLpH-O-6n7tnbWPYN2YQ7CBNyWfQ8dYYxLHtDaLiU/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/NzUzMjEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-372",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/liA381LsxWmsmX3_iJXrlBXQLyrwzjn-1qckiBUW5Oc/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTQxNDEuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-364",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/5TeCsXr8Cbz-3kOgXLUyBKbaHXNYPNtTc7IG4VLOg3c/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc4NDcuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-368",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/wedeEe1ZmHaEbN01yKAIDHG86n5QcpuxCbXy7zcI-0k/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTU3OTkuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-366",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/VK_GNFXvaUwM4FGgI1EfeAUIVM02IZRAYPvpsizrxas/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/OTc0NDMuanBn.jpg"
+  },
+  {
+    "web-scraper-order": "1576106189-388",
+    "web-scraper-start-url": "https://generated.photos/faces/elderly",
+    "avatar": "https://images.generated.photos/1-yBelPOMx6pWRkJPr_qUJMVML34E9uExz7kgoNBicg/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/Nzk2NzguanBn.jpg"
   }
 ]
 
@@ -1758,15 +1579,43 @@ project_json.each do |element|
   list_description << element[:description​]
 end
 
+# puts list_description.count + " descriptios added and " + list_project_name + " project names"
+
+puts "Adding functions in array"
+
+function_json.each do |element|
+  list_of_functions << element[:function]
+end
+
+# puts list_of_functions.count + " functions added"
+
+puts "Adding skills in array"
+
 skill_json.each do |element|
   list_of_tags << element[:skills]
 end
+
+# puts list_of_tags.count + " skills added"
+
+puts "Adding avatar in array"
 
 avatar_json.each do |element|
   list_of_avatars << element[:avatar]
 end
 
-puts "creating John"
+# puts list_of_avatars.count + " avatar added"
+
+puts "Adding project in array"
+
+project_json.each do |element|
+  list_project_names << element[:name]
+  puts list_project_names.last
+  list_descriptions << element[:description]
+  puts list_descriptions.last
+end
+
+
+puts "creating Fla"
 
 fla = User.new(
   fullname: "Flavien Rosellini",
@@ -1794,8 +1643,8 @@ puts 'Creating 10 fake user...'
     password: "password",
     avatar: list_of_avatars.sample,
     phone: Faker::PhoneNumber.phone_number_with_country_code,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
+    country: Faker::Address.country_by_code(code: 'FR'),
+    city: list_of_cities.sample,
     function: list_of_functions.sample,
     school: Faker::University.name,
     company: feellows,
@@ -1803,21 +1652,25 @@ puts 'Creating 10 fake user...'
     response: Faker::Number.number(digits: 2),
     experience: ["Early Career", "Experienced", "Senior"].sample
   )
-  user.save!
 
-
-  2.times do
+  rand(2..4).times do
     project = Project.new(
-    name: list_project_name.sample,
-    description: list_description.sample,
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: user
+      name: list_project_names.sample,
+      description: list_descriptions.sample,
+      status: 'In Progress',
+      visibility: true,
+      open_to_apply: false,
+      user: user
     )
     project.save!
+
+    puts 'Creating projects'
+
   end
+  user.save!
 end
+
+puts 'Users created'
 
 puts 'Finished!'
 
