@@ -8,7 +8,7 @@
       <%# else %>
       <%# image_tag  (url="https://source.unsplash.com/featured/?face") %>
       <% if @user.avatar.present? %>
-        <%= image_tag("#{@user.avatar}", class: "avatar-large") %>
+        <%= cl_image_tag @user.avatar, class: "avatar-large" %>
       <% end %>
     </div>
     <div class="user-info">
@@ -86,7 +86,7 @@
           <div>
             <% project.collaborations.each do |element| %>
               <%= link_to user_profile_path(element.user) do %>
-                <%= image_tag("#{element.user.avatar}", class: "avatar-m") %>
+                <%= cl_image_tag element.user.avatar,  class: "avatar-m" %>
               <% end %>
             <% end %>
           </div>
@@ -106,7 +106,7 @@
         <!-- Profile mini card -->
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
-            <%= image_tag("#{user.avatar}", class: "avatar-m") %>
+            <%= cl_image_tag user.avatar, class: "avatar-m" %>
           </div>
           <div class="">
             <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>

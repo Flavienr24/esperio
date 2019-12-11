@@ -21,6 +21,77 @@ list_of_tags = []
 
 feelows = Company.create(name: 'Feellows')
 
+project_json = [
+
+  { "name": "BioSentinel"
+    "Description​": "The BioSentinel mission was selected as one of the secondary payloads, and the sole biological experiment, to fly on the Space Launch System’s first Exploration Mission (EM-1) planned to launch in 2020.
+
+The primary objective of BioSentinel is to develop a biosensor to detect and measure the impact of space radiation on living organisms over long durations beyond Low Earth Orbit (LEO).  "
+}
+  { "name": "EcAMSat "
+    "Description​": "The E. coli AntiMicrobial Satellite (EcAMSat) mission will investigate space microgravity effects on the antibiotic resistance and its genetic basis of E. coli, a bacterial pathogen responsible for urinary tract infection in humans and animals. Bacterial antibiotic resistance may pose a danger to astronauts in microgravity, where the immune response is weakened. Scientists believe that the results of this experiment could help design effective countermeasures to protect astronauts’ health during long-duration human space missions. EcAMSat is being developed through a partnership between NASA’s Ames Research Center and the Stanford University School of Medicine. EcAMSAT is slated for launch in late 2016. "
+},
+  { "name": "PowerCell "
+    "Description​": " ​In its first flight, the PowerCell Payload will investigate the performance of microbial mini-ecologies containing both photosynthetic microbes and consumer organisms. Photosynthetic cyanobacteria will produce the carbohydrate sucrose (table sugar), which will feed Bacillus subtilis, a robust bacterium commonly found in soil and the gut. "
+},
+  { "name": "AVA "
+    "Description​": "Affordable Vehicle Avionics (AVA): Common Modular Avionics System for Nano-Launchers Offering Affordable Access to Space.  NASA Ames Research Center has developed and tested a prototype low-cost avionics package for space launch vehicles that provides complete GNC functionality in a package smaller than a tissue box (100mm x 120mm x 69mm; 4in x 4.7in x 2.7in), with a mass of less than 0.84kg (2lbs). "
+},
+  { "name": "TechEdSat-5​"
+    "Description​": "​In late 2016, TechEdSat-5 will launch from the International Space Station (ISS). This CubeSat will deploy an exo-brake, an exo-atmospheric drag chute that can be used for controlled de-orbit of a small payload canister from Earth orbit. This capability is useful for returning biological samples from ISS and even planetary samples from beyond Earth. TechEdSat-5 will demonstrate improved GPS tracking and a modulated exo-brake allowing more precise control of exo-atmospheric drag, re-entry time and location. It features multiple cameras to help verify exo-brake deployment and modulation. GPS tracking is anticipated to give precise orbital trajectories leading to better drag assessment and re-entry targeting among other benefits. "
+},
+  { "name": "Nodes"
+    "Description​": "NASA’s Nodes satellites, a pair of tissue box-size CubeSats, launched to the International Space Station on December 6, 2015. The two Nodes satellites were deployed from the Station on May 16, 2016 to demonstrate new network capabilities critical to the operation of swarms of spacecraft.
+
+Weighing just 4.5 pounds each and measuring 4 inches by 4 inches by 6.5 inches, the Nodes satellites, once deployed, will test new network capabilities for operating swarms of spacecraft in the future. "
+},
+  { "name": "EDSN "
+    "Description​": "On November 3, 2015, the eight small satellites of the Edison Demonstration of Smallsat Networks (EDSN) mission were lost in the failure of the launch vehicle that was carrying them to orbit as secondary payloads. There will be an opportunity to complete some of the objectives of the EDSN mission in the Nodes follow-on mission. "
+},
+  { "name": "PhoneSat"
+    "Description​": "​NASA's PhoneSat project tests whether spacecraft can be built using smartphones to launch the lowest-cost satellites ever flown in space. Each PhoneSat nanosatellite is one cubesat unit - a satellite in a 10 cm (approx. 4 inches) cube or about the size of a tissue box - and weighs approximately three pounds. Engineers believe PhoneSat technology will enable NASA to launch multiple new satellites capable of conducting science and exploration missions at a small fraction of the cost of conventional satellites."
+},
+  { "name": "Exploration Ground Systems "
+    "Description​": "Exploration Ground Systems' primary objective is to prepare the center to process and launch the next-generation vehicles and spacecraft designed to achieve NASA's goals for space exploration. "
+},
+  { "name": "HEO-ESD Integration "
+    "Description​": "Exploration Systems Development Division (ESD) has been charged to oversee the development of nation’s next generation of human exploration systems. ESD Responsibilities include: Provide HEO MD with insight and oversight of programs developing human exploration capabilities (MPCV, SLS, and 21st Century Ground Systems), Complete Constellation Transition during FY11, Manage cross-program integration across MPCV, SLS and 21CGS Programs (Manage interfaces between programs and cross-program risks as well as ensure cross-program integration is occurring). "
+},
+  { "name": " International Space Station (ISS)"
+    "Description​": "The International Space Station is an unprecedented achievement in global human endeavors to conceive, plan, build, operate, and utilize a research platform in space. With the assembly of the space station at its completion and the support of a full-time crew of six, a new era of utilization for research has begun. "
+},
+  { "name": "James Webb Space Telescope (JWST) "
+    "Description​": "The James Webb Space Telescope is a large, infrared-optimized space telescope. Webb will probe for the "first light" after the Big Bang and find the first galaxies that formed in the early Universe, connecting the Big Bang to our own Milky Way Galaxy. Webb will peer through dusty clouds to see stars forming planetary systems, connecting the Milky Way to our own Solar System and look for the chemical signatures of extra-terrestrial life. "
+},
+  { "name": "Joint Polar Satellite System-2 (JPSS-2) "
+    "Description​": "JPSS-2 will provide operational continuity of satellite-based observations and products for NOAA Polar-Orbiting Environmental Satellites (POES) and Suomi NPP satellite and ground systems. The baseline plan for JPSS Ground System will be sustained to support JPSS-2, similar to JPSS-1. "
+},
+  { "name": "Joint Polar Satellite System Ground (JPSS Ground) "
+    "Description​": "The ground system for the JPSS mission is a global network of receiving stations linked to NOAA, which distributes the satellite data and derived products to users worldwide. The versatile ground system controls the spacecraft, ingests and processes data and provides information to users like NOAA's National  "
+},
+  { "name": "Landsat 9 "
+    "Description​": "Landsat 9 — a partnership between NASA and the U.S. Geological Survey — will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life "
+},
+  { "name": "Lucy "
+    "Description​": "Lucy will be the first space mission to study the Trojan asteroids of Jupiter. The mission takes its name from the fossilized human ancestor (called “Lucy” by her discoverers) whose skeleton provided unique insight into humanity's evolution. Likewise, the Lucy mission will revolutionize our knowledge of planetary origins and the formation of the solar system. "
+}
+  { "name": "Mars 2020 "
+    "Description​": "Designed to advance high-priority science goals for Mars exploration, the mission would address key questions about the potential for life on Mars. The mission would also provide opportunities to gather knowledge and demonstrate technologies that address the challenges of future human expeditions to Mars.. "
+}
+  { "name": "Multi-Purpose Crew Vehicle (Orion MPCV) "
+    "Description​": "This spacecraft will serve as the primary crew vehicle for missions beyond low Earth orbit. The Orion MPCV is capable of conducting regular in-space operations (rendezvous, docking, extravehicular activity) in conjunction with payloads delivered by the Space Launch System. "
+}
+  { "name": "Psyche "
+    "Description​": "The Psyche mission is a journey to a unique metal asteroid orbiting the Sun between Mars and Jupiter. What makes the asteroid Psyche unique is that it appears to be the exposed nickel-iron core of an early planet, one of the building blocks of our solar system. "
+}
+  { "name": "Space Launch System (SLS) "
+    "Description​": "The Space Launch System (SLS) Program will develop a heavy-lift launch vehicle to expand human presence to celestial destinations beyond low Earth orbit. This launch vehicle will be capable of lifting the Orion MPCV to asteroids, the moon, Lagrange points and, ultimately, to Mars. "
+}
+  { "name": "Wide Field Infrared Survey Telescope (WFIRST) "
+    "Description​": "NASA's current plans call for WFIRST to perform an extraordinarily broad set of scientific investigations: studying the newly-discovered phenomenon of dark energy, measuring the history of cosmic acceleration, completing the exoplanet census begun by NASA's Kepler Space Telescope and demonstrating technology for direct imaging and characterization of exoplanets. "
+}
+]
+
 skill_json = [
   {
     "web-scraper-order": "1575731012-101",

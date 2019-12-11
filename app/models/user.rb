@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   # $list_of_tags = ['medecin', 'doctor', 'biologist', 'scientist', 'junior', 'test', 'les tags cest cool', 'cette gem est superbe!', 'travail!']
 
+  mount_uploader :avatar, FileUploader
   include PgSearch::Model
 
   pg_search_scope :fullname_search,
