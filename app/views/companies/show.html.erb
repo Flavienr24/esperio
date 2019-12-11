@@ -3,13 +3,17 @@
   <div class="p-4">
     <div class="d-flex align-items-center justify-content-between">
       <div class="dashboard-stat-card">
+        <%= link_to projects_path, class: "text-decoration-none" do %>
         <h4>Projects in progress</h4>
         <div class="stat-number"><%= Project.all.count %></div>
       </div>
+      <% end %>
       <div class="dashboard-stat-card">
+        <%= link_to index_skills_path, class: "text-decoration-none" do %>
         <h4>Expertises owned</h4>
         <div class="stat-number"><%= User.skill_counts.count %></div>
       </div>
+      <% end %>
       <div class="dashboard-stat-card">
         <h4>Company researchers</h4>
         <div class="stat-number"><%= User.all.count %></div>
