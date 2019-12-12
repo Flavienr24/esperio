@@ -116,7 +116,7 @@
         <%= link_to user_profile_path(user) do %>
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
-            <%= cl_image_tag user.avatar, class: "avatar-m" %>
+            <%= image_tag "#{user.avatar}", class: "avatar-m" %>
           </div>
           <div>
             <div class="text-dark"> <%= user.fullname %></div>
