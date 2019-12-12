@@ -1,5 +1,5 @@
 <div class="flat-card w-100 p-5">
-  <h3 style="color: #1C3893"><%= @company.name %> dashboard</h3>
+  <h3 style="color: #1C3893"><%= @company.name %> Dashboard</h3>
   <div class="p-4">
     <div class="d-flex align-items-center justify-content-between">
         <%= link_to projects_path, class: "text-decoration-none w-100" do %>
@@ -62,7 +62,7 @@
         <div class="dashboard-card">
           <!-- Faire un each pour récupérer 5 user -->
           <div class="p-2">
-            <% User.order(rand(1..User.count - 1 )).first(5).each do |user| %>
+            <% User.all.sample(5).each do |user| %>
             <div class="d-flex justify-content-start align-items-center p-2">
               <div class="mr-3">
                 <%= image_tag("#{user.avatar}", class: "avatar-m") %>
