@@ -1,12 +1,13 @@
 <!-- Première partie de l'écran -->
 <!-- Description User -->
-<div class="w-100 px-4 py-2 flat-card d-flex">
+<div class="w-100 px-4 py-2 flat-card d-flex justify-content-between pr-5">
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
       <% if current_user.id == @user.id %>
-      <%= image_tag("flavien.png", class: "avatar-large") %>
+        <%= image_tag("flavien.png", class: "avatar-large") %>
       <% else %>
-        <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar">
+        <%= image_tag (@user.avatar), class: "avatar-large" %>
+        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
       <% end %>
     </div>
     <div class="user-info">
@@ -16,27 +17,37 @@
       <p class="description"><%= @user.school %></p>
     </div>
   </div>
-  <div class="stat-label">
-    <!-- Numbers of projects -->
-    <div class="stat-number"><%= @projects_I_lead.count %></div>
-    <p>Projects</p>
-  </div>
-  <div class="stat-label">
-    <%#= @mycollaborations.count%>
-    <div class="stat-number"><%= @user.collaborations.count%></div>
-    <p>Collaborations</p>
-  </div>
-  <div class="stat-label">
-    <div class="stat-number">32</div>
-    <p>Network</p>
-  </div>
-  <div class="contact-cta">
-    <% if current_user.id == @user.id %>
-      <%= link_to edit_user_registration_path(@user) do %>
-      <i class="fas fa-user-edit"></i>
+  <div class="stat-user d-flex">
+    <div class="stat-label border-r">
+      <!-- Numbers of projects -->
+      <div class="stat-number"><%= @projects_I_lead.count %></div>
+      <p>Projects</p>
+    </div>
+    <div class="stat-label">
+      <%#= @mycollaborations.count%>
+      <div class="stat-number">
+        <%#= @user.collaborations.count%>
+  <!-- Test collaboration -->
+        <% if current_user.id == @user.id %>
+          14
+        <% else %>
+          <%= rand(3..24) %>
+        <% end %>
+        </div>
+      <p>Collaborations</p>
+    </div>
+    <div class="stat-label">
+      <div class="stat-number">32</div>
+      <p>Network</p>
+    </div>
+    <div class="contact-cta">
+      <% if current_user.id == @user.id %>
+        <%= link_to edit_user_registration_path(@user) do %>
+        <i class="fas fa-user-edit"></i>
+        <% end %>
       <% end %>
-    <% end %>
-    <i class="fas fa-envelope"></i>
+      <i class="fas fa-envelope"></i>
+    </div>
   </div>
 </div>
 <!-- Deuxième partie de l'écran -->
@@ -103,15 +114,17 @@
 
         <% @users_except_me.sample(5).each do |user| %>
         <!-- Profile mini card -->
+        <%= link_to user_profile_path(user) do %>
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
             <%= cl_image_tag user.avatar, class: "avatar-m" %>
           </div>
-          <div class="">
-            <%= link_to user.fullname, user_profile_path(user), class: "link-label" %>
+          <div>
+            <div class="text-dark"> <%= user.fullname %></div>
             <div class="light-description"><%= user.function %></div>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
       <!-- end -->
