@@ -38,13 +38,15 @@
 }
 
 .project-mini-card {
-  width: 30%;
+  position: relative;
+  width: 90%;
   padding: 8px 12px;
-  height: 80px;
+  height: 114px;
   border-radius: 5px;
   box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.02);
   background: $primary;
   color: white;
+  margin-bottom: 16px;
   &:hover {
     background: $dark-blue;
   }
@@ -54,13 +56,26 @@
   }
 }
 
+.arrow {
+  position: absolute;
+  bottom: 6px;
+  right: 14px;
+}
+
 .dashboard-stat-card {
-  width: 30%;
+  width: 90%;
   padding: 32px 26px;
   background: #FFFFFF;
   box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   text-align: center;
+  &:hover {
+    background: $dark-blue;
+    color: white;
+    & .stat-number {
+      color: white;
+    }
+  }
 }
 
 .dashboard-card {
