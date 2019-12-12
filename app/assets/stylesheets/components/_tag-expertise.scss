@@ -1,5 +1,14 @@
 
 // à finaliser: l'icône, l'espacement depuis le bord droit...
+.tag-contain {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+
+
 .tag-expertise {
   margin:3px;
   width: fit-content;
@@ -56,17 +65,13 @@
 .user-status {
   background: #525252;
   border-radius: 3px;
-  width: 126px;
-  height: 14px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  padding: 6 px 10 px;
+  padding: 3px;
+
 }
 
 #myUL {
