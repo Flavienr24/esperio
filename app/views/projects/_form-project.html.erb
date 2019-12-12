@@ -66,11 +66,10 @@
       </div>
       <div class="">
         <% if current_page?(controller: 'projects', action: 'new') %>
-          <% form_btn = "Add" %>
+          <%= form_btn = "Add" %>
         <% else %>
-          <% form_btn = "Edit" %>
+          <%= form_btn = "Edit" %>
         <% end %>
-
       </div>
     </div>
   <% end %>
