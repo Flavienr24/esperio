@@ -17,10 +17,9 @@ class UsersController < ApplicationController
   def my_profile
     @users_except_me = User.all_except(current_user)
     @user = current_user
-    @user.avatar = src="flavien.png"
+    # @user.avatar = src="flavien.png"
     @projects_I_lead = @user.projects.order("created_at DESC")
     @collaborations = @user.collaborations
     @myexpertises = @user.skill_list
   end
-
 end
