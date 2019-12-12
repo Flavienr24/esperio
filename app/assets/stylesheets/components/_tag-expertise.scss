@@ -24,8 +24,22 @@
 }
 
 
-.project-status {
+.project-status-inprogress {
   background: #FFB946;
+  border-radius: 5px;
+  width: fit-content;
+  height: 23px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white,
+}
+
+.project-status-done {
+  background: $success;
   border-radius: 5px;
   width: fit-content;
   height: 23px;
