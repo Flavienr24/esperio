@@ -23,14 +23,6 @@
 }
 
 
-.avatar-project {
-  position: absolue;
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #FFFFFF;
-}
 
 
 .move{
@@ -40,4 +32,25 @@
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #FFFFFF;
+  top: 62px;
+  left:6px;
+}
+
+
+
+.mini-project{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF;
+  top: 398px;
+  left: 4px;
+}
+
+
+.file {
+    width: 40px;
+  height: 40px;
 }
