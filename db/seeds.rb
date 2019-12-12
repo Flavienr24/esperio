@@ -1646,168 +1646,168 @@ fla = User.new(
 
 fla.save!
 
-puts "creating laurent"
+# puts "creating laurent"
 
-laurent = User.new(
-  fullname: "Laurent Dupont",
-  email: "ldeguil34@gmail.com",
-  password: "password",
-  avatar: "laurent.jpeg",
-  phone: "0606070809",
-  country: "Japan",
-  city: "Sapporo",
-  function: "Spatial researcher",
-  school: "Okkaido University",
-  company: aerospace,
-  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
-  response: "80",
-  experience: "Senior"
-  )
+# laurent = User.new(
+#   fullname: "Laurent Dupont",
+#   email: "ldeguil34@gmail.com",
+#   password: "password",
+#   avatar: "laurent.jpeg",
+#   phone: "0606070809",
+#   country: "Japan",
+#   city: "Sapporo",
+#   function: "Spatial researcher",
+#   school: "Okkaido University",
+#   company: aerospace,
+#   skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
+#   response: "80",
+#   experience: "Senior"
+#   )
 
-laurent.save!
+# laurent.save!
 
-  project3 = Project.new(
-    name: "Nodes",
-    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: laurent
-  )
-  project3.save!
+#   project3 = Project.new(
+#     name: "Nodes",
+#     description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+#     status: 'In Progress',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: laurent
+#   )
+#   project3.save!
 
-  project4 = Project.new(
-    name: "Space Country",
-    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
-    status: 'Done',
-    visibility: true,
-    open_to_apply: false,
-    user: laurent
-  )
-  project4.save!
+#   project4 = Project.new(
+#     name: "Space Country",
+#     description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+#     status: 'Done',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: laurent
+#   )
+#   project4.save!
 
-puts "creating steph"
+# puts "creating steph"
 
-steph = User.new(
-  fullname: "Stephane Montoro",
-  email: "stephane@feello.ws",
-  password: "password",
-  avatar: "steph.jpg",
-  phone: "0736070809",
-  country: "Australia",
-  city: "Melbourne",
-  function: "Aerospace Ingenior",
-  school: "Melbourne School of Engineering",
-  company: aerospace,
-  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
-  response: "70",
-  experience: "Experienced"
-  )
+# steph = User.new(
+#   fullname: "Stephane Montoro",
+#   email: "stephane@feello.ws",
+#   password: "password",
+#   avatar: "steph.jpg",
+#   phone: "0736070809",
+#   country: "Australia",
+#   city: "Melbourne",
+#   function: "Aerospace Ingenior",
+#   school: "Melbourne School of Engineering",
+#   company: aerospace,
+#   skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
+#   response: "70",
+#   experience: "Experienced"
+#   )
 
 
-  project1 = Project.new(
-    name: "React",
-    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: steph
-  )
-  project1.save!
+  # project1 = Project.new(
+  #   name: "React",
+  #   description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+  #   status: 'In Progress',
+  #   visibility: true,
+  #   open_to_apply: false,
+  #   user: steph
+  # )
+  # project1.save!
 
-  project2 = Project.new(
-    name: "Steel.io",
-    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
-    status: 'Done',
-    visibility: true,
-    open_to_apply: false,
-    user: steph
-  )
-  project2.save!
+  # project2 = Project.new(
+  #   name: "Steel.io",
+  #   description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+  #   status: 'Done',
+  #   visibility: true,
+  #   open_to_apply: false,
+  #   user: steph
+  # )
+  # project2.save!
 
-steph.save!
+# steph.save!
 
 puts "creating caro"
 
-caro = User.new(
-  fullname: "Caroline Le Goff",
-  email: "caro@feello.ws",
-  password: "password",
-  avatar: "caro.jpg",
-  phone: "0701070809",
-  country: "Denmark",
-  city: "Copenhagen",
-  function: "Spatial Environment Reseacher",
-  school: "IPSA",
-  company: aerospace,
-  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Molecular", 'Big Data', 'Spatial Biotechnology'],
-  response: "50",
-  experience: "Experienced"
-  )
+# caro = User.new(
+#   fullname: "Caroline Le Goff",
+#   email: "caro@feello.ws",
+#   password: "password",
+#   avatar: "caro.jpg",
+#   phone: "0701070809",
+#   country: "Denmark",
+#   city: "Copenhagen",
+#   function: "Spatial Environment Reseacher",
+#   school: "IPSA",
+#   company: aerospace,
+#   skill_list: ["Spatial Resistance", "Spatial Data Systems", "Molecular", 'Big Data', 'Spatial Biotechnology'],
+#   response: "50",
+#   experience: "Experienced"
+#   )
 
 
-  project1 = Project.new(
-    name: "National Biology",
-    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: caro
-  )
-  project1.save!
+#   project1 = Project.new(
+#     name: "National Biology",
+#     description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+#     status: 'In Progress',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: caro
+#   )
+#   project1.save!
 
-  project2 = Project.new(
-    name: "Ruby.er",
-    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
-    status: 'Done',
-    visibility: true,
-    open_to_apply: false,
-    user: caro
-  )
-  project2.save!
+#   project2 = Project.new(
+#     name: "Ruby.er",
+#     description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+#     status: 'Done',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: caro
+#   )
+#   project2.save!
 
-caro.save!
+# caro.save!
 
-puts "creating anne"
+# puts "creating anne"
 
-anne = User.new(
-  fullname: "Anne-Lise Coudry",
-  email: "anne@feello.ws",
-  password: "password",
-  avatar: "anne.jpg",
-  phone: "0736070409",
-  country: "Germany",
-  city: "Bonn",
-  function: "PhD in Astrophysics",
-  school: "Max Plank Institute",
-  company: aerospace,
-  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Biotechnology", 'Big Data', 'Spatial Biotechnology'],
-  response: "50",
-  experience: "Experienced"
-  )
+# anne = User.new(
+#   fullname: "Anne-Lise Coudry",
+#   email: "anne@feello.ws",
+#   password: "password",
+#   avatar: "anne.jpg",
+#   phone: "0736070409",
+#   country: "Germany",
+#   city: "Bonn",
+#   function: "PhD in Astrophysics",
+#   school: "Max Plank Institute",
+#   company: aerospace,
+#   skill_list: ["Spatial Resistance", "Spatial Data Systems", "Biotechnology", 'Big Data', 'Spatial Biotechnology'],
+#   response: "50",
+#   experience: "Experienced"
+#   )
 
 
-  project1 = Project.new(
-    name: "MineStamp",
-    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
-    status: 'In Progress',
-    visibility: true,
-    open_to_apply: false,
-    user: anne
-  )
-  project1.save!
+#   project1 = Project.new(
+#     name: "MineStamp",
+#     description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+#     status: 'In Progress',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: anne
+#   )
+#   project1.save!
 
-  project2 = Project.new(
-    name: "PhD Science",
-    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
-    status: 'Done',
-    visibility: true,
-    open_to_apply: false,
-    user: anne
-  )
-  project2.save!
+#   project2 = Project.new(
+#     name: "PhD Science",
+#     description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+#     status: 'Done',
+#     visibility: true,
+#     open_to_apply: false,
+#     user: anne
+#   )
+#   project2.save!
 
-anne.save!
+# anne.save!
 
 puts 'Creating 10 fake user...'
 

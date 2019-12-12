@@ -1,95 +1,95 @@
-<div class="flat-card" style="margin-top: -58px;">
-<div id="title-collab">
-  <h1>Search-Collaborators</h1>
-  <p class="light-description">
-    Find here the candidates closest to your expectations
-  </p>
-</div>
-<table id="collaborators" >
-<thead>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Collab</th>
-    <th>Matching Expertise</th>
-    <th>Projects Lead</th>
-    <th>Location</th>
-    <th>Experience</th>
-  </tr>
-</thead>
-
-<tbody class="table-body">
-  <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
-    <tr class="collab-line">
-      <td>
-        <!-- bouton add collaborateur au projet -->
-        <% if @project.collaborations.where(user: user).present? %>
+<div class="flat-card p-4" style="margin-top: -68px;">
+  <div id="title-collab d-flex">
+    <div class="">
+      <h1>Search-Collaborators</h1>
+      <p class="light-description">
+        Find here the candidates closest to your expectations
+      </p>
+    </div>
+    <div class="d-flex justify-content-end mb-4">
+      <%= link_to 'Validate', project_path(@project), class: 'btn btn-rounded'%>
+    </div>
+  </div>
+  <table id="collaborators" >
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Collab</th>
+        <th>Matching Expertise</th>
+        <th>Projects Lead</th>
+        <th>Location</th>
+        <th>Experience</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+      <tr class="collab-line">
+        <td>
+          <!-- bouton add collaborateur au projet -->
+          <% if @project.collaborations.where(user: user).present? %>
           <%= link_to project_collaboration_path(@project, @project.collaborations.where(user: user).first.id, user: user), method: :delete, class: "btn btn-circle btn-collab-add" do %>
-            <div><i class="fas fa-check"></i></div>
-        <% end %>
-        <% else %>
+          <div><i class="fas fa-check"></i></div>
+          <% end %>
+          <% else %>
           <%= link_to '+', project_collaborations_path(@project, user: user), method: :post, class: "btn btn-circle" %>
-        <% end %>
-      </td>
-      <td>
-        <!-- avatar et description -->
-        <div class="d-flex align-items-center ">
-          <div >
-            <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
-          </div >
-          <div class="collab-card">
-            <span class="font-weight-bold"><%= link_to user.fullname, user_profile_path(user) %> <br></span>
-            <%= user.function %>
-          </div>
-        </div>
-      </td>
-      <td>
-        <!-- nb de collaborations -->
-        <div class="d-flex align-items-center justify-content-around ">
-          <div class="stat-number">
-            <% total = 0 %>
-            <% user.projects.each do |project| %>
-              <% total += project.collaborations.count %>
-            <% end %>
-            <%= total %>
-          </div>
-        </div>
-      </td>
-      <td>
-        <!-- percent de respponse -->
-        <p><%= "#{user.response} %" %> </p>
-        <div class=" response height=24px">
-          <div class="graph-cont">
-            <div class="bar bar1" style="width: <%=user.response.to_i%>%;">
+          <% end %>
+        </td>
+        <td>
+          <!-- avatar et description -->
+          <div class="d-flex align-items-center ">
+            <div >
+              <%= image_tag("#{user.avatar}", class: "avatar-m dropdown-toggle") %>
+            </div >
+            <div class="collab-card">
+              <span class="font-weight-bold"><%= link_to user.fullname, user_profile_path(user) %> <br></span>
+              <%= user.function %>
             </div>
           </div>
-        </div>
-      </td>
-      <td>
-        <!-- nb de follow projects -->
-        <div class="stat-number">
-          <%= user.projects.count %>
-        </div>
-      </td>
-      <td>
-        <!-- nb de lead projects -->
-        <div class="collab-card">
-          <span class="font-weight-bold"><%= user.country %> <br></span>
-          <%= user.city %>
-        </div>
-      </td>
-      <td>
-        <div class="experience">
-          <%= user.experience %>
-        </div>
-      </td>
-    </tr>
-  <%end%>
-</tbody>
-</table>
+        </td>
+        <td>
+          <!-- nb de collaborations -->
+          <div class="d-flex align-items-center justify-content-around ">
+            <div class="stat-number">
+              <% total = 0 %>
+              <% user.projects.each do |project| %>
+              <% total += project.collaborations.count %>
+              <% end %>
+              <%= total %>
+            </div>
+          </div>
+        </td>
+        <td>
+          <!-- percent de respponse -->
+          <p><%= "#{user.response} %" %> </p>
+          <div class=" response height=24px">
+            <div class="graph-cont">
+              <div class="bar bar1" style="width: <%=user.response.to_i%>%;">
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <!-- nb de follow projects -->
+          <div class="stat-number">
+            <%= user.projects.count %>
+          </div>
+        </td>
+        <td>
+          <!-- nb de lead projects -->
+          <div class="collab-card">
+            <span class="font-weight-bold"><%= user.country %> <br></span>
+            <%= user.city %>
+          </div>
+        </td>
+        <td>
+          <div class="experience">
+            <%= user.experience %>
+          </div>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
 </div>
 <!-- </div> -->
-
-<br>
-<br>
-<%= link_to 'Back', project_path(@project), class: 'btn btn-rounded'%>
