@@ -4,7 +4,7 @@
   <div class="flat-card p-5">
     <h3 class="title">
       <% if current_page?(controller: 'projects', action: 'new') %>
-      Create a new project
+      Add a new project
       <% else %>
       Edit your project
       <% end %>
@@ -65,7 +65,7 @@
       </div>
       <div class="">
         <% if current_page?(controller: 'projects', action: 'new') %>
-          <% form_btn = "Create" %>
+          <% form_btn = "Add" %>
         <% else %>
           <% form_btn = "Edit" %>
         <% end %>
