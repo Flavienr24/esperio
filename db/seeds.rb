@@ -1646,45 +1646,45 @@ fla = User.new(
 
 fla.save!
 
-# puts "creating laurent"
+puts "creating laurent"
 
-# laurent = User.new(
-#   fullname: "Laurent Dupont",
-#   email: "ldeguil34@gmail.com",
-#   password: "password",
-#   avatar: "laurent.jpeg",
-#   phone: "0606070809",
-#   country: "Japan",
-#   city: "Sapporo",
-#   function: "Spatial researcher",
-#   school: "Okkaido University",
-#   company: aerospace,
-#   skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
-#   response: "80",
-#   experience: "Senior"
-#   )
+laurent = User.new(
+  fullname: "Laurent Dupont",
+  email: "ldeguil34@gmail.com",
+  password: "password",
+  avatar: list_of_avatars.sample,
+  phone: "0606070809",
+  country: "Japan",
+  city: "Sapporo",
+  function: "Spatial researcher",
+  school: "Okkaido University",
+  company: aerospace,
+  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
+  response: "80",
+  experience: "Senior"
+  )
 
-# laurent.save!
+laurent.save!
 
-#   project3 = Project.new(
-#     name: "Nodes",
-#     description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
-#     status: 'In Progress',
-#     visibility: true,
-#     open_to_apply: false,
-#     user: laurent
-#   )
-#   project3.save!
+  project3 = Project.new(
+    name: "Nodes",
+    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: laurent
+  )
+  project3.save!
 
-#   project4 = Project.new(
-#     name: "Space Country",
-#     description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
-#     status: 'Done',
-#     visibility: true,
-#     open_to_apply: false,
-#     user: laurent
-#   )
-#   project4.save!
+  project4 = Project.new(
+    name: "Space Country",
+    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+    status: 'Done',
+    visibility: true,
+    open_to_apply: false,
+    user: laurent
+  )
+  project4.save!
 
 # puts "creating steph"
 
