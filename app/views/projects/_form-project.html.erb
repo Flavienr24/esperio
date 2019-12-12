@@ -65,9 +65,9 @@
       </div>
       <div class="">
         <% if current_page?(controller: 'projects', action: 'new') %>
-          <% form_btn = "Add" %>
+          <%= form_btn = "Add" %>
         <% else %>
-          <% form_btn = "Edit" %>
+          <%= form_btn = "Edit" %>
         <% end %>
         <%= f.button :submit, form_btn, class: "btn-primary" %>
       </div>
