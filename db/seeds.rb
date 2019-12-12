@@ -1575,8 +1575,8 @@ function_json.each do |element|
 end
 
 project_json.each do |element|
-  list_project_name << element[:name]
-  list_description << element[:description​]
+  list_project_names << element[:name]
+  list_descriptions << element[:description​]
 end
 
 # puts list_description.count + " descriptios added and " + list_project_name + " project names"
