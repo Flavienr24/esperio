@@ -19,7 +19,7 @@ Collaboration.destroy_all
 
 puts 'DB cleaned'
 
-feellows = Company.create(name: 'Feellows')
+aerospace = Company.create(name: 'Aerospace LTD')
 
 puts 'Company created'
 
@@ -72,7 +72,7 @@ function_json =[
     "function": "Supervisory Interdisciplinary Fellow"
   },
   {
-    "function": "Spacial Environment Reseacher"
+    "function": "Spatial Environment Reseacher"
   },
   {
     "function": "Chief Reseacher Officer Assistant"
@@ -426,7 +426,7 @@ skill_json = [
    {
      "web-scraper-order": "1575731012-186",
      "web-scraper-start-url": "https://www.researchgate.net/topics",
-     "skills": "Spacial Systems and Supporting"
+     "skills": "Spatial Systems and Supporting"
    },
   {
     "web-scraper-order": "1575731012-169",
@@ -481,7 +481,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-226",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Computer Science"
+    "skills": "Spatial Computer Science"
   },
   {
     "web-scraper-order": "1575731012-285",
@@ -551,7 +551,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-179",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Biotechnology"
+    "skills": "Spatial Biotechnology"
   },
   {
     "web-scraper-order": "1575731012-291",
@@ -656,7 +656,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-151",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Resistance"
+    "skills": "Spatial Resistance"
   },
   {
     "web-scraper-order": "1575731012-147",
@@ -1076,7 +1076,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-257",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Medicine"
+    "skills": "Spatial Medicine"
   },
   {
     "web-scraper-order": "1575731012-270",
@@ -1141,7 +1141,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-110",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Pressure"
+    "skills": "Spatial Pressure"
   },
   {
     "web-scraper-order": "1575731012-133",
@@ -1181,7 +1181,7 @@ skill_json = [
   {
     "web-scraper-order": "1575731012-96",
     "web-scraper-start-url": "https://www.researchgate.net/topics",
-    "skills": "Spacial Economics"
+    "skills": "Spatial Economics"
   },
   {
     "web-scraper-order": "1575731012-167",
@@ -1618,7 +1618,7 @@ fla = User.new(
   function: "Materials researcher",
   school: "Mines Paristech",
   company: feellows,
-  skill_list: list_of_tags.sample(rand(5..10)),
+  skill_list: ['Finite Element Method', 'Galaxy', 'Statistical Analysis', 'microgravity'],
   response: Faker::Number.number(digits: 2),
   experience: "Experienced"
   )
@@ -1652,20 +1652,40 @@ laurent = User.new(
   password: "password",
   avatar: "laurent.jpeg",
   phone: "0606070809",
-  country: "France",
-  city: "Paris",
+  country: "Japan",
+  city: "Sapporo",
   function: "Spatial researcher",
-  school: "Ecole Polytechnique",
-  company: feellows,
-  skill_list: ["Spacial Resistance", "Spatial Data Systems", "Propulsion Engineering"],
-  response: Faker::Number.number(digits: 2),
+  school: "Okkaido University",
+  company: aerospace,
+  skill_list: ["Spatial Resistance", "Spatial Data Systems", "Propulsion Engineering", 'Big Data', 'Spatial Biotechnology'],
+  response: "80",
   experience: "Senior"
   )
 laurent.save!
 
+  project3 = Project.new(
+    name: "Nodes",
+    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: laurent
+  )
+  project3.save!
+
+  project4 = Project.new(
+    name: "Space Country",
+    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+    status: 'Done',
+    visibility: true,
+    open_to_apply: false,
+    user: laurent
+  )
+  project4.save!
+
 puts 'Creating 10 fake user...'
 
-10.times do
+53.times do
   user = User.new(
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
@@ -1676,7 +1696,7 @@ puts 'Creating 10 fake user...'
     city: list_of_cities.sample,
     function: list_of_functions.sample,
     school: Faker::University.name,
-    company: feellows,
+    company: aerospace,
     skill_list: list_of_tags.sample(rand(5..10)),
     response: Faker::Number.number(digits: 2),
     experience: ["Early Career", "Experienced", "Senior"].sample
