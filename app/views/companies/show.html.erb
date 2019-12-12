@@ -31,7 +31,7 @@
         <div class="project-mini-card mb-3">
           <%= link_to project_path(project) do %>
           <h4><%= project.name %></h4>
-          <div class="light-description mt-1"><%= project.description.truncate(220) %></div>
+          <div class="light-description mt-1"><%= project.description.truncate(120) %></div>
           <i class="fas fa-long-arrow-alt-right d-flex justify-content-end"></i>
         </div>
         <% end %>

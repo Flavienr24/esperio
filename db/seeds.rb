@@ -12,9 +12,9 @@ require 'faker'
 
 puts 'Clean database...'
 
+Project.destroy_all
 Company.destroy_all
 User.destroy_all
-Project.destroy_all
 Collaboration.destroy_all
 
 puts 'DB cleaned'
@@ -1609,7 +1609,7 @@ puts "creating Fla"
 
 fla = User.new(
   fullname: "Flavien Rosellini",
-  email: "flavien@feellows.com",
+  email: "flavien@feello.ws",
   password: "password",
   avatar: "flavien.png",
   phone: "0706070809",
@@ -1622,6 +1622,27 @@ fla = User.new(
   response: Faker::Number.number(digits: 2),
   experience: "Experienced"
   )
+
+  project1 = Project.new(
+    name: "Aquapad",
+    description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
+    status: 'In Progress',
+    visibility: true,
+    open_to_apply: false,
+    user: fla
+  )
+  project1.save!
+
+  project2 = Project.new(
+    name: "KickSat-2",
+    description: "Small satellites launched from space are used for a wide variety of tasks. But truly tiny satellites called ChipSats, which integrate power, computing, sensing and communication equipment onto a 3.5-centimeter-square circuit board, open up new possibilities for exploration around Earth, asteroids and other planets. The KickSat-2 mission tests 100 Sprite ChipSats demonstrating that tiny, massively distributed satellites using commercial off-the-shelf technology can work in space.",
+    status: 'Done',
+    visibility: true,
+    open_to_apply: false,
+    user: fla
+  )
+  project2.save!
+
 fla.save!
 
 puts 'Creating 10 fake user...'

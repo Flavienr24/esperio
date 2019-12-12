@@ -26,13 +26,13 @@
     <div class="stat-label">
       <%#= @mycollaborations.count%>
       <div class="stat-number">
-        <%#= @user.collaborations.count%>
+        <%= @user.collaborations.count%>
   <!-- Test collaboration -->
-        <% if current_user.id == @user.id %>
+<!--         <%# if current_user.id == @user.id %>
           14
-        <% else %>
-          <%= rand(3..24) %>
-        <% end %>
+        <%# else %>
+          <%#= rand(3..24) %>
+        <%# end %> -->
         </div>
       <p>Collaborations</p>
     </div>
@@ -77,11 +77,15 @@
       </div>
 
       <div class="m-3">
-        <% @projects_I_lead.each do |project|%>
+        <% @projects_I_lead.reverse.each do |project|%>
         <div class="floating-card">
           <div class="d-flex justify-content-between">
             <h4 class="bold-p"><%= project.name %></h4>
-            <div class="project-status"><%= project.status %></div>
+            <% if project.status == "Done" %>
+              <div class="project-status-done"><%= project.status %></div>
+            <% else %>
+              <div class="project-status-inprogress"><%= project.status %></div>
+            <% end %>
           </div>
 
           <div class="d-flex w-50 justify-content-between">
