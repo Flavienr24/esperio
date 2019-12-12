@@ -33,8 +33,11 @@
   margin-top: 50px;
 }
 .id-user {
-  border-right: 1px solid $light-grey;
   width: 40%;
+}
+
+.border-r {
+  border-left: 1px solid $light-grey;
 }
 
 .user-info {
@@ -46,7 +49,7 @@
 .stat-label {
   border-right: 1px solid $light-grey;
   min-width: 170px;
-    align-items: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,6 +69,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  & .fas:hover {
+    color: $green-blue;
+  }
 }
 
 .contact-cta i {
