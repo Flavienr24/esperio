@@ -1649,7 +1649,7 @@ fla.save!
 puts "creating laurent"
 
 laurent = User.new(
-  fullname: "Laurent Dupont",
+  fullname: "Dominique Dupont",
   email: "ldeguil34@gmail.com",
   password: "password",
   avatar: list_of_avatars.sample,
