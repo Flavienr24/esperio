@@ -1623,6 +1623,7 @@ fla = User.new(
   experience: "Experienced"
   )
 
+
   project1 = Project.new(
     name: "Aquapad",
     description: "The water that astronauts drink on the International Space Station (ISS) is recycled by up to 80% from their sweat, urine, and other reclaimed wastewater sources. Recycling reduces the number of supply missions needed to run the ISS, and building a self-sufficient spacecraft is necessary for future missions farther from our planet. Using a device that consists of a simple absorbent cotton, which is injected with 1 milliliter of water, and a tablet computer application, Aquapad aims to improve the speed and efficiency of water potability tests onboard the ISS.",
@@ -1644,6 +1645,23 @@ fla = User.new(
   project2.save!
 
 fla.save!
+
+laurent = User.new(
+  fullname: "Laurent Dupont",
+  email: "ldeguil34@gmail.com",
+  password: "password",
+  avatar: "laurent.jpg",
+  phone: "0606070809",
+  country: "France",
+  city: "Paris",
+  function: "Spatial researcher",
+  school: "Ecole Polytechnique",
+  company: feellows,
+  skill_list: ["Spacial Resistance", "Spatial Data Systems", "Propulsion Engineering"],
+  response: Faker::Number.number(digits: 2),
+  experience: "Senior"
+  )
+laurent.save!
 
 puts 'Creating 10 fake user...'
 
