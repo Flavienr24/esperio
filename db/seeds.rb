@@ -1672,7 +1672,7 @@ end
 
 puts 'Users created'
 
-puts 'Finished!'
+puts 'Done!'
 
  puts "company created : #{Company.count} "
  puts "user created : #{User.count} "
