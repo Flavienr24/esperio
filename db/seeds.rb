@@ -1617,7 +1617,7 @@ fla = User.new(
   city: "Marseille",
   function: "Materials researcher",
   school: "Mines Paristech",
-  company: feellows,
+  company: aerospace,
   skill_list: ['Finite Element Method', 'Galaxy', 'Statistical Analysis', 'microgravity'],
   response: Faker::Number.number(digits: 2),
   experience: "Experienced"
