@@ -7,6 +7,7 @@
   padding-bottom:16px;
   padding-left: 8px;
   height: 100px;
+    z-index: 1;
 }
 
 #collaborators{
@@ -15,24 +16,28 @@
 
 #collaborators thead{
   display:block;
-  width: 100%;
  // top: 192px;
   background-color: white;
   text-align: center;
-  position: sticky;
   height: 4em;
+  position: fixed;
+  margin-top: -2px;
   // justify-content: center;
+  z-index: 1;
 }
 
 
 #collaborators tbody {
   display:block;
-  margin-top: 64px;
+  margin-top: 0px;
   // height:10%; /* 5 times the equivalent of a text "size". */
   overflow-y:scroll;
   text-align: center;
   top:280px;
-
+  width:100%;
+  top: 52px;
+  position: relative;
+  z-index: 0;
 }
 
   #collaborators thead tr th:nth-child(1) { /* column 1 ! */
