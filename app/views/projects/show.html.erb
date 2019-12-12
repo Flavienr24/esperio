@@ -48,7 +48,6 @@
     <h3 > Activities feed</h3>
     <!-- FORMULAIRE-->
     <div class="flat-card-project my-4 px-4 py-2">
-        <%#= image_tag("#{@project.user.avatar}", class: "avatar-large move ") %>
       <%= image_tag("#{@user.avatar}", class: "avatar-large move ") %>
       <div class="form-inputs">
         <%= render 'shared/form', project: @project, post: @post %>
@@ -58,23 +57,24 @@
   <!-- CONTRIBUTIONS -->
   <div class="flat-card-mini-project px-4 py-2"id="posts">
     <% @project.posts.reverse_each do |post| %>
-    <div class="expertises-profile p-3 d-flex" id="border-project">
-      <% if %>
-      <%= image_tag("flavien.png", class: "mini-project") %>
-      <% else %>
-      <%= image_tag (@user.avatar), class: "mini-project" %>
-      <%end %>
-      <p class="light-p "><%= @datetime.to_formatted_s(:long_ordinal) %></p>
-      <% if @project.user == current_user.id %>
-      <div class="user-status" >owner</div>
-      <%else %>
-      <div class="user-status">research collaborator</div>
-      <% end %>
-      <div >
-        <p> <%= post.content %></p>
-        <%= cl_image_tag post.file.url, class: "file" %>
+    <div class="expertises-profile p-3" id="border-project">
+      <%= image_tag("#{post.user.avatar}", class: "avatar-m mini-project") if post.user.present? %>
+      <div class=" w-100 d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <div class="font-weight-bold ml-3"><%= post.user.fullname if post.user.present? %></div>
+          <div class="light-s ml-3"><%= @datetime.to_formatted_s(:long_ordinal) %></div>
+          <div class="mt-1 mb-2 ml-3 mr-0">
+            <% if post.user == @project.user %>
+              <div class="user-status" >owner</div>
+            <%else %>
+              <div class="user-status">research collaborator</div> <br>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div>
+      <div class="d-flex flex-column ml-3 flex-wrap">
+        <p class="mt-2 mb-4 ml-3"> <%= post.content %></p>
+        <div><%= cl_image_tag post.file.url, class: "file ml-3" if post.file.present?%></div>
       </div>
     </div>
     <% end %>
