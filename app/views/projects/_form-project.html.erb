@@ -25,7 +25,6 @@
         autofocus: true,
         label: "Define your project as private (visible only by you and collaborators added)",
         input_html: { autocomplete: "true" }%>
-        <%= f.button :submit %>
       </div>
     </div>
     <div class="floating-card mt-3 p-5 mx-4">
@@ -70,7 +69,7 @@
         <% else %>
           <% form_btn = "Edit" %>
         <% end %>
-
+        <%= f.button :submit, form_btn, class: "btn-primary" %>
       </div>
     </div>
   <% end %>

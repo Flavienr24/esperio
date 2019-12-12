@@ -3,12 +3,7 @@
 <div class="w-100 px-4 py-2 flat-card d-flex justify-content-between pr-5">
   <div class="id-user d-flex">
     <div class="mr-3 d-flex justify-content-center align-items-center">
-      <% if current_user.id == @user.id %>
-        <%= image_tag("flavien.png", class: "avatar-large") %>
-      <% else %>
         <%= image_tag (@user.avatar), class: "avatar-large" %>
-        <!-- <img class="avatar-large" src="https://source.unsplash.com/featured/?face" alt="avatar"> -->
-      <% end %>
     </div>
     <div class="user-info">
       <h3 style="color: #1C3893"><%= @user.fullname %> </h3>
@@ -121,7 +116,7 @@
         <%= link_to user_profile_path(user) do %>
         <div class="d-flex justify-content-start align-items-center p-2">
           <div class="mr-3">
-            <%= cl_image_tag user.avatar, class: "avatar-m" %>
+            <%= image_tag "#{user.avatar}", class: "avatar-m" %>
           </div>
           <div>
             <div class="text-dark"> <%= user.fullname %></div>
