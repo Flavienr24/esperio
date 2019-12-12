@@ -40,9 +40,10 @@
 
 
 .user-status {
+  margin: 2px;
   background: #525252;
   border-radius: 3px;
-  width: 80px;
+  width: 126px;
   height: 14px;
   font-family: Roboto;
   font-style: normal;
@@ -51,7 +52,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white,
+  color: white;
+  padding: 6 px 10 px;
 }
 
 #myUL {

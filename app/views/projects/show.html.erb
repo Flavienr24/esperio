@@ -46,43 +46,45 @@
 </div>
 <!-- COL  GAUCHE- MIDDLE CONTRIBUTIONS-->
 <div class="col-8 px-0">
-  <div class="flat-card mb-4 px-4 py-2">
+  <div class="flat-card-project  px-4 py-2" >
+    <h3 > Activities feed</h3>
     <!-- FORMULAIRE-->
-    <div class="flat-card-relative my-4 px-4 py-2">
-      <h3> Activities feed</h3>
-       <%= image_tag("#{@user.avatar}", class: "avatar-large move ") %>
-      <div>
-          <%= render 'shared/form', project: @project, post: @post %>
-          <%#= render 'projects/show', project: @project, post: @post %>
+    <div class="flat-card-project my-4 px-4 py-2">
+      <%= image_tag("#{@user.avatar}", class: "avatar-large move ") %>
+      <div class="form-inputs">
+        <%= render 'shared/form', project: @project, post: @post %>
       </div>
+      <%#= render 'projects/show', project: @project, post: @post %>
     </div>
-    <div class="col-8 px-0" id="posts">
+    </div>
+    <!-- CONTRIBUTIONS -->
+
       <!-- CONTRIBUTIONS -->
       <% @project.posts.reverse_each do |post| %>
-      <div class="flat-card my-4 px-4 py-2">
-        <div class="expertises-profile p-3 d-flex">
+      <div class="flat-card-mini-project px-4 py-2"id="posts">
+        <div class="expertises-profile p-3 d-flex" id="border-project">
           <% User.all.tagged_with(@project.project_tags, :any => true).each do |user| %>
+
           <%= user.fullname %> <br>
-          <%= image_tag("#{user.avatar}", class: "avatar-m") %>
+          <%= image_tag("#{user.avatar}", class: "mini-project") %>
           <% end %>
-          <p><%= @datetime.to_formatted_s(:long_ordinal) %></p>
+          <p class="light-p "><%= @datetime.to_formatted_s(:long_ordinal) %></p>
           <% if @project.user == current_user.id %>
-          <div class="user-status">owner</div>
+          <div class="user-status" >owner</div>
           <%else %>
           <div class="user-status">research collaborator</div>
           <% end %>
-          <%= cl_image_tag post.file.url %>
+          <div >
+          <p> <%= post.content %></p>
+
+         <%= cl_image_tag post.file.url, class: "file" %>
+         </div>
           <div>
-            <p> <%= post.content %></p>
           </div>
         </div>
       </div>
       <% end %>
-    </div>
-  </div>
-
-</div>
-
+ </div>
 <!-- COLL DROITE  MIDDLE  - COLLABOR + ACTVIVITIES-->
 <!-- COLLABORATION -->
 <div class="col-4 px-0 pl-3 ">
@@ -96,24 +98,9 @@
         <%= image_tag("#{element.user.avatar}", class: "avatar-m mr-2") %>
         <%= link_to element.user.fullname, user_profile_path(element.user) %> <br>
       </div>
-
-  <br>
-  <!-- <h2>Activities</h2> -->
-  <div class="col-4 px-0 pl-3 ">
-    <div class="flat-card my-4 px-4 py-2">
-      <h3>Activities</h3>
-      <%= @project.posts.count%> - posts
-      created :
-      <%if @t_day == 1 %>
-          <%= @t_day %> day ago
-      <% elsif @t_day > 1 %>
-          <%= @t_day %> days ago
-      <%else %>
-        <%= @t_min %> ago
-
-      <% end %>
+      <%end %>
     </div>
-        <%= link_to '+ Fellows', new_project_collaboration_path(@project), class: 'btn btn-rounded'%>
+    <%= link_to '+ Fellows', new_project_collaboration_path(@project), class: 'btn btn-rounded'%>
   </div>
   <!-- ACTIVITIES -->
   <div class="flat-card mb-4 px-4 py-2">
@@ -121,13 +108,13 @@
     <div class="d-flex justify-content-between">
       <%= @project.posts.count%> - posts
     </div>
-    <div>created :<%if @t_day == 1 %>
+    <div>started :<%if @t_day == 1 %>
       <%= @t_day %> day ago
       <% elsif @t_day > 1 %>
       <%= @t_day %> days ago
       <%else %>
       <%= @t_min %> ago
-      <% end %></div>
+    <% end %></div>
   </div>
 </div>
-
+</div>

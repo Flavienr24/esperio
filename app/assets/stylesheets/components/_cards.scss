@@ -80,10 +80,35 @@
 }
 
 
-.flat-card-relative{
-     background: #FFFFFF;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.02);
+
+
+.floating-card-project{
   border-radius: 16px;
-    position: relative;
-  }
+  padding: 16px;
+  margin-top: 32px;
+  margin-bottom: 36px;
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.06);
+   &:hover {
+    background-color: $background;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+}
+}
+
+.flat-card-project{
+  background: #FFFFFF;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.02);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+
+.flat-card-mini-project{
+  background: #FFFFFF;
+}
+
+#border-project{
+  background: #FFFFFF;
+  border-left: 1px solid;
+  border-color:#525252;
+}
 
