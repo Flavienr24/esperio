@@ -1650,7 +1650,7 @@ laurent = User.new(
   fullname: "Laurent Dupont",
   email: "ldeguil34@gmail.com",
   password: "password",
-  avatar: "laurent.jpg",
+  avatar: "laurent.jpeg",
   phone: "0606070809",
   country: "France",
   city: "Paris",
