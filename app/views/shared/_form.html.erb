@@ -1,10 +1,12 @@
 <!--  Simple form page projet -->
 <%= simple_form_for([ project, post ], remote: true) do |form| %>
 <div class="floating-card-project">
-  <%= form.input :content,:label => "Your message" ,as: :text %>
+  <%= form.input :content, label: false, placeholder: "Your message here", as: :text %>
 
-  <%= form.input :file, label: false%>
+  <%= form.input :file, label: false %>
+  <div class="d-flex justify-content-end">
   <%= form.submit "Send", class:"btn btn-primary"%>
+  </div>
 <% form.input :file_cache, as: :hidden%>
 <% end %>
 </div>
