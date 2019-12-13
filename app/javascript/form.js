@@ -1,13 +1,18 @@
 list = document.getElementById("myUL");
 input = document.getElementById("myInput");
+skillList = document.getElementsByClassName("skill-list");
 
-input.addEventListener('keyup', (event) => {
+input.addEventListener('keyup', (key) => {
   searchList();
 })
 
 list.addEventListener('click', (event) => {
   getSkill();
   hideItem();
+})
+
+skillList[0].addEventListener('click', (event) => {
+  removeSkill();
 })
 
 function searchList() {
@@ -36,7 +41,6 @@ function getSkill() {
   tagExport = document.querySelector('.tag-export');
   tagExpertise.insertAdjacentHTML("beforeend", ` <div class="tag-expertise"><i class="fas fa-bookmark ml-0 mr-2 justify-content-between"></i>${skill}</div>`);
   tagExport.insertAdjacentHTML("beforeend", `<input class="form-control " autocomplete="Project_tags" autofocus="autofocus" placeholder="Search an expertise" type="text" value="${skill}" name="project[project_tags][]" id="project_project_tags">`);
-  removeSkill();
 };
 
 function hideItem() {
@@ -47,11 +51,7 @@ function hideItem() {
    };
 
 function removeSkill() {
-  skillChosen = document.getElementsByClassName("tag-expertise");
-  console.log(skillChosen);
-  skillChosen.addEventListener('click', (event) => {
-    event.style.display = "none";
-  });
+    event.path[0].style.display = "none";
 }
 
 

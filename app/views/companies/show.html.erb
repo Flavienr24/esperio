@@ -1,23 +1,23 @@
 <div class="flat-card w-100 p-5">
-  <h3 style="color: #1C3893"><%= @company.name %> Dashboard</h3>
+  <h3 style="color: #1C3893"><%= @company.name %> - Dashboard</h3>
   <div class="p-4">
     <div class="d-flex align-items-center justify-content-between">
-        <%= link_to projects_path, class: "text-decoration-none w-100" do %>
-      <div class="dashboard-stat-card">
-        <h4>Projects in progress</h4>
-        <div class="stat-number"><%= Project.all.count %></div>
-      </div>
-      <% end %>
-        <%= link_to index_skills_path, class: "text-decoration-none w-100" do %>
-      <div class="dashboard-stat-card">
-        <h4>Expertises owned</h4>
-        <div class="stat-number"><%= User.skill_counts.count %></div>
-      </div>
-      <% end %>
         <%= link_to users_path, class: "text-decoration-none w-100" do %>
       <div class="dashboard-stat-card">
         <h4>Company researchers</h4>
         <div class="stat-number"><%= User.all.count %></div>
+      </div>
+      <% end %>
+        <%= link_to index_skills_path, class: "text-decoration-none w-100" do %>
+      <div class="dashboard-stat-card">
+        <h4>Expertise areas</h4>
+        <div class="stat-number"><%= User.skill_counts.count %></div>
+      </div>
+      <% end %>
+        <%= link_to projects_path, class: "text-decoration-none w-100" do %>
+      <div class="dashboard-stat-card">
+        <h4>Projects in progress</h4>
+        <div class="stat-number"><%= Project.all.count %></div>
       </div>
       <% end %>
     </div>
